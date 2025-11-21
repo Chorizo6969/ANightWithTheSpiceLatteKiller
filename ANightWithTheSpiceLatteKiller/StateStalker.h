@@ -8,4 +8,3 @@ public:
 	void Do() override;
 	void OnExit() override;
 };
-

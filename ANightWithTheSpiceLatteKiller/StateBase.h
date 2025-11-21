@@ -1,9 +1,9 @@
 #pragma once
-class StateBase abstract
+class StateBase 
 {
 public:
-	void OnEnterState();
-	void Do();
-	void OnExit();
+	virtual void OnEnter();
+	virtual void Do();
+	virtual void OnExit();
 };
 

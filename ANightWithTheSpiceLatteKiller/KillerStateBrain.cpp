@@ -3,12 +3,20 @@
 #include <cstdlib>
 #include <ctime>
 
+using namespace std::literals;
 
-StateBase* KillerStateBrain::RandomState(){
-	int random = std::srand(std::time(0));
+
+StateBase* KillerStateBrain::GetRandomState(){
+	srand(time(0));
+	int randomIndex = rand() % 3;
+	StateBase* newState = StateList[randomIndex];
+	return newState;
 }
 
 
-void KillerStateBrain::SwitchState(StateBase StateToSwitch){
+void KillerStateBrain::SwitchState(StateBase* StateToSwitch){
+	StateCurrent->OnExit();
 	StateCurrent = StateToSwitch;
+	StateCurrent->OnEnter();
 }
+

@@ -2,6 +2,8 @@
 #include "StateWalker.h"
 #include "StateKiller.h"
 
+#include <vector>
+
 #pragma once
 class KillerStateBrain
 {
@@ -11,10 +13,12 @@ public:
 	StateStalker* StateStalker;
 	StateKiller* StateKiller;
 
-	StateBase StateCurrent;
+	std::vector<StateBase*> StateList = { StateWalker, StateStalker, StateKiller };
 
-	StateBase* RandomState();
+	StateBase* StateCurrent;
 
-	void SwitchState(StateBase StateToSwitch);
+	StateBase* GetRandomState();
+
+	void SwitchState(StateBase* StateToSwitch);
 };
 

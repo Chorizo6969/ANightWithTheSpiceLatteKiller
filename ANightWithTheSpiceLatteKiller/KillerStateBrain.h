@@ -6,9 +6,15 @@
 class KillerStateBrain
 {
 public:
-	KillerMain KillerMainRef;
-	StateWalker StateWalker;
-	StateStalker StateStalker;
-	StateKiller StateKiller;
+	KillerMain* KillerMainRef;
+	StateWalker* StateWalker;
+	StateStalker* StateStalker;
+	StateKiller* StateKiller;
+
+	StateBase StateCurrent;
+
+	StateBase* RandomState();
+
+	void SwitchState(StateBase StateToSwitch);
 };
 

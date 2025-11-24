@@ -7,7 +7,7 @@ class KillerMain
 {
 public:
 	KillerSoundHandler KillerSoundHandlerRef;
-	KillerStateBrain KillerBrainRef;
+	KillerStateBrain* KillerBrainRef;
 	MapManager MapManagerRef;
 
 	void KillerDo();

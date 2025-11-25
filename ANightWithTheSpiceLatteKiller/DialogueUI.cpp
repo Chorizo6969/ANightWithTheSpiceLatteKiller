@@ -1,18 +1,25 @@
 #include "DialogueUI.h"
 #include <map>
 
-void DialogueUI::WriteDialogue(std::string category, std::string key)
-{
-	std::cout << dialogueDataBaseRef->GetDialogue(category, key) << std::end;
+//Constructor
+DialogueUI::DialogueUI() {
+	dialogueDataBaseRef = new DialogueDataBase;
 }
 
+//Destructor
+DialogueUI::~DialogueUI() {
+	delete dialogueDataBaseRef;
+}
+
+
+//Get the line from database and write in console
+void DialogueUI::WriteDialogue(std::string category, std::string key)
+{
+	std::cout << dialogueDataBaseRef->GetDialogue(category, key) << std::endl;
+}
+
+//Futur function for gamefeel
 void DialogueUI::WriteDialogueWithDelay() 
 {
 
-};
-
-void DialogueUI::WriteAllDialogueFromMap(const std::map<std::string, std::string>& mapName) {
-    for (const auto& [key, value] : mapName) {
-        std::cout << "Clé: " << key << " | Valeur: " << value << std::endl;
-    }
 }

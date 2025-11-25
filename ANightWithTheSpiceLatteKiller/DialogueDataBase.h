@@ -6,16 +6,12 @@
 #pragma once
 class DialogueDataBase {
 public:
-	//Constructor
+
 	DialogueDataBase();
 
-	//Destructor
 	~DialogueDataBase();
 
-	//Safe way to get 
 	std::string GetDialogue(const std::string& category, const std::string& key) const;
-
-	void DebugDialogueData();
 
 private:
 	std::map<std::string, std::string> UtilityDialogue;

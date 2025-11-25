@@ -8,6 +8,7 @@ DialogueDataBase::~DialogueDataBase() {
 
 }
 
+//Fill the map on construct
 void DialogueDataBase::FillMap() {
     // Utility
     UtilityDialogue["wait_dot"] = ".... .... ....";
@@ -27,6 +28,7 @@ void DialogueDataBase::FillMap() {
     KillerDialogue["far_away"] = "You hear nothing";
 }
 
+//Safe way to get line
 std::string DialogueDataBase::GetDialogue(const std::string& category, const std::string& key) const {
     if (category == "player") {
         auto it = PlayerDialogue.find(key);
@@ -41,8 +43,4 @@ std::string DialogueDataBase::GetDialogue(const std::string& category, const std
         return (it != UtilityDialogue.end()) ? it->second : "ERROR: Dialogue not found";
     }
     return "ERROR: Unknown category";
-}
-
-void DialogueDataBase::DebugDialogueData() {
-    std::cout << GetDialogue("player", "door_interact") << std::endl;
 }

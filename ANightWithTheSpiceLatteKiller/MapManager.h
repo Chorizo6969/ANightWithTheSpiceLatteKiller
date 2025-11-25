@@ -14,6 +14,8 @@ public:
 	void TintMap(int colorIndex, int timeMiliSec, bool excludePlayer = false);
 
 private:
+	void Init();
+
 	PlayerMain* _player;
 	ConsolePrinter* _printer; 
 	vector<vector<char>> _map;

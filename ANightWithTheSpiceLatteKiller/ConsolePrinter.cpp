@@ -8,12 +8,14 @@ ConsolePrinter::ConsolePrinter() {
 	GetConsoleScreenBufferInfo(HConsoleRef, &Csbi);
 }
 
+// string version
 void ConsolePrinter::ColoredPrint(string message, int colorIndex) {
 	SetConsoleTextAttribute(HConsoleRef, colorIndex);
 	cout << message;
 	SetConsoleTextAttribute(HConsoleRef, 7);
 }
 
+// char version
 void ConsolePrinter::ColoredPrint(char message, int colorIndex) {
 	SetConsoleTextAttribute(HConsoleRef, colorIndex);
 	cout << message;

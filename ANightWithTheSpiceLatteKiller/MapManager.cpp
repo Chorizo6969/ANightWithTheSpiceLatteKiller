@@ -50,9 +50,18 @@ void MapManager::TintMap(int colorIndex, int timeMiliSec, bool excludePlayer) {
 }
 
 void MapManager::Init() {
-	// create map
+
+	// iterate over the height of the window
 	for (int y = 0; y < _printer->Csbi.dwMaximumWindowSize.Y; y++) {
-		vector<char> newLine(_printer->Csbi.dwMaximumWindowSize.X, '$');
+		// fill as much as the window is large
+		for (int x = 0; x < _printer->Csbi.dwMaximumWindowSize.X; x++) {
+
+		}
+		vector<char> newLine(_printer->Csbi.dwMaximumWindowSize.X, '.');
 		_map.push_back(newLine);
 	}
+}
+
+char MapManager::GetChar() {
+	return '.';
 }

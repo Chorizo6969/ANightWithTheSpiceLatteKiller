@@ -43,7 +43,6 @@ std::string DialogueDataBase::GetDialogue(const std::string& category, const std
     return "ERROR: Unknown category";
 }
 
-
 void DialogueDataBase::DebugDialogueData() {
     std::cout << GetDialogue("player", "door_interact") << std::endl;
 }

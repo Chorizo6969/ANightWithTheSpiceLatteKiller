@@ -28,7 +28,7 @@ void MainElouann() {
 	MapManager* mapManager = new MapManager(playerMain, consolePrinter);
 
 	KillerMain* killerMain = new KillerMain;
-	killerMain->ClientCode();
+	//killerMain->ClientCode();
 
 	mapManager->PrintMap();
 

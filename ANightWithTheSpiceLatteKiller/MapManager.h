@@ -17,10 +17,12 @@ private:
 	void Init();
 	char GetChar();
 
+	string _baseMap;
 	PlayerMain* _player;
 	ConsolePrinter* _printer; 
 	vector<vector<char>> _map;
 	vector<CHAR_INFO> _buffer;
+
 public:
 
 	MapManager() = default;

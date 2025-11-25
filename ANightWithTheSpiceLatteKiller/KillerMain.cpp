@@ -7,6 +7,11 @@ KillerMain::KillerMain()
 	KillerSoundHandlerRef = new KillerSoundHandler;
 }
 
+KillerMain::~KillerMain() {
+	delete KillerBrainRef;
+	delete MapManagerRef;
+	delete KillerSoundHandlerRef;
+}
 
 void KillerMain::KillerDo() {
 	KillerBrainRef->stateCurrent->Do();
@@ -14,10 +19,13 @@ void KillerMain::KillerDo() {
 
 
 void KillerMain::DebugStateMachine() {
-	KillerBrainRef->SwitchState(KillerBrainRef->stateGoKill);
-	KillerDo();
-
-
+	for (size_t i = 0; i < 5; i++)
+	{
+		KillerBrainRef->SwitchState(KillerBrainRef->GetRandomState());
+		KillerDo();
+		std::cout << " " << std::endl;
+		std::cout << " " << std::endl;
+	}
 }
 
 

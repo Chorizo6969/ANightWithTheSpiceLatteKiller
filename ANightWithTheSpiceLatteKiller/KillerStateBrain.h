@@ -12,15 +12,15 @@ public:
 	StateGoStalk* stateGoStalk;
 	StateGoKill* stateGoKill;
 
-	std::vector<StateBase*> StateList = { stateGoWalk, stateGoStalk, stateGoKill };
+	std::vector<StateBase*> StateList;
 
 	StateBase* stateCurrent;
 
 	KillerStateBrain();
+	~KillerStateBrain();
 
 	StateBase* GetRandomState();
 
 	void SwitchState(StateBase* StateToSwitch);
 
 };
-

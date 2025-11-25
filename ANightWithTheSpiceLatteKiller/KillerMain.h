@@ -10,6 +10,7 @@ public:
 	KillerStateBrain* KillerBrainRef;
 	MapManager* MapManagerRef;
 	KillerMain();
+	~KillerMain();
 	void KillerDo();
 	void DebugStateMachine();
 	void ClientCode();

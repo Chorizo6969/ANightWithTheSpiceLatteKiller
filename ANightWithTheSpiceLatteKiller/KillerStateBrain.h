@@ -8,7 +8,7 @@
 class KillerStateBrain
 {
 public:
-	KillerMain* KillerMainRef;
+	//KillerMain* KillerMainRef;
 	StateWalker* StateWalker;
 	StateStalker* StateStalker;
 	StateKiller* StateKiller;

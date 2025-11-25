@@ -5,6 +5,8 @@
 MapManager::MapManager(PlayerMain* player, ConsolePrinter* printer) {
 	_player = player;
 	_printer = printer;
+
+	Init();
 }
 
 void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
@@ -45,4 +47,12 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 void MapManager::TintMap(int colorIndex, int timeMiliSec, bool excludePlayer) {
 	PrintMap(colorIndex, excludePlayer);
 	Sleep(timeMiliSec);
+}
+
+void MapManager::Init() {
+	// create map
+	for (int y = 0; y < _printer->Csbi.dwMaximumWindowSize.Y; y++) {
+		vector<char> newLine(_printer->Csbi.dwMaximumWindowSize.X, '$');
+		_map.push_back(newLine);
+	}
 }

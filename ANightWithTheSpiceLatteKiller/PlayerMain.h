@@ -8,5 +8,5 @@ public:
 	//PlayerMain();
 	PlayerInteraction PlayerInteractionRef;
 	PlayerMouvement PlayerMovementRef;
-	int main();
+	//int main();
 };

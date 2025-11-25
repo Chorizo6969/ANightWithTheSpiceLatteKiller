@@ -12,16 +12,20 @@
 
 int main()
 {
-	ConsolePrinter* consolePrinter = new ConsolePrinter;
-	PlayerMain* playerMain = new PlayerMain;
-	MapManager* mapManager = new MapManager(playerMain, consolePrinter);
+	//ConsolePrinter* consolePrinter = new ConsolePrinter;
+	//PlayerMain* playerMain = new PlayerMain;
+	//MapManager* mapManager = new MapManager(playerMain, consolePrinter);
 
-	cout << "Press Alt+Return before Playing";
-	//c = 0;
-	//switch ((c = get))
-	while (true) {
-		mapManager->PrintMap(DARK_GRAY, true);
-	}
+	//cout << "Press Alt+Return before Playing";
+	////c = 0;
+	////switch ((c = get))
+	//while (true) {
+	//	mapManager->PrintMap(DARK_GRAY, true);
+	//}
+
+	KillerMain* killerMain = new KillerMain;
+
+	killerMain->DebugStateMachine();
 }
 
 

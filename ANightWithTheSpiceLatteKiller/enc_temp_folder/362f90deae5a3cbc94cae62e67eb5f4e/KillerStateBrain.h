@@ -16,12 +16,10 @@ public:
 
 	StateBase* stateCurrent;
 
-	KillerStateBrain();
-
 	StateBase* GetRandomState();
 
 	void SwitchState(StateBase* StateToSwitch);
 
-
+	KillerStateBrain();
 };
 

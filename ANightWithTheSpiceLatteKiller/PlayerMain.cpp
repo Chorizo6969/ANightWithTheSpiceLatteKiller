@@ -5,10 +5,10 @@
 #include "ConsoleColorEnum.h"
 #include "KillerMain.h"
 
-//#define KEY_UP 72
-//#define KEY_DOWN 80
-//#define KEY_LEFT 75
-//#define KEY_RIGHT 77
+#define KEY_UP 72
+#define KEY_DOWN 80
+#define KEY_LEFT 75
+#define KEY_RIGHT 77
 
 int main()
 {
@@ -23,8 +23,9 @@ int main()
 	//	mapManager->PrintMap(DARK_GRAY, true);
 	//}
 
-	//KillerMain killer = new KillerMain;
-	//killer::ClientCode();
+	KillerMain* killerMain = new KillerMain;
 
-	return 0;
+	killerMain->DebugStateMachine();
 }
+
+

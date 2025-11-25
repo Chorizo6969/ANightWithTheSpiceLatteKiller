@@ -60,13 +60,13 @@
     <ClCompile Include="KillerStateBrain.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="StateWalker.cpp">
+    <ClCompile Include="StateGoWalk.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="StateStalker.cpp">
+    <ClCompile Include="StateGoStalk.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="StateKiller.cpp">
+    <ClCompile Include="StateGoKill.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="StateBase.cpp">
@@ -119,13 +119,13 @@
     <ClInclude Include="KillerStateBrain.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="StateWalker.h">
+    <ClInclude Include="StateGoWalk.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="StateStalker.h">
+    <ClInclude Include="StateGoStalk.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="StateKiller.h">
+    <ClInclude Include="StateGoKill.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="StateBase.h">

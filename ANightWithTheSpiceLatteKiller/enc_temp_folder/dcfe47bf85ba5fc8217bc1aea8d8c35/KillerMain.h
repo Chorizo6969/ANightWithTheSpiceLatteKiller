@@ -9,7 +9,9 @@ public:
 	KillerSoundHandler* KillerSoundHandlerRef;
 	KillerStateBrain* KillerBrainRef;
 	MapManager* MapManagerRef;
-	KillerMain();
 	void KillerDo();
 	void DebugStateMachine();
+
+	KillerMain();
+	
 };

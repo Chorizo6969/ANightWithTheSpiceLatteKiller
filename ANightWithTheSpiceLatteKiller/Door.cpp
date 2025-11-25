@@ -3,5 +3,7 @@
 
 void Door::InteractionStart()
 {
-	//Interaction
+	Door::IsActive = true;
+	//Lance le dialogue
+	//Attends que le joueur appuie sur un bouton
 }

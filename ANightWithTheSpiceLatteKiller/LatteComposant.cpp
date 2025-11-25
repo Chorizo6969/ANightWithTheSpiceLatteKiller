@@ -3,5 +3,7 @@
 
 void LatteComposant::InteractionStart()
 {
-	//Interaction
+	LatteComposant::IsActive = true;
+	//Lance le dialogue
+	//Attends que le joueur appuie sur un bouton
 }

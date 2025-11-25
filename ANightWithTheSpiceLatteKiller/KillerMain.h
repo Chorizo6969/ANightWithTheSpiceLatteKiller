@@ -13,5 +13,4 @@ public:
 	~KillerMain();
 	void KillerDo();
 	void DebugStateMachine();
-
 };

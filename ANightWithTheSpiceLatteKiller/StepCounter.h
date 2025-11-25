@@ -6,12 +6,12 @@
 class StepCounter : public IObserver {
 public:
 	int PlayerStep;
-	DialogueDataBase DialogueManagerRef;
+	DialogueManager DialogueManagerRef;
 
 	StepCounter(EventManager& subject) : subject_(subject)
 	{
 		this->subject_.Attach(this);
-		std::cout << "Hi, I'm the Observer \"" << ++StepCounter::static_number_ << "\".\n";
+		std::cout << "Creation of Observer" << "\n";
 		this->number_ = StepCounter::static_number_;
 	}
 
@@ -25,9 +25,7 @@ public:
 
 	void IncreaseStep();
 
-
-
-	int static_number_;
+	int static_number_; //Chiffre pour debug quel observer est relou
 	std::string message_from_subject_;
 	EventManager& subject_;
 	int number_;

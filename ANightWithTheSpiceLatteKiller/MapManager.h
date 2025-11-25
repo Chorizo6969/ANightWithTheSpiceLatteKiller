@@ -15,6 +15,7 @@ public:
 
 private:
 	void Init();
+	char GetChar();
 
 	PlayerMain* _player;
 	ConsolePrinter* _printer; 

@@ -13,18 +13,6 @@
 #define KEY_LEFT 75
 #define KEY_RIGHT 77
 
-void MainEmrysState() {
-	KillerMain* killerMain = new KillerMain;
-	killerMain->DebugStateMachine();
-}
-
-void MainEmrysDialogue() {
-	DialogueDataBase* dialogueData = new DialogueDataBase;
-	dialogueData->DebugDialogueData();
-}
-
-
-
 void MainElouann() {
 	int i;
 	i = -1;
@@ -38,9 +26,6 @@ void MainElouann() {
 	ConsolePrinter* consolePrinter = new ConsolePrinter;
 	PlayerMain* playerMain = new PlayerMain;
 	MapManager* mapManager = new MapManager(playerMain, consolePrinter);
-
-	KillerMain* killerMain = new KillerMain;
-	killerMain->ClientCode();
 
 	mapManager->PrintMap();
 
@@ -71,7 +56,8 @@ void MainElouann() {
 
 int main()
 {
-	/*MainElouann();*/
-	MainEmrysDialogue();
+	KillerMain* killerMain = new KillerMain;
+	killerMain->ClientCode();
+	//MainElouann();
 }
 

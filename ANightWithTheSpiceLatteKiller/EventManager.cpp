@@ -41,7 +41,7 @@ void EventManager::Notify()
 }
 
 /// <summary>
-/// 
+/// Change le message actuel
 /// </summary>
 /// <param name="message"></param>
 void EventManager::CreateMessage(std::string message) 

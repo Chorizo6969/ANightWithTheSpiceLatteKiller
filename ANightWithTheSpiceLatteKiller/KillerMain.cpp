@@ -22,7 +22,7 @@ void KillerMain::DebugStateMachine() {
 
 }
 
-void KillerMain::ClientCode() {
+void KillerMain::ClientCode() { //Exemple d'un évent
 	EventManager* subject = new EventManager;
 	StepCounter* observer1 = new StepCounter(*subject);
 	StepCounter* observer2 = new StepCounter(*subject);

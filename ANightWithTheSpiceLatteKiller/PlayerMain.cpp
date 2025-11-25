@@ -1,6 +1,8 @@
 #include <iostream>
+#include "KillerMain.cpp"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	ClientCode();
+	return 0;
 }

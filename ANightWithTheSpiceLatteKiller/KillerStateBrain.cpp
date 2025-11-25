@@ -28,7 +28,9 @@ StateBase* KillerStateBrain::GetRandomState() {
 	std::uniform_int_distribution<> dis(0, StateList.size() - 1);
 
 	int randomIndex = dis(gen);
-	return StateList[randomIndex];
+	if (StateList[randomIndex] == stateCurrent) GetRandomState();
+	else return StateList[randomIndex];
+
 }
 
 void KillerStateBrain::SwitchState(StateBase* StateToSwitch){

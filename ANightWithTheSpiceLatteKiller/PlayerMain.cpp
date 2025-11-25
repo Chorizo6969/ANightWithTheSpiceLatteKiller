@@ -17,7 +17,6 @@ int main()
 	KillerMain* killerMain = new KillerMain;
 	killerMain->ClientCode();
 
-	return 0
 	//killerMain->DebugStateMachine();
 }
 

@@ -13,4 +13,5 @@ public:
 	~KillerMain();
 	void KillerDo();
 	void DebugStateMachine();
+	void ClientCode();
 };

@@ -26,9 +26,9 @@ public:
 	void IncreaseStep();
 
 
-private:
+
+	int static_number_;
 	std::string message_from_subject_;
 	EventManager& subject_;
-	static int static_number_;
 	int number_;
 };

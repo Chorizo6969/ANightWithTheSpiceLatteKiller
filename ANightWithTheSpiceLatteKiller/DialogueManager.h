@@ -1,5 +1,10 @@
+#include <list>
+#include <string>
+
 #pragma once
-class DialogueManager
-{
+class DialogueManager {
+public:
+
+	void WriteDialogue();
 };
 

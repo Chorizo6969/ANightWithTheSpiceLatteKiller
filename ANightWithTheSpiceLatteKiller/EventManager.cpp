@@ -44,7 +44,7 @@ void EventManager::Notify()
 /// 
 /// </summary>
 /// <param name="message"></param>
-void EventManager::CreateMessage(std::string message = "Empty") 
+void EventManager::CreateMessage(std::string message) 
 {
     this->message_ = message;
     Notify();

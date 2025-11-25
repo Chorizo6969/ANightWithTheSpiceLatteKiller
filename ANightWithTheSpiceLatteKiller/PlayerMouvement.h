@@ -1,5 +1,4 @@
 #include "StepCounter.h"
-#include "PlayerMain.h"
 
 #pragma once
 class PlayerMouvement

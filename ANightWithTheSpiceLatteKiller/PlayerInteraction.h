@@ -1,11 +1,10 @@
 #include "Interactable.h"
-#include "PlayerMain.h"
 
 #pragma once
-class PlayerInteraction{
+class PlayerInteraction
+{
 public:
 	Interactable CurrentObjectInteract;
-	PlayerMain PlayerMainRef;
 
 	void Interact();
 };

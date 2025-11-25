@@ -1,1 +1,6 @@
-//#include "DialogueUI.h"
+#include "DialogueUI.h"
+
+void DialogueUI::WriteDialogue()
+{
+
+}

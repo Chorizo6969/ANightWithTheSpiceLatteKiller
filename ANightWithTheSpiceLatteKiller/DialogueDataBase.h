@@ -2,9 +2,9 @@
 #include <string>
 
 #pragma once
-class DialogueManager {
+class DialogueDataBase {
 public:
 
-	void WriteDialogue();
+	
 };
 

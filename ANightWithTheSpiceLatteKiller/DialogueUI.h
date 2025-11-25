@@ -1,5 +1,7 @@
-//#pragma once
-//class DialogueUI
-//{
-//};
+#pragma once
+class DialogueUI
+{
+public:
+	void WriteDialogue();
+};
 

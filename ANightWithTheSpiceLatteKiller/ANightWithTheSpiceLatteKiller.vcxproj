@@ -126,7 +126,7 @@
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="StateBase.cpp" />
     <ClCompile Include="ConsolePrinter.cpp" />
-    <ClCompile Include="DialogueManager.cpp" />
+    <ClCompile Include="DialogueDataBase.cpp" />
     <ClCompile Include="DialogueUI.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Interactable.cpp" />
@@ -151,7 +151,7 @@
     <ClInclude Include="ISubscriber.h" />
     <ClInclude Include="StateBase.h" />
     <ClInclude Include="ConsolePrinter.h" />
-    <ClInclude Include="DialogueManager.h" />
+    <ClInclude Include="DialogueDataBase.h" />
     <ClInclude Include="DialogueUI.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Interactable.h" />

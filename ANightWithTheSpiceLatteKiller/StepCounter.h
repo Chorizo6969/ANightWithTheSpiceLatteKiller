@@ -1,4 +1,4 @@
-#include "DialogueManager.h"
+#include "DialogueDataBase.h"
 #include "IObserver.h"
 #include "EventManager.h"
 
@@ -6,7 +6,7 @@
 class StepCounter : public IObserver {
 public:
 	int PlayerStep;
-	DialogueManager DialogueManagerRef;
+	DialogueDataBase DialogueManagerRef;
 
 	StepCounter(EventManager& subject) : subject_(subject)
 	{

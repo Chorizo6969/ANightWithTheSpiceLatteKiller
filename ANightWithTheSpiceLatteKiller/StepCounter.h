@@ -6,7 +6,7 @@
 class StepCounter : public IObserver {
 public:
 	int PlayerStep;
-	DialogueManager DialogueManagerRef;
+	DialogueDataBase DialogueManagerRef;
 
 	StepCounter(EventManager& subject) : subject_(subject)
 	{

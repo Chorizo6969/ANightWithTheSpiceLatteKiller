@@ -23,11 +23,10 @@ void KillerMain::KillerDo() {
 void KillerMain::DebugStateMachine() {
 	KillerBrainRef->SwitchState(KillerBrainRef->stateGoKill);
 	KillerDo();
-
-
 }
 
-void KillerMain::ClientCode() { //Exemple d'un évent
+void KillerMain::ClientCode() //Exemple d'un évent
+{
 	EventManager* subject = new EventManager;
 	StepCounter* observer1 = new StepCounter(*subject);
 	//StepCounter* observer2 = new StepCounter(*subject);

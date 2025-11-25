@@ -27,9 +27,6 @@ void MainElouann() {
 	PlayerMain* playerMain = new PlayerMain;
 	MapManager* mapManager = new MapManager(playerMain, consolePrinter);
 
-	KillerMain* killerMain = new KillerMain;
-	killerMain->ClientCode();
-
 	mapManager->PrintMap();
 
 	while (1)
@@ -59,6 +56,8 @@ void MainElouann() {
 
 int main()
 {
-	MainElouann();
+	KillerMain* killerMain = new KillerMain;
+	killerMain->ClientCode();
+	//MainElouann();
 }
 

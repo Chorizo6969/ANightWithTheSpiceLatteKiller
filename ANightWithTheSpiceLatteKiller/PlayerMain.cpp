@@ -13,6 +13,18 @@
 #define KEY_LEFT 75
 #define KEY_RIGHT 77
 
+void MainEmrysState() {
+	KillerMain* killerMain = new KillerMain;
+	killerMain->DebugStateMachine();
+}
+
+void MainEmrysDialogue() {
+	DialogueDataBase* dialogueData = new DialogueDataBase;
+	dialogueData->DebugDialogueData();
+}
+
+
+
 void MainElouann() {
 	int i;
 	i = -1;
@@ -59,6 +71,7 @@ void MainElouann() {
 
 int main()
 {
-	MainElouann();
+	/*MainElouann();*/
+	MainEmrysDialogue();
 }
 

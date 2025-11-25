@@ -11,5 +11,6 @@ public:
 	MapManager MapManagerRef;
 
 	void KillerDo();
+	void ClientCode();
 };
 

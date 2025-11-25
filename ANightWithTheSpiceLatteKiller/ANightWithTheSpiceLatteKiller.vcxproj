@@ -144,6 +144,7 @@
     <ClCompile Include="StepCounter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConsoleColorEnum.h" />
     <ClInclude Include="StateBase.h" />
     <ClInclude Include="ConsolePrinter.h" />
     <ClInclude Include="DialogueManager.h" />

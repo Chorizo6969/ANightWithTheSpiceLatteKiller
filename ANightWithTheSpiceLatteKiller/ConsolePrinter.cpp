@@ -20,6 +20,8 @@ void ConsolePrinter::ColoredPrint(char message, int colorIndex) {
 	SetConsoleTextAttribute(HConsoleRef, 7);
 }
 
+
+// opération abstraite de bits trouvée sur internet
 WORD ConsolePrinter::MakeColor(int foreGround, int backGround) {
 	return (backGround << 4) | (foreGround & 0x0F);
 }

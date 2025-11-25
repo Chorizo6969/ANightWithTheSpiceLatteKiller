@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="StateBase.cpp" />
     <ClCompile Include="ConsolePrinter.cpp" />
     <ClCompile Include="DialogueManager.cpp" />
@@ -138,13 +139,14 @@
     <ClCompile Include="PlayerMain.cpp" />
     <ClCompile Include="PlayerMouvement.cpp" />
     <ClCompile Include="SoundManager.cpp" />
-    <ClCompile Include="StateKiller.cpp" />
-    <ClCompile Include="StateStalker.cpp" />
-    <ClCompile Include="StateWalker.cpp" />
+    <ClCompile Include="StateGoKill.cpp" />
+    <ClCompile Include="StateGoStalk.cpp" />
+    <ClCompile Include="StateGoWalk.cpp" />
     <ClCompile Include="StepCounter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConsoleColorEnum.h" />
+    <ClInclude Include="EventManager.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="ISubscriber.h" />
     <ClInclude Include="StateBase.h" />
@@ -162,9 +164,9 @@
     <ClInclude Include="PlayerMain.h" />
     <ClInclude Include="PlayerMouvement.h" />
     <ClInclude Include="SoundManager.h" />
-    <ClInclude Include="StateKiller.h" />
-    <ClInclude Include="StateStalker.h" />
-    <ClInclude Include="StateWalker.h" />
+    <ClInclude Include="StateGoKill.h" />
+    <ClInclude Include="StateGoStalk.h" />
+    <ClInclude Include="StateGoWalk.h" />
     <ClInclude Include="StepCounter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

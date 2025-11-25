@@ -1,6 +1,6 @@
-#include "StateStalker.h"
-#include "StateWalker.h"
-#include "StateKiller.h"
+#include "StateGoStalk.h"
+#include "StateGoWalk.h"
+#include "StateGoKill.h"
 
 #include <vector>
 
@@ -8,16 +8,19 @@
 class KillerStateBrain
 {
 public:
-	StateWalker* StateWalker;
-	StateStalker* StateStalker;
-	StateKiller* StateKiller;
+	StateGoWalk* stateGoWalk;
+	StateGoStalk* stateGoStalk;
+	StateGoKill* stateGoKill;
 
-	std::vector<StateBase*> StateList = { StateWalker, StateStalker, StateKiller };
+	std::vector<StateBase*> StateList = { stateGoWalk, stateGoStalk, stateGoKill };
 
-	StateBase* StateCurrent;
+	StateBase* stateCurrent;
+
+	KillerStateBrain();
 
 	StateBase* GetRandomState();
 
 	void SwitchState(StateBase* StateToSwitch);
+
 };
 

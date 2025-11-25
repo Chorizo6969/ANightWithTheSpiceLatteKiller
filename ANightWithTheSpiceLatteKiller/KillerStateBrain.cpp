@@ -5,6 +5,14 @@
 
 using namespace std::literals;
 
+KillerStateBrain::KillerStateBrain() {
+	stateGoWalk = new StateGoWalk;
+	stateGoStalk = new StateGoStalk;
+	stateGoKill = new StateGoKill;
+
+	stateCurrent = stateGoWalk;
+}
+
 StateBase* KillerStateBrain::GetRandomState(){
 	srand(time(0));
 	int randomIndex = rand() % 3;
@@ -12,10 +20,11 @@ StateBase* KillerStateBrain::GetRandomState(){
 	return newState;
 }
 
-
 void KillerStateBrain::SwitchState(StateBase* StateToSwitch){
-	StateCurrent->OnExit();
-	StateCurrent = StateToSwitch;
-	StateCurrent->OnEnter();
+	stateCurrent->OnExit();
+	stateCurrent = StateToSwitch;
+	stateCurrent->OnEnter();
 }
+
+
 

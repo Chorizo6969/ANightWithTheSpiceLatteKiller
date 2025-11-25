@@ -1,7 +1,7 @@
 #include "StateBase.h"
 
 #pragma once
-class StateStalker : public StateBase
+class StateGoStalk : public StateBase
 {
 public:
 	void OnEnter() override;

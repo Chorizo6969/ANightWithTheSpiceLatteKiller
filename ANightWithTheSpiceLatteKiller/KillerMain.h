@@ -6,10 +6,11 @@
 class KillerMain
 {
 public:
-	KillerSoundHandler KillerSoundHandlerRef;
+	KillerSoundHandler* KillerSoundHandlerRef;
 	KillerStateBrain* KillerBrainRef;
-	MapManager MapManagerRef;
-
+	MapManager* MapManagerRef;
+	KillerMain();
 	void KillerDo();
+	void DebugStateMachine();
+	void ClientCode();
 };
-

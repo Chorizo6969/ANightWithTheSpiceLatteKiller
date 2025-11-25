@@ -3,6 +3,7 @@
 #include "PlayerMain.h"
 #include "MapManager.h"
 #include "ConsoleColorEnum.h"
+#include "KillerMain.h"
 
 #include <conio.h>
 //#pragma comment(lib, "winmm.lib")
@@ -25,6 +26,12 @@ void MainElouann() {
 	ConsolePrinter* consolePrinter = new ConsolePrinter;
 	PlayerMain* playerMain = new PlayerMain;
 	MapManager* mapManager = new MapManager(playerMain, consolePrinter);
+int main()
+{
+
+
+	KillerMain* killerMain = new KillerMain;
+	killerMain->ClientCode();
 
 	mapManager->PrintMap();
 

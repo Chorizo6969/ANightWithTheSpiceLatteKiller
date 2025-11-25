@@ -5,7 +5,7 @@
 class PlayerMain {
 
 public:
-	PlayerMain();
+	//PlayerMain();
 	PlayerInteraction PlayerInteractionRef;
 	PlayerMouvement PlayerMovementRef;
 	int main();

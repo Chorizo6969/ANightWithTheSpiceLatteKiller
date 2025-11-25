@@ -1,7 +1,7 @@
 #include "StateBase.h"
 
 #pragma once
-class StateKiller : public StateBase
+class StateGoKill : public StateBase
 {
 public:
 	void OnEnter() override;

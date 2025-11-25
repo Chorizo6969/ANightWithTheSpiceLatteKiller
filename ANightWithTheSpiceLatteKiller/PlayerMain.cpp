@@ -3,6 +3,7 @@
 #include "PlayerMain.h"
 #include "MapManager.h"
 #include "ConsoleColorEnum.h"
+#include "KillerMain.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -22,3 +23,5 @@ int main()
 		mapManager->PrintMap(DARK_GRAY, true);
 	}
 }
+
+

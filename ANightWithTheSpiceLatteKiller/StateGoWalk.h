@@ -1,7 +1,7 @@
 #include "StateBase.h"
 
 #pragma once
-class StateWalker : public StateBase
+class StateGoWalk : public StateBase
 {
 public:
 	void OnEnter() override;

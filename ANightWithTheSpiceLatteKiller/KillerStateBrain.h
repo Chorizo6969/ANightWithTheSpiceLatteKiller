@@ -22,6 +22,5 @@ public:
 
 	void SwitchState(StateBase* StateToSwitch);
 
-
 };
 

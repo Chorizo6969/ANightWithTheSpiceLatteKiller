@@ -17,6 +17,7 @@ void KillerMain::DebugStateMachine() {
 	KillerBrainRef->SwitchState(KillerBrainRef->stateGoKill);
 	KillerDo();
 
+
 }
 
 

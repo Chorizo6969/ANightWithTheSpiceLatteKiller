@@ -20,7 +20,6 @@ StateBase* KillerStateBrain::GetRandomState(){
 	return newState;
 }
 
-
 void KillerStateBrain::SwitchState(StateBase* StateToSwitch){
 	stateCurrent->OnExit();
 	stateCurrent = StateToSwitch;

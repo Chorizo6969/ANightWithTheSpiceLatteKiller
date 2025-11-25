@@ -4,7 +4,7 @@
 #pragma once
 class PlayerInteraction{
 public:
-	Interactable currentObjectInteract;
+	Interactable CurrentObjectInteract;
 	PlayerMain PlayerMainRef;
 
 	void Interact();

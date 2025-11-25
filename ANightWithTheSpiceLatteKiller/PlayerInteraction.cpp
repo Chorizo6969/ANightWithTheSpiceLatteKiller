@@ -1,6 +1,6 @@
-#include "PlayerInteraction.h"
-
-void PlayerInteraction::Interact()
-{
-
-};
+//#include "PlayerInteraction.h"
+//
+//void PlayerInteraction::Interact()
+//{
+//
+//};

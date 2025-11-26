@@ -12,13 +12,13 @@ public:
 	ConsolePrinter* Printer; 
 	void PrintMap(int colorOverrideIndex = -1, bool excludePlayer = false);
 	void TintMap(int colorIndex, int timeMiliSec, bool excludePlayer = false);
+	vector<vector<char>> _map;
 
 private:
 	void Init();
-	char GetChar();
+	void SetCharAttributes(CHAR_INFO* c);
 
 	string _baseMap;
-	vector<vector<char>> _map;
 	vector<CHAR_INFO> _buffer;
 };
 

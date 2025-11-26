@@ -44,38 +44,33 @@ void MainElouann() {
 		// get player input as int
 		switch ((c = _getch())) {
 		case KEY_UP:
+			playerMain->PlayerMovementRef->Move(0, -1);
 			mapManager->PrintMap();
 			break;
 
 		case KEY_DOWN:
+			playerMain->PlayerMovementRef->Move(0, 1);
 			mapManager->PrintMap();
 			break;
 
 		case KEY_LEFT:
+			playerMain->PlayerMovementRef->Move(-1, 0);
 			mapManager->PrintMap();
 			break;
 
 		case KEY_RIGHT:
+			playerMain->PlayerMovementRef->Move(1, 0);
 			mapManager->PrintMap();
 			break;
 		}
 	}
 }
 
-int main()
-{
-	KillerMain* killerMain = new KillerMain;
-	//killerMain->ClientCode();
-	MainElouann();
-}
-	//KillerMain* killerMain = new KillerMain;
-	//killerMain->ClientCode();
-	//MainElouann();
+void MainMateo() {
 	ma_engine engine;
 
 	if (ma_engine_init(NULL, &engine) != MA_SUCCESS) {
 		std::cout << "Erreur init audio\n";
-		return -1;
 	}
 
 	// Joue 3 sons en même temps
@@ -86,7 +81,17 @@ int main()
 	std::cin.get();
 
 	ma_engine_uninit(&engine);
-	return 0;
+}
+
+int main()
+{
+	KillerMain* killerMain = new KillerMain;
+	//killerMain->ClientCode();
+	//MainElouann();
+
+	//KillerMain* killerMain = new KillerMain;
+	//killerMain->ClientCode();
+	MainElouann();
 }
 
 

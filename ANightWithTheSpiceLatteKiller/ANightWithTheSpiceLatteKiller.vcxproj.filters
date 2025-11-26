@@ -45,9 +45,6 @@
     <ClCompile Include="SoundManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="DialogueManager.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="DialogueUI.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -70,6 +67,12 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="StateBase.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogueDataBase.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,9 +107,6 @@
     <ClInclude Include="SoundManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="DialogueManager.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="DialogueUI.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -139,6 +139,12 @@
     </ClInclude>
     <ClInclude Include="IObserver.h">
       <Filter>Fichiers de ressources</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogueDataBase.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

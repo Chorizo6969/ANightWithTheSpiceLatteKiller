@@ -44,18 +44,22 @@ void MainElouann() {
 		// get player input as int
 		switch ((c = _getch())) {
 		case KEY_UP:
+			playerMain->PlayerMovementRef->Move(0, -1);
 			mapManager->PrintMap();
 			break;
 
 		case KEY_DOWN:
+			playerMain->PlayerMovementRef->Move(0, 1);
 			mapManager->PrintMap();
 			break;
 
 		case KEY_LEFT:
+			playerMain->PlayerMovementRef->Move(-1, 0);
 			mapManager->PrintMap();
 			break;
 
 		case KEY_RIGHT:
+			playerMain->PlayerMovementRef->Move(1, 0);
 			mapManager->PrintMap();
 			break;
 		}
@@ -66,7 +70,6 @@ int main()
 {
 	KillerMain* killerMain = new KillerMain;
 	killerMain->TestStepSystem();
-	//MainElouann();
 
 
 	//ma_engine engine;
@@ -84,7 +87,14 @@ int main()
 	//std::cin.get();
 
 	//ma_engine_uninit(&engine);
-	//return 0;
+
+	//killerMain->ClientCode();
+	//MainElouann();
+
+	//KillerMain* killerMain = new KillerMain;
+	//killerMain->ClientCode();
+	//MainMateo();
+	MainElouann();
 }
 
 

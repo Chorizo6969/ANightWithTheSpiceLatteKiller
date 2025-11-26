@@ -28,7 +28,7 @@ void KillerMain::DebugStateMachine() {
 void KillerMain::ClientCode() //Exemple d'un évent
 {
 	EventManager* subject = new EventManager;
-	StepCounter* observer1 = new StepCounter(*subject);
+	StepCounter* observer1 = new StepCounter(*subject, 0);
 	//StepCounter* observer2 = new StepCounter(*subject);
 
 	subject->CreateMessage(to_string(observer1->PlayerStep)); //Print et change le message

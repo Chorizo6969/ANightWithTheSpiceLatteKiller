@@ -18,7 +18,7 @@
 PlayerMain::PlayerMain(MapManager* mapRef) 
 {
 	PlayerMovementRef = new PlayerMouvement(mapRef);
-	//PlayerInteractionRef = new PlayerInteraction;
+	PlayerInteractionRef = new PlayerInteraction;
 }
 
 void MainElouann() {

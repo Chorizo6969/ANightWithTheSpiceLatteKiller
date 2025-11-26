@@ -9,7 +9,7 @@ class KillerMain : public IObserver
 public:
 	KillerSoundHandler* KillerSoundHandlerRef;
 	KillerStateBrain* KillerBrainRef;
-	MapManager* MapManagerRef;
+	MapManager* MapManagerRef = nullptr;
 
 	KillerMain();
 	~KillerMain();

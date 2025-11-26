@@ -5,8 +5,9 @@
 class PlayerMain {
 
 public:
+	PlayerMouvement* PlayerMovementRef = nullptr;
+	PlayerInteraction* PlayerInteractionRef = nullptr;
+
 	PlayerMain(MapManager* map);
-	PlayerMouvement* PlayerMovementRef;
-	PlayerInteraction* PlayerInteractionRef;
 	//int main();
 };

@@ -3,23 +3,12 @@
 #include <iostream>
 
 #pragma once
-class EventManager : public ISubscriber {
+class EventManager {
 public:
-
-    virtual ~EventManager();
-
-    void Attach(IObserver* observer) override;
-    void Detach(IObserver* observer) override;
-    void Notify() override;
-
-    void CreateMessage(std::string message = "Empty");
-
-
-    void HowManyObserver();
-
-    void ChangeMessage();
+    void Attach(IObserver* obs);
+    void Detach(IObserver* obs);
+    void Notify(int value);
 
 private:
-    std::list<IObserver*> list_observer_;
-    std::string message_;
+    std::list<IObserver*> observers_;
 };

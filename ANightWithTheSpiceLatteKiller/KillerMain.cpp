@@ -25,21 +25,20 @@ void KillerMain::DebugStateMachine() {
 	KillerDo();
 }
 
-void KillerMain::ClientCode() //Exemple d'un évent
+void KillerMain::Update(int value)
 {
-	EventManager* subject = new EventManager;
-	StepCounter* observer1 = new StepCounter(*subject, 0);
-	//StepCounter* observer2 = new StepCounter(*subject);
+	std::cout << "Le joueur est a " << value << " pas" << std::endl;
+}
 
-	subject->CreateMessage(to_string(observer1->PlayerStep)); //Print et change le message
+void KillerMain::TestStepSystem()
+{
+	EventManager subject;
 
-	subject->CreateMessage("The weather is hot today! :p");
+	subject.Attach(this);
 
-	//observer2->RemoveMeFromTheList();
+	StepCounter stepCounter(subject);
 
-	observer1->RemoveMeFromTheList();
-
-	//delete observer2;
-	delete observer1;
-	delete subject;
+	stepCounter.IncreaseStep();
+	stepCounter.IncreaseStep();
+	stepCounter.IncreaseStep();
 }

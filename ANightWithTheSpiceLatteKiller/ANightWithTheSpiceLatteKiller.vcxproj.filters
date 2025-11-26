@@ -86,9 +86,6 @@
     <ClInclude Include="PlayerMouvement.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="StepCounter.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="MapManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -137,14 +134,20 @@
     <ClInclude Include="ISubscriber.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="IObserver.h">
-      <Filter>Fichiers de ressources</Filter>
-    </ClInclude>
     <ClInclude Include="EventManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="DialogueDataBase.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="IObserver.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="StepCounter.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="miniaudio.h">
+      <Filter>Fichiers de ressources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

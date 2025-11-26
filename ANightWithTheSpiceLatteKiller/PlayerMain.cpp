@@ -1,9 +1,11 @@
+#define MINIAUDIO_IMPLEMENTATION
 #include <iostream>
 #include "ConsolePrinter.h"
 #include "PlayerMain.h"
 #include "MapManager.h"
 #include "ConsoleColorEnum.h"
 #include "KillerMain.h"
+#include "miniaudio.h"
 
 #include <conio.h>
 //#pragma comment(lib, "winmm.lib")
@@ -56,8 +58,25 @@ void MainElouann() {
 
 int main()
 {
-	KillerMain* killerMain = new KillerMain;
-	killerMain->ClientCode();
+	//KillerMain* killerMain = new KillerMain;
+	//killerMain->ClientCode();
 	//MainElouann();
+	ma_engine engine;
+
+	if (ma_engine_init(NULL, &engine) != MA_SUCCESS) {
+		std::cout << "Erreur init audio\n";
+		return -1;
+	}
+
+	// Joue 3 sons en même temps
+	ma_engine_play_sound(&engine, "Audio/SFX/Freddy.mp3", NULL);
+	ma_engine_play_sound(&engine, "Audio/Musique/George.mp3", NULL);
+
+	std::cout << "Sons en cours... presse ENTER pour quitter.\n";
+	std::cin.get();
+
+	ma_engine_uninit(&engine);
+	return 0;
 }
+
 

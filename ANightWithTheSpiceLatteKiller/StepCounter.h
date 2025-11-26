@@ -25,6 +25,7 @@ public:
 
 	void IncreaseStep();
 
+private:
 	std::string message_from_subject_;
 	EventManager& subject_;
 	int number_;

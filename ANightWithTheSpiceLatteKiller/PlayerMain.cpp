@@ -17,15 +17,15 @@ void MainElouann() {
 	int i;
 	i = -1;
 
+	ConsolePrinter* consolePrinter = new ConsolePrinter;
+	PlayerMain* playerMain = new PlayerMain;
+	MapManager* mapManager = new MapManager(playerMain, consolePrinter);
+
 	while (!(cin >> i) || i != 1) {
 		cout << "Press Alt+Enter before playing, then enter 1";
 	}
 
 	int c;
-
-	ConsolePrinter* consolePrinter = new ConsolePrinter;
-	PlayerMain* playerMain = new PlayerMain;
-	MapManager* mapManager = new MapManager(playerMain, consolePrinter);
 
 	mapManager->PrintMap();
 
@@ -57,7 +57,7 @@ void MainElouann() {
 int main()
 {
 	KillerMain* killerMain = new KillerMain;
-	killerMain->ClientCode();
-	//MainElouann();
+	//killerMain->ClientCode();
+	MainElouann();
 }
 

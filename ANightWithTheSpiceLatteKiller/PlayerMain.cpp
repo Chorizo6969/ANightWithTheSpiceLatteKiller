@@ -15,19 +15,25 @@
 #define KEY_LEFT 75
 #define KEY_RIGHT 77
 
+PlayerMain::PlayerMain(MapManager* mapRef) 
+{
+	PlayerMovementRef = new PlayerMouvement(mapRef);
+	//PlayerInteractionRef = new PlayerInteraction;
+}
+
 void MainElouann() {
 	int i;
 	i = -1;
 
-	while (!(cin >> i) || i != 1) {
+	ConsolePrinter* consolePrinter = new ConsolePrinter;
+	MapManager* mapManager = new MapManager(consolePrinter);
+	PlayerMain* playerMain = new PlayerMain(mapManager);
+
+	/*while (!(cin >> i) || i != 1) {
 		cout << "Press Alt+Enter before playing, then enter 1";
-	}
+	}*/
 
 	int c;
-
-	ConsolePrinter* consolePrinter = new ConsolePrinter;
-	PlayerMain* playerMain = new PlayerMain;
-	MapManager* mapManager = new MapManager(playerMain, consolePrinter);
 
 	mapManager->PrintMap();
 
@@ -58,6 +64,10 @@ void MainElouann() {
 
 int main()
 {
+	KillerMain* killerMain = new KillerMain;
+	//killerMain->ClientCode();
+	MainElouann();
+}
 	//KillerMain* killerMain = new KillerMain;
 	//killerMain->ClientCode();
 	//MainElouann();

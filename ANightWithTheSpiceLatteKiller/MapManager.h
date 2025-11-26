@@ -1,6 +1,5 @@
 #pragma once
 #include <vector>
-#include "PlayerMain.h"
 #include "ConsolePrinter.h"
 
 using namespace std;
@@ -8,8 +7,9 @@ using namespace std;
 class MapManager
 {
 public:
-	MapManager(PlayerMain* player, ConsolePrinter* printer);
+	MapManager(ConsolePrinter* printer);
 	pair<float, float> PlayerPosition;
+	ConsolePrinter* Printer; 
 	void PrintMap(int colorOverrideIndex = -1, bool excludePlayer = false);
 	void TintMap(int colorIndex, int timeMiliSec, bool excludePlayer = false);
 
@@ -18,13 +18,7 @@ private:
 	char GetChar();
 
 	string _baseMap;
-	PlayerMain* _player;
-	ConsolePrinter* _printer; 
 	vector<vector<char>> _map;
 	vector<CHAR_INFO> _buffer;
-
-public:
-
-	MapManager() = default;
 };
 

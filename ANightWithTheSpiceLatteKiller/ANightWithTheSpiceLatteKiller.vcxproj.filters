@@ -33,9 +33,6 @@
     <ClCompile Include="ConsolePrinter.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Interactable.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Door.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -148,6 +145,12 @@
     </ClInclude>
     <ClInclude Include="miniaudio.h">
       <Filter>Fichiers de ressources</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogueDataBase.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

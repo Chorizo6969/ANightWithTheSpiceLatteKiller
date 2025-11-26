@@ -1,11 +1,12 @@
-#pragma once
 #include "PlayerInteraction.h"
 #include "PlayerMouvement.h"
+
+#pragma once
 class PlayerMain {
 
 public:
-	//PlayerMain();
-	//PlayerInteraction PlayerInteractionRef;
-	//PlayerMouvement PlayerMovementRef;
+	PlayerMain(MapManager* map);
+	PlayerMouvement* PlayerMovementRef;
+	PlayerInteraction* PlayerInteractionRef;
 	//int main();
 };

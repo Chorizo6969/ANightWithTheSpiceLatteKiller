@@ -1,5 +1,5 @@
-//#include "PlayerInteraction.h"
-//
+#include "PlayerInteraction.h"
+
 //void PlayerInteraction::Interact()
 //{
 //

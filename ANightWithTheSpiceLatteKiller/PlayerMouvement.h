@@ -1,12 +1,14 @@
-#include "StepCounter.h"
+#include "MapManager.h"
 
 #pragma once
 class PlayerMouvement
 {
 public:
+	PlayerMouvement(MapManager* map);
 	//Interactable currentObjectInteract;
-	StepCounter StepCounterRef;
+	//StepCounter* StepCounterRef;
+	MapManager* MapRef;
 
-	void Walk();
+	void Move(int addOnX, int addOnY);
 };
 

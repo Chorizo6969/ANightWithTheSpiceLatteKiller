@@ -5,7 +5,7 @@
 KillerMain::KillerMain()
 {
 	KillerBrainRef = new KillerStateBrain;
-	MapManagerRef = new MapManager;
+	//MapManagerRef = new MapManager;
 	KillerSoundHandlerRef = new KillerSoundHandler;
 }
 

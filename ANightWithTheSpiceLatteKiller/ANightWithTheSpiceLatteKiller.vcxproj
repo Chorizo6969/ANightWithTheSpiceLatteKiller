@@ -129,7 +129,6 @@
     <ClCompile Include="DialogueDataBase.cpp" />
     <ClCompile Include="DialogueUI.cpp" />
     <ClCompile Include="Door.cpp" />
-    <ClCompile Include="Interactable.cpp" />
     <ClCompile Include="KillerMain.cpp" />
     <ClCompile Include="KillerSoundHandler.cpp" />
     <ClCompile Include="KillerStateBrain.cpp" />

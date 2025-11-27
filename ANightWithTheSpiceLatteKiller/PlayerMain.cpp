@@ -46,36 +46,32 @@ void MainElouann() {
 		switch ((c = _getch())) {
 		case KEY_UP:
 			playerMain->PlayerMovementRef->Move(0, -1);
-			system("cls");
+			//system("cls");
 			mapManager->PrintMap();
-			cout << "TEEEEEEEEEEEEESTTTTTTTTTT";
 			break;
 
 		case KEY_DOWN:
 			playerMain->PlayerMovementRef->Move(0, 1);
-			system("cls");
+			//system("cls");
 			mapManager->PrintMap();
 			
-			cout << "TEEEEEEEEEEEEESTTTTTTTTTT";
 			break;
 
 		case KEY_LEFT:
 			playerMain->PlayerMovementRef->Move(-1, 0);
-			system("cls");
+			//system("cls");
 			mapManager->PrintMap();
 			/*system("cls");*/
-			//cout << "TEEEEEEEEEEEEESTTTTTTTTTT";
 			break;
 
 		case KEY_RIGHT:
 			playerMain->PlayerMovementRef->Move(1, 0);
-			system("cls");
+			//system("cls");
 			mapManager->PrintMap();
-			cout << "TEEEEEEEEEEEEESTTTTTTTTTT";
 			break;
 
 		case T:
-			cout << "test";
+			mapManager->PrintMap();
 			break;
 		}
 	}

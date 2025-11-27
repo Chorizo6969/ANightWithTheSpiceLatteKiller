@@ -9,7 +9,7 @@ class MapManager
 {
 public:
 	MapManager(ConsolePrinter* printer);
-	//map<vector<float>> ;
+	map<char, vector<char>> Rooms;
 	pair<float, float> PlayerPosition;
 	pair<float, float> KillerPosition;
 	int PlayerCurrentRoom = 0;
@@ -22,7 +22,7 @@ public:
 
 private:
 	void Init();
-	void SetCharAttributes(CHAR_INFO* c);
+	void SetCharAttributes(CHAR_INFO* c, int colorOverrideIndex = -1);
 
 	string _baseMap;
 	vector<CHAR_INFO> _buffer;

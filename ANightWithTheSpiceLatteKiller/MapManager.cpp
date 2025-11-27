@@ -4,22 +4,24 @@
 
 MapManager::MapManager(ConsolePrinter* printer) {
 	Printer = printer;
-	_baseMap = "#################################################################################ddddddddddddd#kkkkkkkkkkkkkkkkkkkk/sssssssssssssssssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#sssssssssssssssssssssssssssssssss/fffffffff##ddddddddddddd/kkkkkkkkkkkkkkkkkkkk################ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#bbbbbbbbbbbbbb#ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkk##########bbbbbbbbbbbbbb##########################/####ddddddddddddd#kkkkkkkkkkk#bbbbbbbbbbbbbbbbbbbbbbb/cccccccccccccccccccccccccccc##ddddddddddddd#######/#####bbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc##ddddddddddddd#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc########/#######bbbbbbbbbbbbbbbbbb###########/######cccccccccccccccccccccccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#######/#############cccccccc#
-		#qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc#
-		#qqqqqqqqqqqqq####################tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc#
-		#qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc#
-		#qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc#
-		#### / ##qqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww###### / ###
-		#eeeee#qqqqqqq#ooooooooooooooo / ttttttttttttttttttt#vvvvvvvvv / wwwwwwwww#uuuuuuuu#
-		#eeeee#########ooooooooooooooo################# / ###vvvvvvvvv#wwwwwwwww / uuuuuuuu#
-		#eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll### / #######wwwwwwwww#uuuuuuuu#
-		#eeeeeeeeeeeee / ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm#wwwwwwwww#uuuuuuuu#
-		#eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm###########uuuuuuuu#
-		#eeeeeeeeeeeee#ooooooooo#######lllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#
-		#eeeeeeeeeeeee#ooooooooo / lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm / uuuuuuuu#
-		#eeeeeeeeeeeee#ooooooooo#lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#
-		################################################################################";
-
+	_baseMap = "#################################################################################ddddddddddddd#kkkkkkkkkkkkkkkkkkkk/sssssssssssssssssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#sssssssssssssssssssssssssssssssss/fffffffff##ddddddddddddd/kkkkkkkkkkkkkkkkkkkk################ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#bbbbbbbbbbbbbb#ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkk##########bbbbbbbbbbbbbb##########################/####ddddddddddddd#kkkkkkkkkkk#bbbbbbbbbbbbbbbbbbbbbbb/cccccccccccccccccccccccccccc##ddddddddddddd#######/#####bbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc##ddddddddddddd#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc########/#######bbbbbbbbbbbbbbbbbb###########/######cccccccccccccccccccccccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#######/#############cccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq####################tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc#####/##qqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww######/####eeeee#qqqqqqq#ooooooooooooooo/ttttttttttttttttttt#vvvvvvvvv/wwwwwwwww#uuuuuuuu##eeeee#########ooooooooooooooo#################/###vvvvvvvvv#wwwwwwwww/uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll###/#######wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee/ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm#wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm###########uuuuuuuu##eeeeeeeeeeeee#ooooooooo#######lllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu##eeeeeeeeeeeee#ooooooooo/lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm/uuuuuuuu##eeeeeeeeeeeee#ooooooooo#lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#################################################################################";
+	Rooms = {
+		{ 'e', {'q', 'o'} },
+		{ 'd', {'k', 'q'} },
+		{ 'k', {'d', 'b', 's'}},
+		{ 's', {'k', 'f'} },
+		{ 'f', {'s', 'c'} },
+		{ 'c', {'b', 'v', 'f', 'u'}},
+		{ 'w', {'v', 'u'} },
+		{ 'm', {'v', 'u'} },
+		{ 'v', {'c', 'w', 'm'}},
+		{ 'b', {'k', 'c', 't'}},
+		{ 't', {'o', 'b', 'l'}},
+		{ 'o', {'e', 't', 'l'}},
+		{ 'l', {'o', 't'} },
+		{ 'u', {'c', 'w', 'm'}},
+		{ 'q', {'d', 'e'} }
+	};
 	Init();
 	PlayerPosition = make_pair(Map[0].size() / 2, Map.size() / 2);
 }
@@ -77,7 +79,7 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 				CHAR_INFO& cell = buffer[i * Printer->Csbi.dwMaximumWindowSize.X + j];
 				cell.Char.AsciiChar = Map[i][j];
 				//cell.Attributes = Printer->MakeColor(mapColorOverride, BLACK);
-				SetCharAttributes(&cell);
+				SetCharAttributes(&cell, colorOverrideIndex);
 			}
 		}
 	}
@@ -94,7 +96,7 @@ void MapManager::TintMap(int colorIndex, int timeMiliSec, bool excludePlayer) {
 void MapManager::Init()
 {
 	// TODO : prendre en compte la taille de la boîte de dialogue
-	int mapSizeY = 26;
+	int mapSizeY = 25;
 	int mapSizeX = 80;
 
 	int blankY = (Printer->Csbi.dwMaximumWindowSize.Y - mapSizeY) / 2;
@@ -132,14 +134,15 @@ void MapManager::Init()
 /// Set the CHAR_INFO input depending on
 /// </summary>
 /// <param name="c"></param>
-void MapManager::SetCharAttributes(CHAR_INFO* c)
+void MapManager::SetCharAttributes(CHAR_INFO* c, int colorOverrideIndex)
 {
+
 	switch (c->Char.AsciiChar) {
 	case '#':
 		c->Attributes = Printer->MakeColor(LIGHT_RED, LIGHT_RED);
 		break;
 	case '/':
-		c->Attributes = Printer->MakeColor(LIGHT_GRAY, LIGHT_GRAY);
+		c->Attributes = Printer->MakeColor(RED, RED);
 		break;
 	default:
 		char currentPos = Map[PlayerPosition.second][PlayerPosition.first];
@@ -148,4 +151,5 @@ void MapManager::SetCharAttributes(CHAR_INFO* c)
 			: Printer->MakeColor(BLACK, BLACK);
 		break;
 	}
+	if (colorOverrideIndex > -1) c->Attributes = Printer->MakeColor(colorOverrideIndex, colorOverrideIndex);
 }

@@ -8,8 +8,8 @@ public:
     StepCounter(EventManager& subject) : subject_(subject){}
 
     void IncreaseStep();
+    int playerStep_ = 0;
 
 private:
-    int playerStep_ = 0;
     EventManager& subject_;
 };

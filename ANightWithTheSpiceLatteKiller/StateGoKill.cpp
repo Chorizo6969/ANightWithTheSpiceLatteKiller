@@ -1,5 +1,9 @@
 #include "StateGoKill.h"
 
+
+
+
+
 void StateGoKill::OnEnter() {
 	std::cout << "Enter Kill State" << std::endl;
 }

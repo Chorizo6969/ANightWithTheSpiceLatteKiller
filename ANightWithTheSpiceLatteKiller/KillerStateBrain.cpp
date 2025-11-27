@@ -30,7 +30,6 @@ StateBase* KillerStateBrain::GetRandomState() {
 	int randomIndex = dis(gen);
 	if (StateList[randomIndex] == stateCurrent) GetRandomState();
 	else return StateList[randomIndex];
-
 }
 
 void KillerStateBrain::SwitchState(StateBase* StateToSwitch){
@@ -39,5 +38,10 @@ void KillerStateBrain::SwitchState(StateBase* StateToSwitch){
 	stateCurrent->OnEnter();
 }
 
+void KillerStateBrain::EnterThePlayerRoom() {
+	//Play Line
+	EnterTries++;
+	if (EnterTries = 10) {
 
-
+	};
+}

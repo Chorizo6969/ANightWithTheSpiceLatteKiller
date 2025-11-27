@@ -23,4 +23,8 @@ public:
 
 	void SwitchState(StateBase* StateToSwitch);
 
+private: 
+	int EnterTries = 0;
+	void EnterThePlayerRoom();
+
 };

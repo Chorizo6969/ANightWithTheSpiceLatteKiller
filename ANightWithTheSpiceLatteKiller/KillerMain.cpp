@@ -23,7 +23,6 @@ void KillerMain::KillerDo() {
 	KillerBrainRef->stateCurrent->Do();
 }
 
-
 void KillerMain::DebugStateMachine() {
 	KillerBrainRef->SwitchState(KillerBrainRef->stateGoKill);
 	KillerDo();
@@ -33,11 +32,18 @@ void KillerMain::Update(int value)
 {
 	std::cout << "Le joueur est a " << value << " pas" << std::endl;
 	{
-		if (value == 20)
+		if (value == 20) {
+			KillerBrainRef->SwitchState(KillerBrainRef->stateGoKill);
 			StepCounterRef->playerStep_ = 0;
-
+		}
+		KillerDo();
 	}
 }
+
+void KillerMain::GameOver() {
+	//HERE GAME OVER, KILLER KILL PLAYER
+}
+
 
 void KillerMain::TestStepSystem()
 {

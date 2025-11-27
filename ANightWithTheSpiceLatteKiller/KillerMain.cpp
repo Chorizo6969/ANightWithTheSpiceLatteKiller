@@ -7,12 +7,16 @@ KillerMain::KillerMain()
 	KillerBrainRef = new KillerStateBrain;
 	//MapManagerRef = new MapManager;
 	KillerSoundHandlerRef = new KillerSoundHandler;
+	EventManagerRef = new EventManager();
+	StepCounterRef = new StepCounter(*EventManagerRef);
 }
 
 KillerMain::~KillerMain() {
 	delete KillerBrainRef;
 	delete MapManagerRef;
 	delete KillerSoundHandlerRef;
+	delete EventManagerRef;
+	delete StepCounterRef;
 }
 
 void KillerMain::KillerDo() {
@@ -28,6 +32,11 @@ void KillerMain::DebugStateMachine() {
 void KillerMain::Update(int value)
 {
 	std::cout << "Le joueur est a " << value << " pas" << std::endl;
+	{
+		if (value == 20)
+			StepCounterRef->playerStep_ = 0;
+
+	}
 }
 
 void KillerMain::TestStepSystem()

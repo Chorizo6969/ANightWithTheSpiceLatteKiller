@@ -72,8 +72,8 @@ int main()
 	sound->PlayMusic("George.mp3", true);
 	sound->PlaySFX("Freddy.mp3");
 
-	//KillerMain* killerMain = new KillerMain;
-	//killerMain->TestStepSystem();
+
+	//ma_engine engine;
 
 	//killerMain->ClientCode();
 	//MainElouann();

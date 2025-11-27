@@ -23,4 +23,5 @@ public:
 
 	void Update(int value) override;
 	void TestStepSystem();
+	void GameOver();
 };

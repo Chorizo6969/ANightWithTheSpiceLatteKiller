@@ -14,6 +14,7 @@
 #define KEY_DOWN 80
 #define KEY_LEFT 75
 #define KEY_RIGHT 77
+#define T 116
 
 PlayerMain::PlayerMain(MapManager* mapRef) 
 {
@@ -45,25 +46,48 @@ void MainElouann() {
 		switch ((c = _getch())) {
 		case KEY_UP:
 			playerMain->PlayerMovementRef->Move(0, -1);
+			system("cls");
 			mapManager->PrintMap();
+			cout << "TEEEEEEEEEEEEESTTTTTTTTTT";
 			break;
 
 		case KEY_DOWN:
 			playerMain->PlayerMovementRef->Move(0, 1);
+			system("cls");
 			mapManager->PrintMap();
+			
+			cout << "TEEEEEEEEEEEEESTTTTTTTTTT";
 			break;
 
 		case KEY_LEFT:
 			playerMain->PlayerMovementRef->Move(-1, 0);
+			system("cls");
 			mapManager->PrintMap();
+			/*system("cls");*/
+			//cout << "TEEEEEEEEEEEEESTTTTTTTTTT";
 			break;
 
 		case KEY_RIGHT:
 			playerMain->PlayerMovementRef->Move(1, 0);
+			system("cls");
 			mapManager->PrintMap();
+			cout << "TEEEEEEEEEEEEESTTTTTTTTTT";
+			break;
+
+		case T:
+			cout << "test";
 			break;
 		}
 	}
+}
+
+void TestInput() {
+	char ch;
+	printf("Press 'q' to exit prom program\n");
+	do {
+		ch = _getch();
+		printf("%c (%d)\n", ch, ch);
+	} while (ch != 'q');
 }
 
 int main()
@@ -95,6 +119,8 @@ int main()
 	//KillerMain* killerMain = new KillerMain;
 	//killerMain->ClientCode();
 	//MainMateo();
+	
+	//TestInput();
 	MainElouann();
 }
 

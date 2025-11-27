@@ -4,7 +4,21 @@
 
 MapManager::MapManager(ConsolePrinter* printer) {
 	Printer = printer;
-	_baseMap = "0000000000000000000000000000000000000000000000000000000000000000000000000000000009999999999999999990777777777777777777777777777777777700333333333333333333333330099999999999999999907777777777777777777777777777777777003333333333333333333333300999999999999999999077777777777777777777777777777777770033333333333333333333333009999999999999999990000000000000700000000000000000000000000000300000000000003330099999999999999999901111111111111111111111111111111111111111111111111111111033300999999999999999999011111111111111111111111111111111111111111111111111111110333009999999999999999990111111111111111111111111111111111111111111111111111111103330099999999999999999901111111111111111111111111111111111111111111111111111111033300999999999999999999011111111111111111111111111111111111111111111111111111110333009999999999999999990111110000000000000001111100000000000000000000000001111103330099900000000000000001111105555555555555011111022222222222222222222222011111033300999011111111111111111111055555555555550111110222222222222222222222220111110333009999111111111111111111115555555555555551111102222222222222222222222201111103330099901111111111111111111105555555555555011111022222222222220000000000011111033300000000600000000000000000055555555555550111110222222222222201111111111111110333006666666666666666666666600555555555555501111102222222222222011111111111111103330066666666666666666666666005555555555555011111222222222222222111111111111111033300666666666666666666666660055555555555550111110222222222222201111111111111110333006666666666666666666666600555555555555501111102222222222222011111111111111103330066666666666666666666666005555555555555011111022222222222220111111111111111033300666666666666666666666660055555555555550111110222222222222200000000400000000000006666666666666666666666600555555555555501111102222222222222004444444444444444440066666666666666666666666005555555555555011111022222222222220044444444444444444400666666666666666666666660055555555555550111110222222222222200444444444444444444000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+	_baseMap = "#################################################################################ddddddddddddd#kkkkkkkkkkkkkkkkkkkk/sssssssssssssssssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#sssssssssssssssssssssssssssssssss/fffffffff##ddddddddddddd/kkkkkkkkkkkkkkkkkkkk################ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#bbbbbbbbbbbbbb#ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkk##########bbbbbbbbbbbbbb##########################/####ddddddddddddd#kkkkkkkkkkk#bbbbbbbbbbbbbbbbbbbbbbb/cccccccccccccccccccccccccccc##ddddddddddddd#######/#####bbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc##ddddddddddddd#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc########/#######bbbbbbbbbbbbbbbbbb###########/######cccccccccccccccccccccccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#######/#############cccccccc#
+		#qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc#
+		#qqqqqqqqqqqqq####################tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc#
+		#qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc#
+		#qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc#
+		#### / ##qqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww###### / ###
+		#eeeee#qqqqqqq#ooooooooooooooo / ttttttttttttttttttt#vvvvvvvvv / wwwwwwwww#uuuuuuuu#
+		#eeeee#########ooooooooooooooo################# / ###vvvvvvvvv#wwwwwwwww / uuuuuuuu#
+		#eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll### / #######wwwwwwwww#uuuuuuuu#
+		#eeeeeeeeeeeee / ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm#wwwwwwwww#uuuuuuuu#
+		#eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm###########uuuuuuuu#
+		#eeeeeeeeeeeee#ooooooooo#######lllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#
+		#eeeeeeeeeeeee#ooooooooo / lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm / uuuuuuuu#
+		#eeeeeeeeeeeee#ooooooooo#lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#
+		################################################################################";
 
 	Init();
 	PlayerPosition = make_pair(Map[0].size() / 2, Map.size() / 2);
@@ -46,6 +60,10 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 	for (int i = 0; i < Map.size(); i++) {
 		for (int j = 0; j < Map[i].size(); j++)
 		{
+			for (int j = 0; j < blankSpaceX; j++)
+			{
+				buffer.push_back(blank);
+			}
 			// Handle player pos
 			if (i == PlayerPosition.second && j == PlayerPosition.first)
 			{
@@ -101,12 +119,12 @@ void MapManager::Init()
 		Map.push_back(newLine);
 	}
 
-	// TEMP add blank space below the map
-	for (int i = 0; i < blankY; i++)
-	{
-		vector<char> newBlankLine(blankX, ' ');
-		Map.push_back(newBlankLine);
-	}
+	//// TEMP add blank space below the map
+	//for (int i = 0; i < blankY; i++)
+	//{
+	//	vector<char> newBlankLine(blankX, ' ');
+	//	Map.push_back(newBlankLine);
+	//}
 
 }
 
@@ -117,10 +135,11 @@ void MapManager::Init()
 void MapManager::SetCharAttributes(CHAR_INFO* c)
 {
 	switch (c->Char.AsciiChar) {
-	case '0':
-		c->Attributes = Printer->MakeColor(RED, RED);
-		break;
 	case '#':
+		c->Attributes = Printer->MakeColor(LIGHT_RED, LIGHT_RED);
+		break;
+	case '/':
+		c->Attributes = Printer->MakeColor(LIGHT_GRAY, LIGHT_GRAY);
 		break;
 	default:
 		char currentPos = Map[PlayerPosition.second][PlayerPosition.first];

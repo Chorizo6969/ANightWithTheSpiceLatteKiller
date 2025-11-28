@@ -46,10 +46,6 @@ void KillerMain::GameOver() {
 	//HERE GAME OVER, KILLER KILL PLAYER
 }
 
-
-
-
-
 void KillerMain::TestStepSystem()
 {
 	EventManager subject;

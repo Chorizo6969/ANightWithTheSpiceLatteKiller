@@ -11,7 +11,7 @@ class KillerMain : public IObserver
 public:
 	KillerSoundHandler* KillerSoundHandlerRef;
 	KillerStateBrain* KillerBrainRef;
-	MapManager* MapManagerRef = nullptr;
+	MapManager* MapManagerRef;
 	StepCounter* StepCounterRef; 
 	EventManager* EventManagerRef;
 	KillerMain();

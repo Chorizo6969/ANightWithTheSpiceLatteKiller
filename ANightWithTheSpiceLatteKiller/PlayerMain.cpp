@@ -91,8 +91,6 @@ void PlayerMain::MainElouann() {
 			std::cout << "Aucune porte à cette position." << std::endl;
 			break;
 		}
-
-
 		case A:
 			break;
 		}

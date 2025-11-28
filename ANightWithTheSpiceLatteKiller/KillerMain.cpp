@@ -2,18 +2,18 @@
 #include "EventManager.h"
 #include "StepCounter.h"
 
-KillerMain::KillerMain()
+KillerMain::KillerMain(MapManager* mapRef)
 {
 	KillerBrainRef = new KillerStateBrain(this);
-	//MapManagerRef = new MapManager;
 	KillerSoundHandlerRef = new KillerSoundHandler;
+	KillerMovementRef = new KillerMovement(mapRef);
 	EventManagerRef = new EventManager();
 	StepCounterRef = new StepCounter(*EventManagerRef);
 }
 
 KillerMain::~KillerMain() {
+	delete KillerMovementRef;
 	delete KillerBrainRef;
-	delete MapManagerRef;
 	delete KillerSoundHandlerRef;
 	delete EventManagerRef;
 	delete StepCounterRef;

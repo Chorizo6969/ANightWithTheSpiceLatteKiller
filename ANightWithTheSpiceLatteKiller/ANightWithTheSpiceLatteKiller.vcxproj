@@ -124,6 +124,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="GameMain.cpp" />
+    <ClCompile Include="KillerMovement.cpp" />
     <ClCompile Include="StateBase.cpp" />
     <ClCompile Include="ConsolePrinter.cpp" />
     <ClCompile Include="DialogueDataBase.cpp" />
@@ -146,8 +148,10 @@
   <ItemGroup>
     <ClInclude Include="ConsoleColorEnum.h" />
     <ClInclude Include="EventManager.h" />
+    <ClInclude Include="GameMain.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="ISubscriber.h" />
+    <ClInclude Include="KillerMovement.h" />
     <ClInclude Include="miniaudio.h" />
     <ClInclude Include="StateBase.h" />
     <ClInclude Include="ConsolePrinter.h" />

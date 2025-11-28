@@ -1,6 +1,6 @@
 #include "KillerStateBrain.h"
+#include "KillerMovement.h"
 #include "KillerSoundHandler.h"
-#include "MapManager.h"
 #include "IObserver.h"
 #include "StepCounter.h";
 #include "EventManager.h";
@@ -11,10 +11,10 @@ class KillerMain : public IObserver
 public:
 	KillerSoundHandler* KillerSoundHandlerRef;
 	KillerStateBrain* KillerBrainRef;
-	MapManager* MapManagerRef;
+	KillerMovement* KillerMovementRef;
 	StepCounter* StepCounterRef; 
 	EventManager* EventManagerRef;
-	KillerMain();
+	KillerMain(MapManager* mapRef);
 	~KillerMain();
 
 	void KillerDo();

@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="MiniaudioImplementation.cpp" />
     <ClCompile Include="StateBase.cpp" />
     <ClCompile Include="ConsolePrinter.cpp" />
@@ -147,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="ConsoleColorEnum.h" />
     <ClInclude Include="EventManager.h" />
+    <ClInclude Include="GameMain.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="ISubscriber.h" />
     <ClInclude Include="miniaudio.h" />

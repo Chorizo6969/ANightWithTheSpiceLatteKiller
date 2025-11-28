@@ -15,8 +15,12 @@ GameMain::~GameMain() {
 
 int main() {
 	GameMain main;
-	//main.KillerMainRef->KillerMovementRef->MoveKiller();
-	main.PlayerMainRef->MainElouann();
+
+	while (1) {
+		main.PlayerMainRef->MainElouann();
+		/*main.KillerMainRef->KillerMovementRef->MoveKiller();*/
+	}
+
 }
 
 

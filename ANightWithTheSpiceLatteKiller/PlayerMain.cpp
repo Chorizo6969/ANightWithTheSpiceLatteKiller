@@ -19,6 +19,9 @@ PlayerMain::PlayerMain(MapManager* mapRef)
 {
 	PlayerMovementRef = new PlayerMouvement(mapRef);
 	PlayerInteractionRef = new PlayerInteraction;
+	c = 0;
+	mapManager = mapRef;
+	mapManager->PrintMap();
 }
 
 PlayerMain::~PlayerMain() {
@@ -27,35 +30,17 @@ PlayerMain::~PlayerMain() {
 }
 
 void PlayerMain::MainElouann() {
-	int i;
-	i = -1;
-
-	ConsolePrinter* consolePrinter = new ConsolePrinter;
-	MapManager* mapManager = new MapManager(consolePrinter);
-	PlayerMain* playerMain = new PlayerMain(mapManager);
-
-	/*while (!(cin >> i) || i != 1) {
-		cout << "Press Alt+Enter before playing, then enter 1";
-	}*/
-
-	int c;
-
-	mapManager->PrintMap();
-
-	while (1)
-	{
 		c = 0;
-
 		// get player input as int
 		switch ((c = _getch())) {
 		case KEY_UP:
-			playerMain->PlayerMovementRef->Move(0, -1);
+			PlayerMovementRef->Move(0, -1);
 			//system("cls");
 			mapManager->PrintMap();
 			break;
 
 		case KEY_DOWN:
-			playerMain->PlayerMovementRef->Move(0, 1);
+			PlayerMovementRef->Move(0, 1);
 			//system("cls");
 			mapManager->PrintMap();
 			//cout << mapManager->PlayerCurrentRoom << " " << mapManager->KillerCurrentRoom << "|";
@@ -63,14 +48,14 @@ void PlayerMain::MainElouann() {
 			break;
 
 		case KEY_LEFT:
-			playerMain->PlayerMovementRef->Move(-1, 0);
+			PlayerMovementRef->Move(-1, 0);
 			//system("cls");
 			mapManager->PrintMap();
 			/*system("cls");*/
 			break;
 
 		case KEY_RIGHT:
-			playerMain->PlayerMovementRef->Move(1, 0);
+			PlayerMovementRef->Move(1, 0);
 			//system("cls");
 			mapManager->PrintMap();
 			break;
@@ -82,7 +67,6 @@ void PlayerMain::MainElouann() {
 			break;
 		}
 	}
-}
 
 void TestInput() {
 	char ch;

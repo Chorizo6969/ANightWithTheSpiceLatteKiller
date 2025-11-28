@@ -7,11 +7,13 @@
 class PlayerMain {
 
 public:
-	PlayerMouvement* PlayerMovementRef = nullptr;
-	PlayerInteraction* PlayerInteractionRef = nullptr;
+	PlayerMouvement* PlayerMovementRef;
+	PlayerInteraction* PlayerInteractionRef;
+	MapManager* mapManager;
 
 	PlayerMain(MapManager* map);
 	~PlayerMain();
+	int c;
 	//int main();
 
 	// A SUPPR

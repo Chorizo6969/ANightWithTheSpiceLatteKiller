@@ -27,7 +27,7 @@ void SoundManager::PlayMusic(const std::string& fileName, bool isLoop)
         return;
     }
 
-    std::cout << fullPath << "\n";
+    //std::cout << fullPath << "\n";
     ma_sound_set_looping(music, isLoop);
     ma_sound_start(music);
 }

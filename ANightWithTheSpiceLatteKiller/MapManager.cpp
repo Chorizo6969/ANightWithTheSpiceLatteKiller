@@ -146,10 +146,30 @@ void MapManager::SetCharAttributes(CHAR_INFO* c, int colorOverrideIndex)
 		break;
 	default:
 		char currentPos = Map[PlayerPosition.second][PlayerPosition.first];
-		c->Attributes = (currentPos == c->Char.AsciiChar) 
+		/*c->Attributes = (currentPos == c->Char.AsciiChar) 
 			? Printer->MakeColor(DARK_GRAY, DARK_GRAY) 
-			: Printer->MakeColor(BLACK, BLACK);
+			: Printer->MakeColor(BLACK, BLACK);*/
+
+		if (currentPos == c->Char.AsciiChar) {
+			c->Attributes = Printer->MakeColor(DARK_GRAY, DARK_GRAY);
+		}
+		// if the char is an adjacent room
+		else if (IsAdjacentOfPlayer(c->Char.AsciiChar)){
+			c->Attributes = Printer->MakeColor(WHITE, WHITE);
+		}
+		else {
+			c->Attributes = Printer->MakeColor(BLACK, BLACK);
+		}
 		break;
 	}
 	if (colorOverrideIndex > -1) c->Attributes = Printer->MakeColor(colorOverrideIndex, colorOverrideIndex);
+}
+
+bool MapManager::IsAdjacentOfPlayer(char c) {
+	
+	// return true if c is found in current room's adjacent rooms list
+	for (char test : Rooms[Map[PlayerPosition.second][PlayerPosition.first]]) {
+		if (test == c) return true;
+	}
+	return false;
 }

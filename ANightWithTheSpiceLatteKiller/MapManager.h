@@ -19,6 +19,7 @@ public:
 	ConsolePrinter* Printer; 
 	void PrintMap(int colorOverrideIndex = -1, bool excludePlayer = false);
 	void TintMap(int colorIndex, int timeMiliSec, bool excludePlayer = false);
+	bool IsAdjacentOfPlayer(char c);
 
 private:
 	void Init();

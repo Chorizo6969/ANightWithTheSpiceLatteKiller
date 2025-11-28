@@ -26,6 +26,8 @@ MapManager::MapManager(ConsolePrinter* printer) {
 	Init();
 	SetUpRoomDict();
 	PlayerPosition = make_pair(Map.size() / 2, Map[0].size() / 2);
+	KillerPosition = make_pair(65, 17);
+	KillerCurrentRoom = Map[KillerPosition.second][KillerPosition.first];
 }
 
 MapManager::~MapManager() {
@@ -46,7 +48,7 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 	else {
 		mapColorOverride = DARK_GRAY;
 		playerColorOverride = LIGHT_YELLOW;
-		killerColorOverride = LIGHT_BLUE;
+		killerColorOverride = BLUE;
 	}
 
 	// create buffer used to print whole map in one print
@@ -87,8 +89,10 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 			}
 			else if (i == KillerPosition.second && j == KillerPosition.first) {
 				CHAR_INFO& cell = buffer[i * Printer->Csbi.dwMaximumWindowSize.X + j];
-				cell.Char.AsciiChar = '£';
-				cell.Attributes = Printer->MakeColor(killerColorOverride, BLACK);
+				cell.Char.AsciiChar = '§';
+
+				//cell.Attributes = Printer->MakeColor(playerColorOverride, DARK_GRAY);
+				SetCharAttributes(&cell, make_pair(i, j), colorOverrideIndex);
 			}
 			else
 			{
@@ -151,7 +155,8 @@ void MapManager::Init()
 /// <param name="c"></param>
 void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int colorOverrideIndex )
 {
-	char playerCurrentPos = Map[PlayerPosition.second][PlayerPosition.first];
+	//char playerCurrentPos = Map[PlayerPosition.second][PlayerPosition.first];
+	char playerCurrentPos = PlayerCurrentRoom;
 	switch (c->Char.AsciiChar) {
 		c->Attributes = Printer->MakeColor(RED, RED);
 		break;
@@ -161,14 +166,12 @@ void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int
 	case '/':
 		c->Attributes = Printer->MakeColor(RED, RED);
 		break;
+	case '§':
+		c->Attributes = (PlayerCurrentRoom == KillerCurrentRoom) ? Printer->MakeColor(RED, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
 	//case '!':
 	//		c->Attributes = Printer->MakeColor(DARK_GRAY, DARK_GRAY);
-	//	break;
+		break;
 	default:
-		/*c->Attributes = (currentPos == c->Char.AsciiChar)
-			? Printer->MakeColor(DARK_GRAY, DARK_GRAY)
-			: Printer->MakeColor(BLACK, BLACK);*/
-
 			// si le char est le même que celui du joueur (donc même pièce) OU qu'il en a un similaire autour de lui (donc porte de même pièce)
 		if (playerCurrentPos == c->Char.AsciiChar && c->Char.AsciiChar != '!') {
 			c->Attributes = Printer->MakeColor(DARK_GRAY, DARK_GRAY);

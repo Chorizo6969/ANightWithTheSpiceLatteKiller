@@ -58,7 +58,8 @@ void PlayerMain::MainElouann() {
 			playerMain->PlayerMovementRef->Move(0, 1);
 			//system("cls");
 			mapManager->PrintMap();
-			
+			//cout << mapManager->PlayerCurrentRoom << " " << mapManager->KillerCurrentRoom << "|";
+
 			break;
 
 		case KEY_LEFT:

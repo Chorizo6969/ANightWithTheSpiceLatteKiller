@@ -104,8 +104,6 @@ int main()
 	KillerMain* killerMain = new KillerMain;
 	killerMain->TestStepSystem();
 
-	Sleep(1000);
-
 	//ma_engine engine;
 
 	//if (ma_engine_init(NULL, &engine) != MA_SUCCESS) {

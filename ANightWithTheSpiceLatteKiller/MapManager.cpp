@@ -4,7 +4,8 @@
 
 MapManager::MapManager(ConsolePrinter* printer) {
 	Printer = printer;
-	_baseMap = "#################################################################################ddddddddddddd#kkkkkkkkkkkkkkkkkkkk/sssssssssssssssssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#sssssssssssssssssssssssssssssssss/fffffffff##ddddddddddddd/kkkkkkkkkkkkkkkkkkkk################ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#bbbbbbbbbbbbbb#ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkk##########bbbbbbbbbbbbbb##########################/####ddddddddddddd#kkkkkkkkkkk#bbbbbbbbbbbbbbbbbbbbbbb/cccccccccccccccccccccccccccc##ddddddddddddd#######/#####bbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc##ddddddddddddd#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc########/#######bbbbbbbbbbbbbbbbbb###########/######cccccccccccccccccccccccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#######/#############cccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq####################tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc#####/##qqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww######/####eeeee#qqqqqqq#ooooooooooooooo/ttttttttttttttttttt#vvvvvvvvv/wwwwwwwww#uuuuuuuu##eeeee#########ooooooooooooooo#################/###vvvvvvvvv#wwwwwwwww/uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll###/#######wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee/ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm#wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm###########uuuuuuuu##eeeeeeeeeeeee#ooooooooo#######lllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu##eeeeeeeeeeeee#ooooooooo/lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm/uuuuuuuu##eeeeeeeeeeeee#ooooooooo#lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#################################################################################";
+	_baseMap = "#################################################################################ddddddddddddd#kkkkkkkkkkkkkkkkkkk!/!ssssssssssssssssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#ssssssssssssssssssssssssssssssss!/!ffffffff##dddddddddddd!/!kkkkkkkkkkkkkkkkkkk################ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#bbbbbbbbbbbbbb#ssssssssssssssssss#ffffff!ff##ddddddddddddd#kkkkkkkkkkk##########bbbbbbbbbbbbbb##########################/####ddddddddddddd#kkkkkk!kkkk#bbbbbbbbbbbbbbbbbbbbbb!/!cccccccccccccccccccccccc!cc##ddddddddddddd#######/#####bbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc##dddddd!dddddd#bbbbbb!bbbbbbbbbbbbbbbbbbbbbb!bbbbb#cccccccccccccccccccccccccccc########/#######bbbbbbbbbbbbbbbbbb###########/######cccccc!ccccccccccccccccccccc##qqqqqq!qqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttt!ttttt#######/#############cccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#vvvvvv!vv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq####################tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqq!qqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#ccccc!cc#####/##qqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww######/####eee!e#qqqqqqq#oooooooooooooo!/!ttttttttttttttt!tt#vvvvvvvv!/!wwwwwwww#uuuuu!uu##eeeee#########ooooooooooooooo#################/###vv!vvvvvv#wwwwwwww!/!uuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#llllllllllllllll!ll###/#######wwwwwwwww#uuuuuuuu##eeeeeeeeeeee!/!oooooooooooooo#lllllllllllllllllll#mm!mmmmmm#wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm###########uuuuuuuu##eeeeeeeeeeeee#ooooooooo#######lllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu##eeeeeeeeeeeee#oooooooo!/!llllllllllllllllllllllll#mmmmmmmmmmmmmmmmmm!/!uuuuuuu##eeeeeeeeeeeee#ooooooooo#lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#################################################################################";
+	//_baseMap = "#################################################################################ddddddddddddd#kkkkkkkkkkkkkkkkkkkk/sssssssssssssssssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#sssssssssssssssssssssssssssssssss/fffffffff##ddddddddddddd/kkkkkkkkkkkkkkkkkkkk################ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#bbbbbbbbbbbbbb#ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkk##########bbbbbbbbbbbbbb##########################/####ddddddddddddd#kkkkkkkkkkk#bbbbbbbbbbbbbbbbbbbbbbb/cccccccccccccccccccccccccccc##ddddddddddddd#######/#####bbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc##ddddddddddddd#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc########/#######bbbbbbbbbbbbbbbbbb###########/######cccccccccccccccccccccccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#######/#############cccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq####################tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc#####/##qqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww######/####eeeee#qqqqqqq#ooooooooooooooo/ttttttttttttttttttt#vvvvvvvvv/wwwwwwwww#uuuuuuuu##eeeee#########ooooooooooooooo#################/###vvvvvvvvv#wwwwwwwww/uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll###/#######wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee/ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm#wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm###########uuuuuuuu##eeeeeeeeeeeee#ooooooooo#######lllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu##eeeeeeeeeeeee#ooooooooo/lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm/uuuuuuuu##eeeeeeeeeeeee#ooooooooo#lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#################################################################################";
 	AdjacentRoomsRelations = {
 		{ 'e', {'q', 'o'} },
 		{ 'd', {'k', 'q'} },
@@ -24,7 +25,7 @@ MapManager::MapManager(ConsolePrinter* printer) {
 	};
 	Init();
 	SetUpRoomDict();
-	PlayerPosition = make_pair(Map[0].size() / 2, Map.size() / 2);
+	PlayerPosition = make_pair(Map.size() / 2, Map[0].size() / 2);
 }
 
 void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
@@ -51,22 +52,25 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 	blank.Char.AsciiChar = ' ';
 	blank.Attributes = Printer->MakeColor(BLACK, BLACK);
 
-	// Create blank space above the map
-	for (int i = 0; i < blankSpaceY; i++)
-	{
-		for (int j = 0; j < blankSpaceX; j++)
-		{
-			buffer.push_back(blank);
-		}
-	}
+	//// Create blank space above the map
+	//for (int i = 0; i < blankSpaceY; i++)
+	//{
+	//	for (int j = 0; j < blankSpaceX; j++)
+	//	{
+	//		buffer.push_back(blank);
+	//	}
+	//}
 
 	for (int i = 0; i < Map.size(); i++) {
+		/*for (int x = 0; x < blankSpaceX; x++) {
+			buffer.push_back(blank);
+		}*/
 		for (int j = 0; j < Map[i].size(); j++)
 		{
-			for (int j = 0; j < blankSpaceX; j++)
-			{
-				buffer.push_back(blank);
-			}
+			//for (int j = 0; j < blankSpaceX; j++)
+			//{
+			//	buffer.push_back(blank);
+			//}
 			// Handle player pos
 			if (i == PlayerPosition.second && j == PlayerPosition.first)
 			{
@@ -147,8 +151,8 @@ void MapManager::SetCharAttributes(CHAR_INFO* c, int colorOverrideIndex)
 		break;
 	default:
 		char currentPos = Map[PlayerPosition.second][PlayerPosition.first];
-		/*c->Attributes = (currentPos == c->Char.AsciiChar) 
-			? Printer->MakeColor(DARK_GRAY, DARK_GRAY) 
+		/*c->Attributes = (currentPos == c->Char.AsciiChar)
+			? Printer->MakeColor(DARK_GRAY, DARK_GRAY)
 			: Printer->MakeColor(BLACK, BLACK);*/
 
 		if (currentPos == c->Char.AsciiChar) {
@@ -167,7 +171,7 @@ void MapManager::SetCharAttributes(CHAR_INFO* c, int colorOverrideIndex)
 }
 
 bool MapManager::IsAdjacentToPlayer(char c) {
-	
+
 	// return true if c is found in current room's adjacent rooms list
 	for (char test : AdjacentRoomsRelations[Map[PlayerPosition.second][PlayerPosition.first]]) {
 		if (test == c) return true;

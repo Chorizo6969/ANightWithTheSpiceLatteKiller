@@ -26,7 +26,7 @@ PlayerMain::~PlayerMain() {
 	delete PlayerInteractionRef;
 }
 
-void MainElouann() {
+void PlayerMain::MainElouann() {
 	int i;
 	i = -1;
 

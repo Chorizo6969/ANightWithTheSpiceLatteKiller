@@ -12,4 +12,6 @@ public:
 	~PlayerMain();
 	//int main();
 
+	// A SUPPR
+	void MainElouann();
 };

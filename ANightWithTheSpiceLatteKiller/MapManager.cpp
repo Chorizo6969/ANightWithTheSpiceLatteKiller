@@ -35,15 +35,18 @@ MapManager::~MapManager() {
 void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 	int mapColorOverride;
 	int playerColorOverride;
+	int killerColorOverride;
 
 	// override color
 	if (colorOverrideIndex > -1) {
 		mapColorOverride = colorOverrideIndex;
 		playerColorOverride = (excludePlayer) ? LIGHT_YELLOW : colorOverrideIndex;
+		killerColorOverride = (excludePlayer) ? LIGHT_BLUE : colorOverrideIndex;
 	}
 	else {
 		mapColorOverride = DARK_GRAY;
 		playerColorOverride = LIGHT_YELLOW;
+		killerColorOverride = LIGHT_BLUE;
 	}
 
 	// create buffer used to print whole map in one print
@@ -81,6 +84,11 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 				CHAR_INFO& cell = buffer[i * Printer->Csbi.dwMaximumWindowSize.X + j];
 				cell.Char.AsciiChar = '*';
 				cell.Attributes = Printer->MakeColor(playerColorOverride, DARK_GRAY);
+			}
+			else if (i == KillerPosition.second && j == KillerPosition.first) {
+				CHAR_INFO& cell = buffer[i * Printer->Csbi.dwMaximumWindowSize.X + j];
+				cell.Char.AsciiChar = '£';
+				cell.Attributes = Printer->MakeColor(killerColorOverride, BLACK);
 			}
 			else
 			{

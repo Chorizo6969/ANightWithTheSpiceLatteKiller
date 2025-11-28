@@ -16,6 +16,7 @@ public:
 
 	pair<float, float> PlayerPosition;
 	pair<float, float> KillerPosition;
+	pair<float, float> KillerLastPosition;
 	int PlayerCurrentRoom = 0;
 	int KillerCurrentRoom = 0;
 

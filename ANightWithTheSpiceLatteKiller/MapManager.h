@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "ConsolePrinter.h"
+#include "ConsoleColorEnum.h"
 #include <map>
 
 using namespace std;
@@ -20,6 +21,9 @@ public:
 
 	char PlayerCurrentRoom = 0;
 	char KillerCurrentRoom = 0;
+
+	// TEMP POUR EMRYS
+	int KillerColor = RED;
 
 	vector<vector<char>> Map;
 	ConsolePrinter* Printer; 

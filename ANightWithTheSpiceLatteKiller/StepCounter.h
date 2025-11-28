@@ -5,6 +5,7 @@
 #pragma once
 class StepCounter {
 public:
+
     StepCounter(EventManager& subject) : subject_(subject){}
 
     void IncreaseStep();

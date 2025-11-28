@@ -16,8 +16,10 @@ public:
 
 	pair<float, float> PlayerPosition;
 	pair<float, float> KillerPosition;
-	int PlayerCurrentRoom = 0;
-	int KillerCurrentRoom = 0;
+	pair<float, float> KillerLastPosition;
+
+	char PlayerCurrentRoom = 0;
+	char KillerCurrentRoom = 0;
 
 	vector<vector<char>> Map;
 	ConsolePrinter* Printer; 

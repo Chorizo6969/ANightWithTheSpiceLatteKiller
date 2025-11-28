@@ -155,8 +155,6 @@ void MapManager::Init()
 /// <param name="c"></param>
 void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int colorOverrideIndex )
 {
-	//char playerCurrentPos = Map[PlayerPosition.second][PlayerPosition.first];
-	char playerCurrentPos = PlayerCurrentRoom;
 	switch (c->Char.AsciiChar) {
 		c->Attributes = Printer->MakeColor(RED, RED);
 		break;
@@ -167,13 +165,11 @@ void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int
 		c->Attributes = Printer->MakeColor(RED, RED);
 		break;
 	case '§':
-		c->Attributes = (PlayerCurrentRoom == KillerCurrentRoom) ? Printer->MakeColor(RED, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
-	//case '!':
-	//		c->Attributes = Printer->MakeColor(DARK_GRAY, DARK_GRAY);
+		c->Attributes = (/*PlayerCurrentRoom == KillerCurrentRoom*/ true) ? Printer->MakeColor(RED, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
 		break;
 	default:
 			// si le char est le même que celui du joueur (donc même pièce) OU qu'il en a un similaire autour de lui (donc porte de même pièce)
-		if (playerCurrentPos == c->Char.AsciiChar && c->Char.AsciiChar != '!') {
+		if (PlayerCurrentRoom == c->Char.AsciiChar && c->Char.AsciiChar != '!') {
 			c->Attributes = Printer->MakeColor(DARK_GRAY, DARK_GRAY);
 		}
 		//// if the char is an adjacent room

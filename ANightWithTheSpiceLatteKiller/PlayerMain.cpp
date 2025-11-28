@@ -22,6 +22,17 @@ PlayerMain::PlayerMain(MapManager* mapRef)
 	PlayerInteractionRef = new PlayerInteraction;
 }
 
+PlayerMain::~PlayerMain() {
+	delete PlayerMovementRef;
+	delete PlayerInteractionRef;
+}
+
+void PlayerMain::GameOver() {
+	//if killer in same room as player
+	//Killer Visible now
+	//HERE GAME OVER, KILLER KILL PLAYER
+}
+
 void MainElouann() {
 	int i;
 	i = -1;

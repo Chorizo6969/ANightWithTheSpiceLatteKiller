@@ -40,10 +40,15 @@ void KillerMain::Update(int value)
 	}
 }
 
-void KillerMain::GameOver() {
-	//HERE GAME OVER, KILLER KILL PLAYER
-}
 
+
+void KillerMain::EnterThePlayerRoom() {
+	//Play Line
+	EnterTries++;
+	if (EnterTries = 10) {
+		//TP Killer too door in player room
+	};
+}
 
 void KillerMain::TestStepSystem()
 {

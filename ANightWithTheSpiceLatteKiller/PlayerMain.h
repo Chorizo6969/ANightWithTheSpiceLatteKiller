@@ -9,5 +9,7 @@ public:
 	PlayerInteraction* PlayerInteractionRef = nullptr;
 
 	PlayerMain(MapManager* map);
+	~PlayerMain();
 	//int main();
+	void GameOver();
 };

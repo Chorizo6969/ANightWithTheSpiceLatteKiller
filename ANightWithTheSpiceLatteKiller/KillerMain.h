@@ -23,5 +23,8 @@ public:
 
 	void Update(int value) override;
 	void TestStepSystem();
-	void GameOver();
+
+private:
+	int EnterTries = 0;
+	void EnterThePlayerRoom();
 };

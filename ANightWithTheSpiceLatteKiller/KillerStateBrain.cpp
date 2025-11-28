@@ -38,10 +38,3 @@ void KillerStateBrain::SwitchState(StateBase* StateToSwitch){
 	stateCurrent->OnEnter();
 }
 
-void KillerStateBrain::EnterThePlayerRoom() {
-	//Play Line
-	EnterTries++;
-	if (EnterTries = 10) {
-
-	};
-}

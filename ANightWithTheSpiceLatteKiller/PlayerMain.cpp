@@ -106,11 +106,7 @@ void PlayerMain::MainElouann()
 		{
 			std::cout << mapManager->PlayerCurrentRoom << std::endl;
 			if (mapManager->PlayerCurrentRoom == 'd')
-			{
 				std::cout << "Collectible ramassé !" << std::endl;
-				mapManager->PrintMap();
-			}
-
 			break;
 		}
 

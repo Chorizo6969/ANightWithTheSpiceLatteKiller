@@ -12,8 +12,9 @@ public:
 	~KillerMovement();
 
 	void MoveKiller();
-
+private:
 	char GetRandomAdjacent(char key);
+	pair<float, float> GetRandomPosInRoom(char key);
 
 };
 

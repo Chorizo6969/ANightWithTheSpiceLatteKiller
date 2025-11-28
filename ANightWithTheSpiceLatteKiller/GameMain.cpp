@@ -14,6 +14,8 @@ GameMain::~GameMain() {
 }
 
 int main() {
+	GameMain main;
+	main.KillerMainRef->KillerMovementRef->MoveKiller();
 }
 
 

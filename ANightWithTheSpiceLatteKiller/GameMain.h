@@ -6,6 +6,7 @@
 
 class GameMain
 {
+public:
 	PlayerMain* PlayerMainRef;
 	KillerMain* KillerMainRef;
 	MapManager* MapManagerRef;
@@ -13,5 +14,7 @@ class GameMain
 
 	GameMain();
 	~GameMain();
+
+
 };
 

@@ -4,7 +4,7 @@
 #include "MapManager.h"
 
 KillerMovement::KillerMovement(KillerMain* mainRef) : KillerMainRef(mainRef) {
-
+	KillerMainRef->MapManagerRef->KillerCurrentRoom = KillerMainRef->MapManagerRef->Map[KillerMainRef->MapManagerRef->KillerPosition.second][KillerMainRef->MapManagerRef->KillerPosition.first];
 }
 
 KillerMovement::~KillerMovement() {
@@ -36,7 +36,8 @@ pair<float, float> KillerMovement::GetRandomPosInRoom(char key) {
 }
 
 void KillerMovement::MoveKiller() {
-	KillerMainRef->MapManagerRef->KillerPosition = GetRandomPosInRoom(GetRandomAdjacent('o'));
-	std::cout << KillerMainRef->MapManagerRef->KillerPosition.second << std::endl;
-	std::cout << KillerMainRef->MapManagerRef->KillerPosition.first << std::endl;
+	KillerMainRef->MapManagerRef->KillerPosition = GetRandomPosInRoom(GetRandomAdjacent(KillerMainRef->MapManagerRef->KillerCurrentRoom));
+	KillerMainRef->MapManagerRef->KillerCurrentRoom = KillerMainRef->MapManagerRef->Map[KillerMainRef->MapManagerRef->KillerPosition.second][KillerMainRef->MapManagerRef->KillerPosition.first];
+	//std::cout << KillerMainRef->MapManagerRef->KillerPosition.second << std::endl;
+	//std::cout << KillerMainRef->MapManagerRef->KillerPosition.first << std::endl;
 }

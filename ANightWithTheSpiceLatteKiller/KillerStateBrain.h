@@ -22,9 +22,4 @@ public:
 	StateBase* GetRandomState();
 
 	void SwitchState(StateBase* StateToSwitch);
-
-private: 
-	int EnterTries = 0;
-	void EnterThePlayerRoom();
-
 };

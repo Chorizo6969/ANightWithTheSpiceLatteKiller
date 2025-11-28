@@ -8,7 +8,7 @@ class KillerMovement
 public:
 	MapManager* MapManagerRef;
 
-	KillerMovement(MapManager* MapManager);
+	KillerMovement(MapManager* mapRef);
 	~KillerMovement();
 
 	void MoveKiller();

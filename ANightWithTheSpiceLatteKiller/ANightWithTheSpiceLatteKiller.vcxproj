@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="GameMain.cpp" />
+    <ClCompile Include="KillerMovement.cpp" />
     <ClCompile Include="MiniaudioImplementation.cpp" />
     <ClCompile Include="StateBase.cpp" />
     <ClCompile Include="ConsolePrinter.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="GameMain.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="ISubscriber.h" />
+    <ClInclude Include="KillerMovement.h" />
     <ClInclude Include="miniaudio.h" />
     <ClInclude Include="StateBase.h" />
     <ClInclude Include="ConsolePrinter.h" />

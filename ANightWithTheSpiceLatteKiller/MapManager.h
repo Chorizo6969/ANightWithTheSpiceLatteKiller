@@ -9,6 +9,8 @@ class MapManager
 {
 public:
 	MapManager(ConsolePrinter* printer);
+	~MapManager();
+
 	map<char, vector<char>> AdjacentRoomsRelations; // used to get adjacent rooms char
 	map<char, vector<pair<float, float>>> CharPosMapByRoom; // used to get every pos occupied by each room
 
@@ -27,7 +29,7 @@ public:
 private:
 	void Init();
 	void SetUpRoomDict();
-	void SetCharAttributes(CHAR_INFO* c, int colorOverrideIndex = -1);
+	void SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int colorOverrideIndex = -1);
 
 	string _baseMap;
 	vector<CHAR_INFO> _buffer;

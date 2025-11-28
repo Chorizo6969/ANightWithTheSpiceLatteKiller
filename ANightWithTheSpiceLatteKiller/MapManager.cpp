@@ -28,6 +28,10 @@ MapManager::MapManager(ConsolePrinter* printer) {
 	PlayerPosition = make_pair(Map.size() / 2, Map[0].size() / 2);
 }
 
+MapManager::~MapManager() {
+	delete Printer;
+}
+
 void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 	int mapColorOverride;
 	int playerColorOverride;
@@ -75,16 +79,14 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 			if (i == PlayerPosition.second && j == PlayerPosition.first)
 			{
 				CHAR_INFO& cell = buffer[i * Printer->Csbi.dwMaximumWindowSize.X + j];
-				cell.Char.AsciiChar = 'o';
+				cell.Char.AsciiChar = '*';
 				cell.Attributes = Printer->MakeColor(playerColorOverride, DARK_GRAY);
 			}
 			else
 			{
-				// OOR arg ERROR NEXT LINE
 				CHAR_INFO& cell = buffer[i * Printer->Csbi.dwMaximumWindowSize.X + j];
 				cell.Char.AsciiChar = Map[i][j];
-				//cell.Attributes = Printer->MakeColor(mapColorOverride, BLACK);
-				SetCharAttributes(&cell, colorOverrideIndex);
+				SetCharAttributes(&cell, make_pair(i, j), colorOverrideIndex);
 			}
 		}
 	}
@@ -139,23 +141,28 @@ void MapManager::Init()
 /// Set the CHAR_INFO input depending on
 /// </summary>
 /// <param name="c"></param>
-void MapManager::SetCharAttributes(CHAR_INFO* c, int colorOverrideIndex)
+void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int colorOverrideIndex )
 {
-
+	char playerCurrentPos = Map[PlayerPosition.second][PlayerPosition.first];
 	switch (c->Char.AsciiChar) {
+		c->Attributes = Printer->MakeColor(RED, RED);
+		break;
 	case '#':
 		c->Attributes = Printer->MakeColor(LIGHT_RED, LIGHT_RED);
 		break;
 	case '/':
 		c->Attributes = Printer->MakeColor(RED, RED);
 		break;
+	//case '!':
+	//		c->Attributes = Printer->MakeColor(DARK_GRAY, DARK_GRAY);
+	//	break;
 	default:
-		char currentPos = Map[PlayerPosition.second][PlayerPosition.first];
 		/*c->Attributes = (currentPos == c->Char.AsciiChar)
 			? Printer->MakeColor(DARK_GRAY, DARK_GRAY)
 			: Printer->MakeColor(BLACK, BLACK);*/
 
-		if (currentPos == c->Char.AsciiChar) {
+			// si le char est le même que celui du joueur (donc même pièce) OU qu'il en a un similaire autour de lui (donc porte de même pièce)
+		if (playerCurrentPos == c->Char.AsciiChar && c->Char.AsciiChar != '!') {
 			c->Attributes = Printer->MakeColor(DARK_GRAY, DARK_GRAY);
 		}
 		//// if the char is an adjacent room

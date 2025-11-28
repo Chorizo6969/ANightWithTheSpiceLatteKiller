@@ -6,8 +6,8 @@ class Interactable
 {
 public:
 	bool IsActive;
-	DialogueDataBase DialogueManagerRef;
-	SoundManager SoundManagerRef;
+	DialogueDataBase* DialogueManagerRef;
+	SoundManager* SoundManagerRef;
 
 	virtual void InteractionStart();
 };

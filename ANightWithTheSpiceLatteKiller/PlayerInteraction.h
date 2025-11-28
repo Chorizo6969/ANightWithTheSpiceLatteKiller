@@ -3,8 +3,8 @@
 #pragma once
 class PlayerInteraction
 {
-//public:
-//	Interactable CurrentObjectInteract;
-//
-//	void Interact();
+public:
+	Interactable* CurrentObjectInteract;
+
+	void Interact();
 };

@@ -14,7 +14,6 @@ public:
 	MapManager* MapManagerRef = nullptr;
 	StepCounter* StepCounterRef; 
 	EventManager* EventManagerRef;
-
 	KillerMain();
 	~KillerMain();
 
@@ -24,7 +23,5 @@ public:
 	void Update(int value) override;
 	void TestStepSystem();
 
-private:
-	int EnterTries = 0;
-	void EnterThePlayerRoom();
+	void GameOver();
 };

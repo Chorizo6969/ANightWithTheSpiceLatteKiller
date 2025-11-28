@@ -4,7 +4,7 @@
 
 KillerMain::KillerMain()
 {
-	KillerBrainRef = new KillerStateBrain;
+	KillerBrainRef = new KillerStateBrain(this);
 	//MapManagerRef = new MapManager;
 	KillerSoundHandlerRef = new KillerSoundHandler;
 	EventManagerRef = new EventManager();
@@ -40,15 +40,15 @@ void KillerMain::Update(int value)
 	}
 }
 
-
-
-void KillerMain::EnterThePlayerRoom() {
-	//Play Line
-	EnterTries++;
-	if (EnterTries = 10) {
-		//TP Killer too door in player room
-	};
+void KillerMain::GameOver() {
+	//if killer in same room as player
+	//Killer Visible now
+	//HERE GAME OVER, KILLER KILL PLAYER
 }
+
+
+
+
 
 void KillerMain::TestStepSystem()
 {

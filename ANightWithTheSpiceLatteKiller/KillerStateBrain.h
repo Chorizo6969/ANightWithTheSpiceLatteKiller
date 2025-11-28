@@ -1,13 +1,22 @@
+#pragma once
+
 #include "StateGoStalk.h"
 #include "StateGoWalk.h"
 #include "StateGoKill.h"
 
 #include <vector>
 
-#pragma once
+//forward declaration
+class KillerMain;
+class StateGoWalk;
+class StateGoStalk;
+class StateGoKill;
+
 class KillerStateBrain
 {
 public:
+	KillerMain* killerMainRef;
+
 	StateGoWalk* stateGoWalk;
 	StateGoStalk* stateGoStalk;
 	StateGoKill* stateGoKill;
@@ -16,7 +25,7 @@ public:
 
 	StateBase* stateCurrent;
 
-	KillerStateBrain();
+	KillerStateBrain(KillerMain* KillerMainRef);
 	~KillerStateBrain();
 
 	StateBase* GetRandomState();

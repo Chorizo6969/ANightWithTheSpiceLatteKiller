@@ -6,10 +6,10 @@
 
 using namespace std::literals;
 
-	KillerStateBrain::KillerStateBrain() {
-		stateGoWalk = new StateGoWalk;
-		stateGoStalk = new StateGoStalk;
-		stateGoKill = new StateGoKill;
+	KillerStateBrain::KillerStateBrain(KillerMain* main) : killerMainRef(main) {
+		stateGoWalk = new StateGoWalk(killerMainRef);
+		stateGoStalk = new StateGoStalk(killerMainRef);
+		stateGoKill = new StateGoKill(killerMainRef);
 
 		stateCurrent = stateGoWalk;
 

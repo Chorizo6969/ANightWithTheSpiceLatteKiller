@@ -11,5 +11,5 @@ public:
 	PlayerMain(MapManager* map);
 	~PlayerMain();
 	//int main();
-	void GameOver();
+
 };

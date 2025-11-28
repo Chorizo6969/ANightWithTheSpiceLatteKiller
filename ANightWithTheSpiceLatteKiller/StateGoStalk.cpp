@@ -1,5 +1,10 @@
 #include "StateGoStalk.h"
 
+StateGoStalk::StateGoStalk(KillerMain* killerMainRef)
+	: StateBase(killerMainRef)
+{
+}
+
 void StateGoStalk::OnEnter() {
 	std::cout << "Enter Stalk State" << std::endl;
 }

@@ -1,5 +1,11 @@
 #include "StateGoWalk.h"
 
+StateGoWalk::StateGoWalk(KillerMain* killerMainRef)
+	: StateBase(killerMainRef)
+{
+}
+
+
 void StateGoWalk::OnEnter() {
 	std::cout << "Enter Walk State" << std::endl;
 }

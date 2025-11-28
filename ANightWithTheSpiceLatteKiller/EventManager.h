@@ -1,8 +1,9 @@
+#pragma once
+
 #include "ISubscriber.h"
 #include <list>
 #include <iostream>
 
-#pragma once
 class EventManager {
 public:
     void Attach(IObserver* obs);

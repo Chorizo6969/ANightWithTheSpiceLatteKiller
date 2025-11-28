@@ -1,6 +1,8 @@
+#pragma once
+
 #include "StateBase.h"
 
-#pragma once
+
 class StateGoKill : public StateBase
 {
 public:

@@ -1,7 +1,9 @@
+#pragma once
+
 #include "PlayerInteraction.h"
 #include "PlayerMouvement.h"
 
-#pragma once
+
 class PlayerMain {
 
 public:

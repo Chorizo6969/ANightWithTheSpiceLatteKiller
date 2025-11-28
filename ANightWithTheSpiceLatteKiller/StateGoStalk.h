@@ -1,6 +1,7 @@
+#pragma once
+
 #include "StateBase.h"
 
-#pragma once
 class StateGoStalk : public StateBase
 {
 public:

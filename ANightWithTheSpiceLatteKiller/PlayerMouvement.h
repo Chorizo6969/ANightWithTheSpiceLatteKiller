@@ -1,6 +1,8 @@
+#pragma once
+
 #include "MapManager.h"
 
-#pragma once
+
 class PlayerMouvement
 {
 public:

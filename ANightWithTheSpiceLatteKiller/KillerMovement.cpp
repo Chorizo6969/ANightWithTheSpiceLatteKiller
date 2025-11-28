@@ -1,12 +1,9 @@
 #include "KillerMovement.h"
 
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <random>
-#include <string>
+#include "KillerMain.h"    
+#include "MapManager.h"
 
-KillerMovement::KillerMovement(MapManager* map) : MapManagerRef(map) {
+KillerMovement::KillerMovement(KillerMain* mainRef) : KillerMainRef(mainRef) {
 
 }
 
@@ -17,8 +14,8 @@ KillerMovement::~KillerMovement() {
 char KillerMovement::GetRandomAdjacent(char key) {
 	static std::random_device rd;
 	static std::mt19937 gen(rd());
-	auto it = MapManagerRef->AdjacentRoomsRelations.find(key);
-	if (it != MapManagerRef->AdjacentRoomsRelations.end()) {
+	auto it = KillerMainRef->MapManagerRef->AdjacentRoomsRelations.find(key);
+	if (it != KillerMainRef->MapManagerRef->AdjacentRoomsRelations.end()) {
 		const auto& adjacents = it->second;
 		std::uniform_int_distribution<> dis(0, adjacents.size() - 1);
 		return adjacents[dis(gen)];
@@ -29,18 +26,17 @@ char KillerMovement::GetRandomAdjacent(char key) {
 pair<float, float> KillerMovement::GetRandomPosInRoom(char key) {
 	static std::random_device rd;
 	static std::mt19937 gen(rd());
-	auto it = MapManagerRef->CharPosMapByRoom.find(key);
-	if (it != MapManagerRef->CharPosMapByRoom.end()) {
+	auto it = KillerMainRef->MapManagerRef->CharPosMapByRoom.find(key);
+	if (it != KillerMainRef->MapManagerRef->CharPosMapByRoom.end()) {
 		const auto& adjacents = it->second;
 		std::uniform_int_distribution<> dis(0, adjacents.size() - 1);
 		return adjacents[dis(gen)];
 	}
-	return MapManagerRef->KillerPosition;
+	return KillerMainRef->MapManagerRef->KillerPosition;
 }
 
 void KillerMovement::MoveKiller() {
-	//GetRandomAdjacent('o');
-	MapManagerRef->KillerPosition = GetRandomPosInRoom(GetRandomAdjacent('o'));
-	std::cout << MapManagerRef->KillerPosition.second << std::endl;
-	std::cout << MapManagerRef->KillerPosition.first << std::endl;
+	KillerMainRef->MapManagerRef->KillerPosition = GetRandomPosInRoom(GetRandomAdjacent('o'));
+	std::cout << KillerMainRef->MapManagerRef->KillerPosition.second << std::endl;
+	std::cout << KillerMainRef->MapManagerRef->KillerPosition.first << std::endl;
 }

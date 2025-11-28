@@ -1,6 +1,7 @@
+#pragma once
 #include "IObserver.h"
 
-#pragma once
+
 class ISubscriber {
 public:
 	virtual ~ISubscriber() {};

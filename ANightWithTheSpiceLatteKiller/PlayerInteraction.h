@@ -1,6 +1,8 @@
+#pragma once
+
 #include "Interactable.h"
 
-#pragma once
+
 class PlayerInteraction
 {
 public:

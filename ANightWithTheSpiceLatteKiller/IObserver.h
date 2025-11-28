@@ -1,6 +1,7 @@
+#pragma once
 #include <string>
 
-#pragma once
+
 class IObserver {
 public:
 	virtual ~IObserver() {};

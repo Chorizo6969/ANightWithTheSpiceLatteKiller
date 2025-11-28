@@ -11,7 +11,12 @@ void StateGoStalk::OnEnter() {
 
 void StateGoStalk::Do() {
 	//Each player step, tp
-	//TP again if inPlayerRoom
+	//if (killerMainRef->MapManagerRef->KillerCurrentRoom == killerMainRef->MapManagerRef->PlayerCurrentRoom) {
+	//	killerMainRef->KillerMovementRef->MoveKiller();
+	//}
+	//else {
+
+	//}
 
 	std::cout << "Killer is stalking player" << std::endl;
 }

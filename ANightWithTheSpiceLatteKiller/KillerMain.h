@@ -1,11 +1,14 @@
+#pragma once
+
 #include "KillerStateBrain.h"
 #include "KillerMovement.h"
 #include "KillerSoundHandler.h"
 #include "IObserver.h"
-#include "StepCounter.h";
-#include "EventManager.h";
+#include "StepCounter.h"
+#include "EventManager.h"
+#include "MapManager.h"
 
-#pragma once
+
 class KillerMain : public IObserver
 {
 public:
@@ -14,6 +17,7 @@ public:
 	KillerMovement* KillerMovementRef;
 	StepCounter* StepCounterRef; 
 	EventManager* EventManagerRef;
+	MapManager* MapManagerRef;
 	KillerMain(MapManager* mapRef);
 	~KillerMain();
 

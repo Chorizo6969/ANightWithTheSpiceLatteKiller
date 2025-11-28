@@ -1,8 +1,9 @@
+#pragma once
 #include "DialogueDataBase.h"
 #include "IObserver.h"
 #include "EventManager.h"
 
-#pragma once
+
 class StepCounter {
 public:
 

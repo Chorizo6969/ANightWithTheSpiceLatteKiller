@@ -1,14 +1,19 @@
 #pragma once
-#include "MapManager.h"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <random>
+#include <string>
+using namespace std;
 
-class MapManager;
+class KillerMain;
 
 class KillerMovement
 {
 public:
-	MapManager* MapManagerRef;
+	KillerMain* KillerMainRef;
 
-	KillerMovement(MapManager* mapRef);
+	KillerMovement(KillerMain* mainRef);
 	~KillerMovement();
 
 	void MoveKiller();

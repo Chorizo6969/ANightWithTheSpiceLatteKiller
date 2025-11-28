@@ -1,9 +1,11 @@
+#pragma once
+
 #include <list>
 #include <string>
 #include <map>
 #include <iostream>
 
-#pragma once
+
 class DialogueDataBase {
 public:
 

@@ -14,6 +14,9 @@ public:
 
 	map<char, vector<char>> AdjacentRoomsRelations; // used to get adjacent rooms char
 	map<char, vector<pair<float, float>>> CharPosMapByRoom; // used to get every pos occupied by each room
+	
+	vector<char> DoorsSymbols;
+	map<pair<float, float>, pair<float, float>> DoorsLinks;
 
 	pair<float, float> PlayerPosition;
 	pair<float, float> KillerPosition;
@@ -30,11 +33,13 @@ public:
 	void PrintMap(int colorOverrideIndex = -1, bool excludePlayer = false);
 	void TintMap(int colorIndex, int timeMiliSec, bool excludePlayer = false);
 	bool IsAdjacentToPlayer(char c);
+
 	vector<pair<float, float>> GetRoomFromChar(char c);
 
 private:
-	void Init();
-	void SetUpRoomDict();
+	void InitMap();
+	void InitRoomPosDict();
+	void InitDoorsRelations();
 	void SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int colorOverrideIndex = -1);
 
 	string _baseMap;

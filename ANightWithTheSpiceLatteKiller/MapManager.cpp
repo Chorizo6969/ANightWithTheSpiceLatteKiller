@@ -5,7 +5,7 @@
 MapManager::MapManager(ConsolePrinter* printer) {
 	Printer = printer;
 	_baseMap = "#################################################################################ddddddddddddd#kkkkkkkkkkkkkkkkkkkk/sssssssssssssssssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#sssssssssssssssssssssssssssssssss/fffffffff##ddddddddddddd/kkkkkkkkkkkkkkkkkkkk################ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#bbbbbbbbbbbbbb#ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkk##########bbbbbbbbbbbbbb##########################/####ddddddddddddd#kkkkkkkkkkk#bbbbbbbbbbbbbbbbbbbbbbb/cccccccccccccccccccccccccccc##ddddddddddddd#######/#####bbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc##ddddddddddddd#bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc########/#######bbbbbbbbbbbbbbbbbb###########/######cccccccccccccccccccccccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#######/#############cccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq####################tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc#####/##qqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww######/####eeeee#qqqqqqq#ooooooooooooooo/ttttttttttttttttttt#vvvvvvvvv/wwwwwwwww#uuuuuuuu##eeeee#########ooooooooooooooo#################/###vvvvvvvvv#wwwwwwwww/uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll###/#######wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee/ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm#wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm###########uuuuuuuu##eeeeeeeeeeeee#ooooooooo#######lllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu##eeeeeeeeeeeee#ooooooooo/lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm/uuuuuuuu##eeeeeeeeeeeee#ooooooooo#lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#################################################################################";
-	Rooms = {
+	AdjacentRoomsRelations = {
 		{ 'e', {'q', 'o'} },
 		{ 'd', {'k', 'q'} },
 		{ 'k', {'d', 'b', 's'}},
@@ -23,6 +23,7 @@ MapManager::MapManager(ConsolePrinter* printer) {
 		{ 'q', {'d', 'e'} }
 	};
 	Init();
+	SetUpRoomDict();
 	PlayerPosition = make_pair(Map[0].size() / 2, Map.size() / 2);
 }
 
@@ -153,10 +154,10 @@ void MapManager::SetCharAttributes(CHAR_INFO* c, int colorOverrideIndex)
 		if (currentPos == c->Char.AsciiChar) {
 			c->Attributes = Printer->MakeColor(DARK_GRAY, DARK_GRAY);
 		}
-		// if the char is an adjacent room
-		else if (IsAdjacentOfPlayer(c->Char.AsciiChar)){
-			c->Attributes = Printer->MakeColor(WHITE, WHITE);
-		}
+		//// if the char is an adjacent room
+		//else if (IsAdjacentOfPlayer(c->Char.AsciiChar)){
+		//	c->Attributes = Printer->MakeColor(WHITE, WHITE);
+		//}
 		else {
 			c->Attributes = Printer->MakeColor(BLACK, BLACK);
 		}
@@ -165,11 +166,38 @@ void MapManager::SetCharAttributes(CHAR_INFO* c, int colorOverrideIndex)
 	if (colorOverrideIndex > -1) c->Attributes = Printer->MakeColor(colorOverrideIndex, colorOverrideIndex);
 }
 
-bool MapManager::IsAdjacentOfPlayer(char c) {
+bool MapManager::IsAdjacentToPlayer(char c) {
 	
 	// return true if c is found in current room's adjacent rooms list
-	for (char test : Rooms[Map[PlayerPosition.second][PlayerPosition.first]]) {
+	for (char test : AdjacentRoomsRelations[Map[PlayerPosition.second][PlayerPosition.first]]) {
 		if (test == c) return true;
 	}
 	return false;
+}
+
+//vector<pair<float, float>> GetRoomFromChar(char c) {
+//
+//}
+
+void MapManager::SetUpRoomDict() {
+
+	for (int y = 0; y < Map.size(); y++) {
+		for (int x = 0; x < Map[y].size(); x++) {
+
+			// if the character isn't present yet in the dict, add a list with its char as key
+			if (!CharPosMapByRoom.count(Map[y][x])) {
+				// create value
+				vector<pair<float, float>> newCharPos;
+				pair<float, float> newPos(x, y);
+				newCharPos.push_back(newPos);
+
+				// add the value with the char as key to dict
+				CharPosMapByRoom.insert(pair<char, vector<pair<float, float>>>(Map[y][x], newCharPos));
+			}
+			else {
+				// add only the value
+				CharPosMapByRoom[Map[y][x]].push_back(pair<float, float>(x, y));
+			}
+		}
+	}
 }

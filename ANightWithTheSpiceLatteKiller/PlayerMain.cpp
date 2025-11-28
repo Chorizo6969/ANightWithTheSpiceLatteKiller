@@ -71,7 +71,9 @@ void MainElouann() {
 			break;
 
 		case T:
-			mapManager->PrintMap();
+			//for (pair<float, float> pos : mapManager->CharPosMapByRoom[mapManager->PlayerCurrentRoom]) {
+			//	mapManager->Map[pos.second][pos.first] = 'X';
+			//}
 			break;
 		}
 	}

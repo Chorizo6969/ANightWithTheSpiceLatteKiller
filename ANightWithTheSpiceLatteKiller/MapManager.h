@@ -9,7 +9,9 @@ class MapManager
 {
 public:
 	MapManager(ConsolePrinter* printer);
-	map<char, vector<char>> Rooms;
+	map<char, vector<char>> AdjacentRoomsRelations; // used to get adjacent rooms char
+	map<char, vector<pair<float, float>>> CharPosMapByRoom; // used to get every pos occupied by each room
+
 	pair<float, float> PlayerPosition;
 	pair<float, float> KillerPosition;
 	int PlayerCurrentRoom = 0;
@@ -19,10 +21,12 @@ public:
 	ConsolePrinter* Printer; 
 	void PrintMap(int colorOverrideIndex = -1, bool excludePlayer = false);
 	void TintMap(int colorIndex, int timeMiliSec, bool excludePlayer = false);
-	bool IsAdjacentOfPlayer(char c);
+	bool IsAdjacentToPlayer(char c);
+	vector<pair<float, float>> GetRoomFromChar(char c);
 
 private:
 	void Init();
+	void SetUpRoomDict();
 	void SetCharAttributes(CHAR_INFO* c, int colorOverrideIndex = -1);
 
 	string _baseMap;

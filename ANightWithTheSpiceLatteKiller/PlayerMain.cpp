@@ -16,7 +16,7 @@
 #define E 101
 #define A 97
 
-PlayerMain::PlayerMain(MapManager* mapRef, KillerMain* killer) 
+PlayerMain::PlayerMain(MapManager* mapRef, KillerMain* killer)
 {
 	PlayerMovementRef = new PlayerMouvement(mapRef, killer);
 	PlayerInteractionRef = new PlayerInteraction;
@@ -39,38 +39,48 @@ void TestInput() {
 	} while (ch != 'q');
 }
 
-void PlayerMain::MainElouann() {
-		c = 0;
-		// get player input as int
-		switch ((c = _getch())) {
+void PlayerMain::MainElouann()
+{
+	c = 0;
+	// get player input as int
+	switch ((c = _getch()))
+	{
 		case KEY_UP:
+		{
 			PlayerMovementRef->Move(0, -1);
 			//system("cls");
 			mapManager->PrintMap();
 			break;
+		}
 
 		case KEY_DOWN:
+		{
 			PlayerMovementRef->Move(0, 1);
 			//system("cls");
 			mapManager->PrintMap();
 			//cout << mapManager->PlayerCurrentRoom << " " << mapManager->KillerCurrentRoom << "|";
 
 			break;
+		}
 
 		case KEY_LEFT:
+		{
 			PlayerMovementRef->Move(-1, 0);
 			//system("cls");
 			mapManager->PrintMap();
 			/*system("cls");*/
 			break;
+		}
 
 		case KEY_RIGHT:
+		{
 			PlayerMovementRef->Move(1, 0);
 			//system("cls");
 			mapManager->PrintMap();
 			break;
+		}
 
-		case E:
+		case E: //Les portes
 		{
 			const auto& playerPos = mapManager->PlayerPosition;
 
@@ -88,10 +98,13 @@ void PlayerMain::MainElouann() {
 				}
 			}
 
-			std::cout << "Aucune porte à cette position." << std::endl;
+			//std::cout << "Aucune porte a cette position." << std::endl;
 			break;
 		}
+
 		case A:
+		{
 			break;
 		}
 	}
+}

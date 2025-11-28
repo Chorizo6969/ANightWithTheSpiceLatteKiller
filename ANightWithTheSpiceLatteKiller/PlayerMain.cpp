@@ -13,7 +13,8 @@
 #define KEY_DOWN 80
 #define KEY_LEFT 75
 #define KEY_RIGHT 77
-#define T 116
+#define E 101
+#define A 97
 
 PlayerMain::PlayerMain(MapManager* mapRef, KillerMain* killer) 
 {
@@ -27,6 +28,15 @@ PlayerMain::PlayerMain(MapManager* mapRef, KillerMain* killer)
 PlayerMain::~PlayerMain() {
 	delete PlayerMovementRef;
 	delete PlayerInteractionRef;
+}
+
+void TestInput() {
+	char ch;
+	printf("Press 'q' to exit prom program\n");
+	do {
+		ch = _getch();
+		printf("%c (%d)\n", ch, ch);
+	} while (ch != 'q');
 }
 
 void PlayerMain::MainElouann() {
@@ -60,19 +70,30 @@ void PlayerMain::MainElouann() {
 			mapManager->PrintMap();
 			break;
 
-		case T:
-			//if (PlayerCharacter != '!')
-			//	break;
-			//Apppeller PlayerInteraction (Interact)
+		case E:
+		{
+			const auto& playerPos = mapManager->PlayerPosition;
+
+			for (const auto& entry : mapManager->DoorsLinks)
+			{
+				const auto& doorPos = entry.first;
+				const auto& linkedDoor = entry.second;
+
+				if (doorPos.first == playerPos.second && doorPos.second == playerPos.first)
+				{
+					mapManager->PlayerPosition = { linkedDoor.second, linkedDoor.first };
+
+					mapManager->PrintMap();
+					return;
+				}
+			}
+
+			std::cout << "Aucune porte à cette position." << std::endl;
+			break;
+		}
+
+
+		case A:
 			break;
 		}
 	}
-
-void TestInput() {
-	char ch;
-	printf("Press 'q' to exit prom program\n");
-	do {
-		ch = _getch();
-		printf("%c (%d)\n", ch, ch);
-	} while (ch != 'q');
-}

@@ -2,6 +2,8 @@
 #include "MapManager.h"
 #include "ConsoleColorEnum.h"
 
+#include <algorithm>
+
 MapManager::MapManager(ConsolePrinter* printer) {
 	Printer = printer;
 	//_baseMap = "#################################################################################ddddddddddddd#kkkkkkkkkkkkkkkkkkk!/!ssssssssssssssssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#ssssssssssssssssssssssssssssssss!/!ffffffff##dddddddddddd!/!kkkkkkkkkkkkkkkkkkk################ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#bbbbbbbbbbbbbb#ssssssssssssssssss#ffffff!ff##ddddddddddddd#kkkkkkkkkkk##########bbbbbbbbbbbbbb##########################/####ddddddddddddd#kkkkkk!kkkk#bbbbbbbbbbbbbbbbbbbbbb!/!cccccccccccccccccccccccc!cc##ddddddddddddd#######/#####bbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc##dddddd!dddddd#bbbbbb!bbbbbbbbbbbbbbbbbbbbbb!bbbbb#cccccccccccccccccccccccccccc########/#######bbbbbbbbbbbbbbbbbb###########/######cccccc!ccccccccccccccccccccc##qqqqqq!qqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttt!ttttt#######/#############cccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#vvvvvv!vv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq####################tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqq!qqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#ccccc!cc#####/##qqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww######/####eee!e#qqqqqqq#oooooooooooooo!/!ttttttttttttttt!tt#vvvvvvvv!/!wwwwwwww#uuuuu!uu##eeeee#########ooooooooooooooo#################/###vv!vvvvvv#wwwwwwww!/!uuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#llllllllllllllll!ll###/#######wwwwwwwww#uuuuuuuu##eeeeeeeeeeee!/!oooooooooooooo#lllllllllllllllllll#mm!mmmmmm#wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm###########uuuuuuuu##eeeeeeeeeeeee#ooooooooo#######lllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu##eeeeeeeeeeeee#oooooooo!/!llllllllllllllllllllllll#mmmmmmmmmmmmmmmmmm!/!uuuuuuu##eeeeeeeeeeeee#ooooooooo#lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#################################################################################";
@@ -23,8 +25,22 @@ MapManager::MapManager(ConsolePrinter* printer) {
 		{ 'u', {'c', 'w', 'm'}},
 		{ 'q', {'d', 'e'} }
 	};
-	Init();
-	SetUpRoomDict();
+
+	// Init doors relations
+	DoorsSymbols = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ']', '[', ')', '(', '$', '>', '<', '{', '}', };
+
+	InitMap();
+	InitRoomPosDict();
+	InitDoorsRelations();
+
+	//std::for_each(
+	//	DoorsLinks.begin(), DoorsLinks.end(),
+	//	[](pair<pair<float, float>, pair<float, float>> p) {
+
+	//		cout << p.first.first << " " << p.first.second << " :: " << p.second.first << " " << p.second.second << endl;
+
+	//	});
+
 	PlayerPosition = make_pair(Map.size() / 2, Map[0].size() / 2);
 	KillerPosition = make_pair(65, 17);
 	KillerCurrentRoom = Map[KillerPosition.second][KillerPosition.first];
@@ -112,7 +128,7 @@ void MapManager::TintMap(int colorIndex, int timeMiliSec, bool excludePlayer) {
 	Sleep(timeMiliSec);
 }
 
-void MapManager::Init()
+void MapManager::InitMap()
 {
 	// TODO : prendre en compte la taille de la boîte de dialogue
 	int mapSizeY = 25;
@@ -197,7 +213,7 @@ bool MapManager::IsAdjacentToPlayer(char c) {
 //
 //}
 
-void MapManager::SetUpRoomDict() {
+void MapManager::InitRoomPosDict() {
 
 	for (int y = 0; y < Map.size(); y++) {
 		for (int x = 0; x < Map[y].size(); x++) {
@@ -215,6 +231,38 @@ void MapManager::SetUpRoomDict() {
 			else {
 				// add only the value
 				CharPosMapByRoom[Map[y][x]].push_back(pair<float, float>(x, y));
+			}
+		}
+	}
+}
+
+void MapManager::InitDoorsRelations() {
+	pair<float, float> currentPos;
+	// used
+	map<char, pair<float, float>> firstOccurencies;
+
+	// iterate over the map
+	for (int y = 0; y < Map.size(); y++) {
+		for (int x = 0; x < Map[y].size(); x++) {
+			// if char is a door
+			if (count(DoorsSymbols.begin(), DoorsSymbols.end(), Map[y][x])) {
+				
+				currentPos = make_pair(y, x);
+
+				// if firstOcc already contains char pos as key (means that its value is already present in the dict as key)
+				if (firstOccurencies.count(Map[y][x])) {
+					// change temp value in dict for currentPos
+					DoorsLinks[firstOccurencies[Map[y][x]]] = currentPos;
+					// add in dict the reverse relation
+					DoorsLinks.insert(make_pair(currentPos, firstOccurencies[Map[y][x]]));
+				}
+				// else 
+				else {
+					// add currentPos to firstOccurencies, whith its char as key
+					firstOccurencies.insert(make_pair(Map[y][x], currentPos));
+					// add currentPos to dict as key and with a fake temporary value
+					DoorsLinks.insert(make_pair(currentPos, make_pair(-1, -1)));
+				}
 			}
 		}
 	}

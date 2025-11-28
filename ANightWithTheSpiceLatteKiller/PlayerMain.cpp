@@ -61,9 +61,9 @@ void PlayerMain::MainElouann() {
 			break;
 
 		case T:
-			//for (pair<float, float> pos : mapManager->CharPosMapByRoom[mapManager->PlayerCurrentRoom]) {
-			//	mapManager->Map[pos.second][pos.first] = 'X';
-			//}
+			//if (PlayerCharacter != '!')
+			//	break;
+			//Apppeller PlayerInteraction (Interact)
 			break;
 		}
 	}

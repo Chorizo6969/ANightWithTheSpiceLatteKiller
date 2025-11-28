@@ -1,7 +1,5 @@
 #pragma once
-
 #include "Interactable.h"
-
 
 class PlayerInteraction
 {

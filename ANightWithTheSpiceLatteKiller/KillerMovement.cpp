@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <random>
+#include <string>
 
 KillerMovement::KillerMovement(MapManager* map) : MapManagerRef(map) {
 
@@ -23,10 +24,23 @@ char KillerMovement::GetRandomAdjacent(char key) {
 		return adjacents[dis(gen)];
 	}
 	return '\0';
+}
 
+pair<float, float> KillerMovement::GetRandomPosInRoom(char key) {
+	static std::random_device rd;
+	static std::mt19937 gen(rd());
+	auto it = MapManagerRef->CharPosMapByRoom.find(key);
+	if (it != MapManagerRef->CharPosMapByRoom.end()) {
+		const auto& adjacents = it->second;
+		std::uniform_int_distribution<> dis(0, adjacents.size() - 1);
+		return adjacents[dis(gen)];
+	}
+	return MapManagerRef->KillerPosition;
 }
 
 void KillerMovement::MoveKiller() {
-	GetRandomAdjacent('e');
-	/*MapManagerRef->CharPosMapByRoom;*/
+	//GetRandomAdjacent('o');
+	MapManagerRef->KillerPosition = GetRandomPosInRoom(GetRandomAdjacent('o'));
+	std::cout << MapManagerRef->KillerPosition.second << std::endl;
+	std::cout << MapManagerRef->KillerPosition.first << std::endl;
 }

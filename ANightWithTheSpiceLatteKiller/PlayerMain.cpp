@@ -91,23 +91,3 @@ void TestInput() {
 		printf("%c (%d)\n", ch, ch);
 	} while (ch != 'q');
 }
-
-int main()
-{
-	KillerMain* killerMain = new KillerMain;
-	killerMain->TestStepSystem();
-
-	Sleep(1000);
-
-	MainElouann();
-
-	//SON
-	SoundManager* sound = new SoundManager;
-	sound->PlayMusic("Ambiance.mp3", true);
-	//sound->PlaySFX("Freddy.mp3");
-
-	std::cout << "Joue le son, appuyez sur Entrée pour quitter...\n";
-	std::cin.get();
-}
-
-

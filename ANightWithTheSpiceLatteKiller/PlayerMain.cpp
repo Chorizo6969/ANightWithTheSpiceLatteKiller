@@ -1,4 +1,3 @@
-#define MINIAUDIO_IMPLEMENTATION
 #include <iostream>
 #include "ConsolePrinter.h"
 #include "PlayerMain.h"
@@ -69,19 +68,14 @@ void MainElouann() {
 int main()
 {
 	SoundManager* sound = new SoundManager;
-	sound->PlayMusic("George.mp3", true);
-	sound->PlaySFX("Freddy.mp3");
+	sound->PlayMusic("Ambiance.mp3", true);
+	//sound->PlaySFX("Freddy.mp3");
 
+	std::cout << "Joue le son, appuyez sur Entrée pour quitter...\n";
+	std::cin.get(); 
 
-	//ma_engine engine;
-
-	//killerMain->ClientCode();
-	//MainElouann();
-
-	//KillerMain* killerMain = new KillerMain;
-	//killerMain->ClientCode();
-	//MainMateo();
-	//MainElouann();
+	delete sound;
+	return 0;
 }
 
 

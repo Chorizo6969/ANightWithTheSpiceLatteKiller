@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="MiniaudioImplementation.cpp" />
     <ClCompile Include="StateBase.cpp" />
     <ClCompile Include="ConsolePrinter.cpp" />
     <ClCompile Include="DialogueDataBase.cpp" />

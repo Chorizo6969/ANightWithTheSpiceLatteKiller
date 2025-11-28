@@ -1,7 +1,8 @@
+#pragma once
 #include "miniaudio.h"
 #include <string>
 
-#pragma once
+
 class SoundManager
 {
 public:

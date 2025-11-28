@@ -26,7 +26,7 @@ PlayerMain::~PlayerMain() {
 	delete PlayerInteractionRef;
 }
 
-void MainElouann() {
+void PlayerMain::MainElouann() {
 	int i;
 	i = -1;
 
@@ -58,7 +58,8 @@ void MainElouann() {
 			playerMain->PlayerMovementRef->Move(0, 1);
 			//system("cls");
 			mapManager->PrintMap();
-			
+			//cout << mapManager->PlayerCurrentRoom << " " << mapManager->KillerCurrentRoom << "|";
+
 			break;
 
 		case KEY_LEFT:

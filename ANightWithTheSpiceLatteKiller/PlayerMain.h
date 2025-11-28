@@ -2,6 +2,7 @@
 
 #include "PlayerInteraction.h"
 #include "PlayerMouvement.h"
+#include "KillerMain.h"
 
 
 class PlayerMain {
@@ -11,7 +12,7 @@ public:
 	PlayerInteraction* PlayerInteractionRef;
 	MapManager* mapManager;
 
-	PlayerMain(MapManager* map);
+	PlayerMain(MapManager* map, KillerMain* killer);
 	~PlayerMain();
 	int c;
 	//int main();

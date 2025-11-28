@@ -15,9 +15,9 @@
 #define KEY_RIGHT 77
 #define T 116
 
-PlayerMain::PlayerMain(MapManager* mapRef) 
+PlayerMain::PlayerMain(MapManager* mapRef, KillerMain* killer) 
 {
-	PlayerMovementRef = new PlayerMouvement(mapRef);
+	PlayerMovementRef = new PlayerMouvement(mapRef, killer);
 	PlayerInteractionRef = new PlayerInteraction;
 	c = 0;
 	mapManager = mapRef;

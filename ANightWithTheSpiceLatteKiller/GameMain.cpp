@@ -3,8 +3,8 @@
 GameMain::GameMain() {
 	ConsolePrinterRef = new ConsolePrinter;
 	MapManagerRef = new MapManager(ConsolePrinterRef);
-	PlayerMainRef = new PlayerMain(MapManagerRef);
 	KillerMainRef = new KillerMain(MapManagerRef);
+	PlayerMainRef = new PlayerMain(MapManagerRef, KillerMainRef);
 
 }
 
@@ -15,6 +15,8 @@ GameMain::~GameMain() {
 
 int main() {
 	GameMain main;
+
+	//main.KillerMainRef->TestStepSystem();
 
 	while (1) {
 		main.PlayerMainRef->MainElouann();

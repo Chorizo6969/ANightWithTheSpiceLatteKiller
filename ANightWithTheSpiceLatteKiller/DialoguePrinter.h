@@ -20,6 +20,8 @@ public:
 
 	void WriteColoredDialogue(std::string category, std::string key, int colorIndex);
 
+	void PrintInventory(int currentIngre, int maxIngre);
+
 private:
 	ConsolePrinter* consolePrinterRef_;
 };

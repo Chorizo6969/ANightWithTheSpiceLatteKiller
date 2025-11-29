@@ -77,8 +77,11 @@ int main() {
 	main->GameSessionRef->SessionStart();
 
 	while (true) {
-		if(main->GameSessionRef->CanPlay)main->PlayerMainRef->MainElouann();
-		//main.DialoguePrinterRef->WriteDialogue("killer", "try_open_door");
+
+		if (main->GameSessionRef->CanPlay) {
+			main->PlayerMainRef->MainElouann();
+
+		}
 	}
 
 }

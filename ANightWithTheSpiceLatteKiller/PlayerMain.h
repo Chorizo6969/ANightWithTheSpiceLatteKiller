@@ -31,11 +31,12 @@ public:
 	void AddIngredient();
 
 	void GameWin();
+	int maxIngredient = 15;
+	int CurrentIngredient = 0;
 
 
 private:
-	int maxIngredient = 15;
-	int CurrentIngredient = 0;
+
 
 	void CheckTotalIngredient();
 };

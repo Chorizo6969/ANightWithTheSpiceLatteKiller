@@ -27,3 +27,7 @@ void DialoguePrinter::WriteDialogueWithDelay()
 void DialoguePrinter::WriteColoredDialogue(std::string category, std::string key, int colorIndex) {
 	consolePrinterRef_->ColoredPrint(dialogueDataBaseRef->GetDialogue(category, key), colorIndex);
 }
+
+void DialoguePrinter::PrintInventory(int currentIngre, int maxIngre) {
+	std::cout << "Ingredient Inventory : " + currentIngre + '/' + maxIngre << std::endl;
+}

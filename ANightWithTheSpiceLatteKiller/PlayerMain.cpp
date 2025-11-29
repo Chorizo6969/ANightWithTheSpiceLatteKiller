@@ -22,6 +22,7 @@ PlayerMain::PlayerMain(MapManager* map, KillerMain* killer, SoundManager* sound,
 	DialoguePrinterRef = dialogue;
 	GameSessionRef = session;
 	mapManager->PrintMap();
+	KillerMainRef = killer;
 }
 
 PlayerMain::~PlayerMain() {
@@ -88,6 +89,10 @@ void PlayerMain::MainElouann()
 				mapManager->PlayerPosition = { linkedDoor.second, linkedDoor.first };
 
 				mapManager->PrintMap();
+				if (mapManager->IsKillerInTheOtherSideOfTheDoor(mapManager->PlayerPosition) > 0)
+				{
+					KillerMainRef->GameOver();
+				}
 				break;
 			}
 		}
@@ -140,8 +145,8 @@ void PlayerMain::AddIngredient() {
 }
 
 void PlayerMain::CheckTotalIngredient() {
+	DialoguePrinterRef->PrintInventory(CurrentIngredient, maxIngredient);
 	if (CurrentIngredient == maxIngredient) {
-		DialoguePrinterRef->PrintInventory(CurrentIngredient, maxIngredient);
 		GameWin();
 	}
 }

@@ -85,9 +85,9 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 
 		for (int j = 0; j < Map[i].size(); j++)
 		{
-			for (int x = 0; x < blankSpaceX; x++) {
-				buffer.push_back(blank);
-			}
+			//for (int x = 0; x < blankSpaceX; x++) {
+			//	buffer[i * Printer->Csbi.dwMaximumWindowSize.X+ j] = blank;
+			//}
 			// Handle player pos
 			if (i == PlayerPosition.second && j == PlayerPosition.first)
 			{

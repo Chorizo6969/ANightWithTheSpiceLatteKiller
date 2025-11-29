@@ -111,9 +111,11 @@ void PlayerMain::MainElouann()
 			if (/*mapManager->Map[y][x] == '@'*/ count(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), make_pair(x, y)))
 			{
 				//std::cout << "Collectible ramassé !" << std::endl;
-				mapManager->TintMap(CYAN, 50, false);
+				//mapManager->TintMap(CYAN, 50, false);
 				
-				mapManager->Map[y][x] = mapManager->PlayerCurrentRoom;
+				//mapManager->Map[y][x] = mapManager->PlayerCurrentRoom;
+				//mapManager->LatteComponentsPos.erase(pos);
+				mapManager->LatteComponentsPos.erase(find(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), pos));
 				mapManager->PrintMap();
 			}
 			break;

@@ -108,9 +108,10 @@ void PlayerMain::MainElouann()
 			int x = pos.first;
 			int y = pos.second;
 
-			if (mapManager->Map[y][x] == '@')
+			if (/*mapManager->Map[y][x] == '@'*/ count(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), make_pair(x, y)))
 			{
-				std::cout << "Collectible ramassé !" << std::endl;
+				//std::cout << "Collectible ramassé !" << std::endl;
+				mapManager->TintMap(CYAN, 50, false);
 				
 				mapManager->Map[y][x] = mapManager->PlayerCurrentRoom;
 				mapManager->PrintMap();

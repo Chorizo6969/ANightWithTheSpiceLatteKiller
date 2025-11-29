@@ -23,6 +23,8 @@ public:
 	pair<float, float> KillerPosition;
 	pair<float, float> KillerLastPosition;
 
+	vector<pair<float, float>> LatteComponentsPos;
+
 	char PlayerCurrentRoom = 0;
 	char KillerCurrentRoom = 0;
 

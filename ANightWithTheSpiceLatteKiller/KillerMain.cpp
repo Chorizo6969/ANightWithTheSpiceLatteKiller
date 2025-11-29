@@ -49,15 +49,16 @@ void KillerMain::DebugStateMachine() {
 
 void KillerMain::Update(int value)
 {
-	/*std::cout << "Le joueur est a " << value << " pas" << std::endl;*/
+	
 	PlayerStepMemory++;
-    if (PlayerStepMemory == 30) {
+    if (PlayerStepMemory >= 30 && KillerBrainRef->stateCurrent != KillerBrainRef->stateKillerAtDoor) //Avoid killer to switch state when AtTheDoor
+	{
 		KillerBrainRef->SwitchState(KillerBrainRef->GetRandomPatrolState());
 		PlayerStepMemory = 0;
 	}
-	if(PlayerStepMemory % 5 == 0)KillerDo();
+	KillerDo();
 
-
+	/*std::cout << "Le joueur est a " << value << " pas" << std::endl;*/
 }
 
 void KillerMain::GameOver() {

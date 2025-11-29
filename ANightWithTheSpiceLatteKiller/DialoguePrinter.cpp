@@ -9,7 +9,6 @@ DialoguePrinter::DialoguePrinter(ConsolePrinter* consolePrinter) {
 
 DialoguePrinter::~DialoguePrinter() {
 	delete dialogueDataBaseRef;
-	delete consolePrinterRef_;
 }
 
 #pragma endregion

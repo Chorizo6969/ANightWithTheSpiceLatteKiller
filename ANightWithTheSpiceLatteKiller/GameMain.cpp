@@ -4,8 +4,8 @@ GameMain::GameMain() {
 	ConsolePrinterRef = new ConsolePrinter;
 	MapManagerRef = new MapManager(ConsolePrinterRef);
 	KillerMainRef = new KillerMain(MapManagerRef);
-	PlayerMainRef = new PlayerMain(MapManagerRef, KillerMainRef);
 	SoundManagerRef = new SoundManager;
+	PlayerMainRef = new PlayerMain(MapManagerRef, KillerMainRef, SoundManagerRef);
 	DialoguePrinterRef = new DialoguePrinter(ConsolePrinterRef);
 }
 

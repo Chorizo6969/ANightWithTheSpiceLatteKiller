@@ -102,6 +102,7 @@ void PlayerMain::MainElouann()
 		if (count(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), make_pair(x, y))) {
 			mapManager->LatteComponentsPos.erase(find(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), pos));
 			DialoguePrinterRef->WriteDialogue("player", "ingredient_looted");
+			AddIngredient();
 		}
 			
 		mapManager->PrintMap();

@@ -17,8 +17,8 @@ KillerMain::KillerMain(MapManager* mapRef, DialoguePrinter* diaRef)
 	AvoidableCharList = MapManagerRef->DoorsSymbols;
 	AvoidableCharList.push_back('@');
 	AvoidableCharList.push_back('§');
-}
 
+}
 KillerMain::~KillerMain() {
 	delete MapManagerRef;
 	delete KillerMovementRef;

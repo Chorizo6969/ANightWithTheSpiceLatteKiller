@@ -11,7 +11,9 @@ public:
 	void OnExit() override;
 
 private:
+	int _doorKnockFrequence = 3;
 	int stepsRemaining; //steps until the gameOver
 	const int MAX_STEPS = 20; //start steps of stepsRemaining
+	char playerRoomWhenKnocking;
 };
 

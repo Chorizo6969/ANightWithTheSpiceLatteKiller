@@ -122,7 +122,7 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 	}
 
 	SMALL_RECT region = { 0, 0, Printer->Csbi.dwMaximumWindowSize.X - 1, Printer->Csbi.dwMaximumWindowSize.Y - 1 };
-	WriteConsoleOutput(Printer->HConsoleRef, buffer.data(), { (short)Printer->Csbi.dwMaximumWindowSize.X, (short)Printer->Csbi.dwMaximumWindowSize.Y -10 }, { 0, 0 }, &region);
+	WriteConsoleOutput(Printer->HConsoleRef, buffer.data(), { (short)Printer->Csbi.dwMaximumWindowSize.X, (short)Printer->Csbi.dwMaximumWindowSize.Y - 16 }, { 0, 0 }, &region);
 }
 
 void MapManager::TintMap(int colorIndex, int timeMiliSec, bool excludePlayer) {

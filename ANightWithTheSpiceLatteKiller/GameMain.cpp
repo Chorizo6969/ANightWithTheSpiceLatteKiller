@@ -59,6 +59,8 @@ int main() {
 
 	Sleep(30);
 	
+	//for(int i = 0; i < )
+
 	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl /*<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl*/;
 	GameMain main;
 

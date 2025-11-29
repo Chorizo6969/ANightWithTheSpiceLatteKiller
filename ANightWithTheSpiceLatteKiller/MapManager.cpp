@@ -191,7 +191,7 @@ void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int
 		c->Attributes = (Map[charPos.first][charPos.second] == PlayerCurrentRoom) ? Printer->MakeColor(YELLOW, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
 		break;
 	case '§':
-		c->Attributes = (/*PlayerCurrentRoom == KillerCurrentRoom*/ true) ? Printer->MakeColor(KillerColor, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
+		c->Attributes = (ShowKiller) ? Printer->MakeColor(KillerColor, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
 		break;
 	default:
 		// si le char est le même que celui du joueur (donc même pièce) OU qu'il en a un similaire autour de lui (donc porte de même pièce)

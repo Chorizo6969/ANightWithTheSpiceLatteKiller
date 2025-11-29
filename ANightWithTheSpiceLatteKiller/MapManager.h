@@ -32,6 +32,8 @@ public:
 	// TEMP POUR EMRYS
 	int KillerColor = RED;
 
+	bool ShowKiller = false;
+
 	vector<vector<char>> Map;
 	ConsolePrinter* Printer; 
 	void PrintMap(int colorOverrideIndex = -1, bool excludePlayer = false);

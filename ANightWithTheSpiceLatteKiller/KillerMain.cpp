@@ -18,6 +18,8 @@ KillerMain::KillerMain(MapManager* mapRef, DialoguePrinter* diaRef)
 	AvoidableCharList.push_back('@');
 	AvoidableCharList.push_back('§');
 
+	//MapManagerRef->ShowKiller = true;
+
 }
 KillerMain::~KillerMain() {
 	delete MapManagerRef;
@@ -57,7 +59,7 @@ void KillerMain::Update(int value)
 }
 
 void KillerMain::GameOver() {
-	//Killer Visible now
+	MapManagerRef->ShowKiller = true;
 	DialoguePrinterRef->WriteDialogue("killer", "game_over");
 }
 

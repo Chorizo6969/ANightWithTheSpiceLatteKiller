@@ -27,6 +27,7 @@ public:
 
 	char PlayerCurrentRoom = 0;
 	char KillerCurrentRoom = 0;
+	char KillerLastRoom = 0;
 
 	// TEMP POUR EMRYS
 	int KillerColor = RED;

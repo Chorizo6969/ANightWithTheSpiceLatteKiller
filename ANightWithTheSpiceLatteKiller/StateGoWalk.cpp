@@ -4,7 +4,7 @@
 StateGoWalk::StateGoWalk(KillerMain* killerMainRef)
 	: StateBase(killerMainRef)
 {
-	_moveSpeed = 7;
+	_moveFrequence = 7;
 }
 
 
@@ -14,7 +14,7 @@ void StateGoWalk::OnEnter() {
 }
 
 void StateGoWalk::Do() {
-	if (killerMainRef->PlayerStepMemory % _moveSpeed == 0)
+	if (killerMainRef->PlayerStepMemory % _moveFrequence == 0)
 	{
 		killerMainRef->KillerMovementRef->MoveKillerSafe(true); // Avoid player room and adjacent
 	}

@@ -11,21 +11,18 @@ DialogueDataBase::~DialogueDataBase() {
 //Fill the map on construct
 void DialogueDataBase::FillMap() {
     // Utility
-    UtilityDialogue["wait_dot"] = ".... .... ....";
+    UtilityDialogue["wait_dot"] = "... ... ...";
+    UtilityDialogue["game_start"] = "Someone is hunting you. Find the ingredients and escape! Use [arrow keys] to move.";
 
     // Player
-    PlayerDialogue["door_interact"] = "A door is just here, what do you want to do?";
-    PlayerDialogue["choice_open"] = "A - Open the door";
-    PlayerDialogue["choice_listen"] = "B - Listen to the sound";
-    PlayerDialogue["open_door"] = "You choose to open the door";
-    PlayerDialogue["listen_sound"] = "You choose to listen";
-    PlayerDialogue["loot_item"] = "You loot this : ";
+    PlayerDialogue["door_interact"] = "There's a door here. [A] Open it  |  [B] Listen carefully";
+    PlayerDialogue["loot_interact"] = "You found an ingredient! Press [F] to take it.";
 
     // Killer
-    KillerDialogue["try_open_door"] = "You can hear the killer trying to open one of the doors!";
-    KillerDialogue["kill_you"] = "The killer found you, you are dead.....";
-    KillerDialogue["in_next_room"] = "You hear breath just in the next room";
-    KillerDialogue["far_away"] = "You hear nothing";
+    KillerDialogue["try_open_door"] = "You hear someone frantically trying to open a door nearby. RUN!";
+    KillerDialogue["game_over"] = "The killer found you. Everything fades to black...";
+    KillerDialogue["in_next_room"] = "Heavy footsteps echo from the next room...";
+    KillerDialogue["far_away"] = "Silence. For now.";
 }
 
 //Safe way to get line

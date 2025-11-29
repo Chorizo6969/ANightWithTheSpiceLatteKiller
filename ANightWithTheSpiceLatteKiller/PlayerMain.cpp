@@ -151,7 +151,8 @@ void PlayerMain::CheckTotalIngredient() {
 	}
 }
 
-void PlayerMain::GameWin() {
+void PlayerMain::GameWin()
+{
 	DialoguePrinterRef->WriteDialogue("player", "game_win");
 	GameSessionRef->SessionEnd();
 }

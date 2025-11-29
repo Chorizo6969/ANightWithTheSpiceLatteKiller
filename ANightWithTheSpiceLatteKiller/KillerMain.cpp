@@ -1,7 +1,7 @@
 #include "KillerMain.h"
 
 #pragma region Constructor&Destructor
-KillerMain::KillerMain(MapManager* mapRef, DialoguePrinter* diaRef, GameSession* gameSession)
+KillerMain::KillerMain(MapManager* mapRef, DialoguePrinter* diaRef, GameSession* gameSession, SoundManager* sound)
 {
 	PlayerStepMemory = 0;
 	MapManagerRef = mapRef;
@@ -12,6 +12,7 @@ KillerMain::KillerMain(MapManager* mapRef, DialoguePrinter* diaRef, GameSession*
 	StepCounterRef = new StepCounter(*EventManagerRef);
 	DialoguePrinterRef = diaRef;
 	GameSessionRef = gameSession;
+	soundRef_ = sound;
 
 	PlayerTrueRoom = MapManagerRef->PlayerCurrentRoom;
 
@@ -60,6 +61,7 @@ void KillerMain::Update(int value)
 
 void KillerMain::GameOver() {
 	MapManagerRef->ShowKiller = true;
+	soundRef_->PlaySFX("Kill.mp3");
 	DialoguePrinterRef->WriteDialogue("killer", "game_over");
 	GameSessionRef->SessionEnd();
 	

@@ -17,7 +17,8 @@ void StateKillerAtDoor::Do() {
 	stepsRemaining--;
 	killerMainRef->DialoguePrinterRef->WriteDialogue("killer", "try_open_door");
 	//killerMainRef->MapManagerRef->TintMap(RED, 50, false);
-	if (stepsRemaining <= 0) {
+	if (stepsRemaining <= 0) 
+	{
 		killerMainRef->GameOver();
 	}
 

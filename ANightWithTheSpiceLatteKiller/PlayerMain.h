@@ -37,7 +37,5 @@ public:
 
 
 private:
-
-
 	void CheckTotalIngredient();
 };

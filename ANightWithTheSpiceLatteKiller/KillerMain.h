@@ -1,5 +1,5 @@
 #pragma once
-
+#include "SoundManager.h"
 #include "KillerStateBrain.h"
 #include "KillerMovement.h"
 #include "KillerSoundHandler.h"
@@ -21,7 +21,7 @@ public:
 	MapManager* MapManagerRef;
 	DialoguePrinter* DialoguePrinterRef;
 	GameSession* GameSessionRef;
-	KillerMain(MapManager* mapRef, DialoguePrinter* diaRef, GameSession* gameSession);
+	KillerMain(MapManager* mapRef, DialoguePrinter* diaRef, GameSession* gameSession, SoundManager* sound);
 	~KillerMain();
 
 	void KillerDo();

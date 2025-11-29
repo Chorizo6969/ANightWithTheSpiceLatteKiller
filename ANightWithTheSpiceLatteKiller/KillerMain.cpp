@@ -38,8 +38,8 @@ void KillerMain::UpdatePlayerRoom() {
 void KillerMain::KillerDo() {
 	UpdatePlayerRoom();
 	if(KillerBrainRef->stateCurrent != NULL)KillerBrainRef->stateCurrent->Do();
-	std::cout << "LA ROOM DU JOUEUR : " + MapManagerRef->PlayerCurrentRoom << std::endl;
-	std::cout << "LA ROOM DU KILLER : " + MapManagerRef->KillerCurrentRoom << std::endl;
+	//std::cout << "LA ROOM DU JOUEUR : " + MapManagerRef->PlayerCurrentRoom << std::endl;
+	//std::cout << "LA ROOM DU KILLER : " + MapManagerRef->KillerCurrentRoom << std::endl;
 }
 
 void KillerMain::DebugStateMachine() {
@@ -63,7 +63,7 @@ void KillerMain::Update(int value)
 
 void KillerMain::GameOver() {
 	//Killer Visible now
-	std::cout << "GAMEOVER" << std::endl;
+	//std::cout << "GAMEOVER" << std::endl;
 }
 
 void KillerMain::TestStepSystem()

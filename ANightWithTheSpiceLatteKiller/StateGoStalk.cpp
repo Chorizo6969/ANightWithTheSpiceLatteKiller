@@ -4,6 +4,7 @@
 StateGoStalk::StateGoStalk(KillerMain* killerMainRef)
 	: StateBase(killerMainRef)
 {
+	_moveSpeed = 5;
 }
 
 void StateGoStalk::OnEnter() {
@@ -12,7 +13,10 @@ void StateGoStalk::OnEnter() {
 }
 
 void StateGoStalk::Do() {
-	killerMainRef->KillerMovementRef->MoveKillerSafe(false); //Avoid playerRoom
+	if (killerMainRef->PlayerStepMemory % _moveSpeed == 0) { //Move each 5 steps
+		killerMainRef->KillerMovementRef->MoveKillerSafe(false); //Avoid playerRoom
+	}
+
 	//std::cout << "Killer is stalking player" << std::endl;
 }
 

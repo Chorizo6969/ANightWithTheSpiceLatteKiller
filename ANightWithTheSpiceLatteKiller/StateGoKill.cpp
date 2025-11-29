@@ -4,6 +4,7 @@
 StateGoKill::StateGoKill(KillerMain* killerMainRef)
 	: StateBase(killerMainRef)
 {
+	_moveSpeed = 3;
 }
 
 void StateGoKill::OnEnter() {
@@ -12,8 +13,10 @@ void StateGoKill::OnEnter() {
 }
 
 void StateGoKill::Do() {
-	killerMainRef->KillerMovementRef->MoveKiller(killerMainRef->MapManagerRef->KillerCurrentRoom); // No restriction
-	killerMainRef->MapManagerRef->KillerLastRoom = killerMainRef->MapManagerRef->KillerCurrentRoom;
+	if (killerMainRef->PlayerStepMemory % _moveSpeed == 0) { //move each 3 steps
+		killerMainRef->KillerMovementRef->MoveKiller(killerMainRef->MapManagerRef->KillerCurrentRoom); // No restriction
+		killerMainRef->MapManagerRef->KillerLastRoom = killerMainRef->MapManagerRef->KillerCurrentRoom;
+	}
 	//std::cout << "Killer is trying to kill player" << std::endl;
 
 	if (killerMainRef->MapManagerRef->KillerCurrentRoom == killerMainRef->MapManagerRef->PlayerCurrentRoom) {

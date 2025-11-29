@@ -4,6 +4,7 @@
 StateGoWalk::StateGoWalk(KillerMain* killerMainRef)
 	: StateBase(killerMainRef)
 {
+	_moveSpeed = 7;
 }
 
 
@@ -13,7 +14,12 @@ void StateGoWalk::OnEnter() {
 }
 
 void StateGoWalk::Do() {
-	killerMainRef->KillerMovementRef->MoveKillerSafe(true); // Avoid player room and adjacent
+	if (killerMainRef->PlayerStepMemory % _moveSpeed == 0)
+	{
+		killerMainRef->KillerMovementRef->MoveKillerSafe(true); // Avoid player room and adjacent
+	}
+
+	
 	//std::cout << "Killer is walking in the shop" << std::endl;
 }
 

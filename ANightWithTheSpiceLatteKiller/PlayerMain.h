@@ -17,6 +17,7 @@ public:
 	SoundManager* SoundManagerRef;
 	DialoguePrinter* DialoguePrinterRef;
 	GameSession* GameSessionRef;
+	KillerMain* KillerMainRef;
 
 	
 

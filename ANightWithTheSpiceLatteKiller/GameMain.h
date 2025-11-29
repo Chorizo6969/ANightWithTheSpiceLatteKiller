@@ -4,6 +4,7 @@
 #include "ConsolePrinter.h"
 #include "PlayerMain.h"
 #include "SoundManager.h"
+#include "DialoguePrinter.h"
 
 class GameMain
 {
@@ -13,6 +14,7 @@ public:
 	MapManager* MapManagerRef;
 	ConsolePrinter* ConsolePrinterRef;
 	SoundManager* SoundManagerRef;
+	DialoguePrinter* DialoguePrinterRef;
 
 	GameMain();
 	~GameMain();

@@ -76,6 +76,7 @@ void PlayerMain::MainElouann()
 	{
 		PlayerMovementRef->Move(1, 0);
 		//system("cls");
+
 		mapManager->PrintMap();
 		break;
 	}
@@ -94,7 +95,7 @@ void PlayerMain::MainElouann()
 				mapManager->PlayerPosition = { linkedDoor.second, linkedDoor.first };
 
 				mapManager->PrintMap();
-				return;
+				break;
 			}
 		}
 

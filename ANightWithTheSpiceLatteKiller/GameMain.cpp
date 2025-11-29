@@ -6,6 +6,7 @@ GameMain::GameMain() {
 	KillerMainRef = new KillerMain(MapManagerRef);
 	PlayerMainRef = new PlayerMain(MapManagerRef, KillerMainRef);
 	SoundManagerRef = new SoundManager;
+	DialoguePrinterRef = new DialoguePrinter;
 }
 
 
@@ -14,11 +15,10 @@ GameMain::~GameMain() {
 }
 
 int main() {
+#pragma region ScreenMenu
 
-	//cout << main.ConsolePrinterRef->Csbi.dwMaximumWindowSize.X << " " << main.ConsolePrinterRef->Csbi.dwMaximumWindowSize.Y;
-	Sleep(100);
+
 	bool fullscreen = false;
-	//main.KillerMainRef->TestStepSystem();
 	cout << R"(                           ___    _   _ _       _     _     _    _ _ _   _       _____ _           
                           / _ \  | \ | (_)     | |   | |   | |  | (_) | | |     |_   _| |          
                          / /_\ \ |  \| |_  __ _| |__ | |_  | |  | |_| |_| |__     | | | |__   ___  
@@ -36,7 +36,13 @@ int main() {
                                | |                                                                 
                                |_|                                                                 )";
 
-	cout << endl << endl << endl << endl << endl << "                                                Press Alt+Enter to start";
+	cout << endl << endl << endl;
+	//main.KillerMainRef->TestStepSystem();
+	for (int i = 0; i < 94; i++) {
+		char c = (i % 2 == 0) ? ' ' : '-';
+		cout << c;
+		if (i == 47) cout << " Press Alt+Enter to start";
+	}
 	while (!fullscreen) {
 		if (GetKeyState(VK_MENU) & 0x8000)
 		{
@@ -47,13 +53,17 @@ int main() {
 			}
 		}
 	}
+#pragma endregion
 
-	Sleep(10);
+	Sleep(30);
+	
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
 	GameMain main;
 
 
 	while (1) {
 		main.PlayerMainRef->MainElouann();
+		//main.DialoguePrinterRef->WriteDialogue("")
 		/*main.KillerMainRef->KillerMovementRef->MoveKiller();*/
 	}
 

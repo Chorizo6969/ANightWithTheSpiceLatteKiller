@@ -12,13 +12,14 @@
 #define A 97
 #define R 114
 
-PlayerMain::PlayerMain(MapManager* mapRef, KillerMain* killer, SoundManager* sound)
+PlayerMain::PlayerMain(MapManager* map, KillerMain* killer, SoundManager* sound, DialoguePrinter* dialogue)
 {
-	PlayerMovementRef = new PlayerMouvement(mapRef, killer);
+	PlayerMovementRef = new PlayerMouvement(map, killer);
 	PlayerInteractionRef = new PlayerInteraction;
 	SoundManagerRef = sound;
 	c = 0;
-	mapManager = mapRef;
+	mapManager = map;
+	DialoguePrinterRef = dialogue;
 	mapManager->PrintMap();
 }
 
@@ -38,6 +39,7 @@ void TestInput() {
 
 void PlayerMain::MainElouann()
 {
+
 	c = 0;
 
 	switch ((c = _getch()))
@@ -98,8 +100,11 @@ void PlayerMain::MainElouann()
 		int x = pos.first;
 		int y = pos.second;
 
-		if (count(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), make_pair(x, y)))
+		if (count(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), make_pair(x, y))) {
 			mapManager->LatteComponentsPos.erase(find(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), pos));
+			DialoguePrinterRef->WriteDialogue("player", "ingredient_looted");
+		}
+			
 		mapManager->PrintMap();
 		break;
 	}

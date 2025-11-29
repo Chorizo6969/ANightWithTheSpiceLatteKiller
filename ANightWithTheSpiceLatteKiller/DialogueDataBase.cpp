@@ -16,7 +16,8 @@ void DialogueDataBase::FillMap() {
 
     // Player
     PlayerDialogue["door_interact"] = "There's a door here. [A] Open it  |  [B] Listen carefully";
-    PlayerDialogue["loot_interact"] = "You found an ingredient! Press [F] to take it.";
+    PlayerDialogue["ingredient_interact"] = "You found an ingredient! Press [F] to take it.";
+    PlayerDialogue["ingredient_looted"] = "You loot an ingredient!";
 
     // Killer
     KillerDialogue["try_open_door"] = "You hear someone frantically trying to open a door nearby. RUN!";

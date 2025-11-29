@@ -6,7 +6,7 @@ GameMain::GameMain() {
 	DialoguePrinterRef = new DialoguePrinter(ConsolePrinterRef);
 	MapManagerRef = new MapManager(ConsolePrinterRef);
 	KillerMainRef = new KillerMain(MapManagerRef, DialoguePrinterRef);
-	PlayerMainRef = new PlayerMain(MapManagerRef, KillerMainRef, SoundManagerRef);
+	PlayerMainRef = new PlayerMain(MapManagerRef, KillerMainRef, SoundManagerRef, DialoguePrinterRef);
 	SoundManagerRef = new SoundManager;
 	DialoguePrinterRef = new DialoguePrinter(ConsolePrinterRef);
 }
@@ -69,6 +69,7 @@ int main() {
 	}
 
 	main.MapManagerRef->PrintMap();
+	main.DialoguePrinterRef->WriteDialogue("utility", "game_start");
 
 	while (1) {
 		main.PlayerMainRef->MainElouann();

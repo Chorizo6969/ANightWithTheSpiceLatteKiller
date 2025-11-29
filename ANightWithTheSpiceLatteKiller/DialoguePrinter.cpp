@@ -5,7 +5,6 @@
 DialoguePrinter::DialoguePrinter(ConsolePrinter* consolePrinter) {
 	dialogueDataBaseRef = new DialogueDataBase;
 	consolePrinterRef_ = consolePrinter;
-
 }
 
 DialoguePrinter::~DialoguePrinter() {

@@ -26,11 +26,10 @@ void PlayerMouvement::Move(int addOnX, int addOnY)
 	MapRef->PlayerCurrentRoom = MapRef->Map[MapRef->PlayerPosition.second][MapRef->PlayerPosition.first];
 	stepCounter_.IncreaseStep();
 
-	//if (MapRef->PlayerCurrentRoom == '@') {
-	//	// do the latte thing
-	//	cout << "latte" << endl;
-	//}
-	//else if(count(MapRef->DoorsSymbols.begin(), MapRef->DoorsSymbols.end(), MapRef->PlayerCurrentRoom)){
-	//	cout << "door" << endl;
-	//}
+	// check if player arrives on latte component
+	if (count(MapRef->LatteComponentsPos.begin(), MapRef->LatteComponentsPos.end(), MapRef->PlayerPosition)) {
+	}
+	// or door step
+	else if(count(MapRef->DoorsSymbols.begin(), MapRef->DoorsSymbols.end(), MapRef->PlayerCurrentRoom)){
+	}
 }

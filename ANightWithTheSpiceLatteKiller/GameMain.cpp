@@ -67,17 +67,17 @@ int main() {
 
 
 	//cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl /*<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl*/;
-	GameMain main;
+	GameMain* main = new GameMain();
 
-	for (int i = 0; i < main.ConsolePrinterRef->Csbi.dwMaximumWindowSize.Y; i++) {
+	for (int i = 0; i < main->ConsolePrinterRef->Csbi.dwMaximumWindowSize.Y; i++) {
 		cout << endl;
 	}
 
-	main.MapManagerRef->PrintMap();
-	main.GameSessionRef->SessionStart();
+	main->MapManagerRef->PrintMap();
+	main->GameSessionRef->SessionStart();
 
-	while (/*main.GameSessionRef->CanPlay*/ true) {
-		main.PlayerMainRef->MainElouann();
+	while (true) {
+		if(main->GameSessionRef->CanPlay)main->PlayerMainRef->MainElouann();
 		//main.DialoguePrinterRef->WriteDialogue("killer", "try_open_door");
 	}
 

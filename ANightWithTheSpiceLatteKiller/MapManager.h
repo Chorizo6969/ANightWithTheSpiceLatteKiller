@@ -39,6 +39,7 @@ public:
 	void PrintMap(int colorOverrideIndex = -1, bool excludePlayer = false);
 	void TintMap(int colorIndex, int timeMiliSec, bool excludePlayer = false);
 	bool IsAdjacentToPlayer(char c);
+	bool IsKillerInTheOtherSideOfTheDoor(pair<float, float> pos);
 
 	vector<pair<float, float>> GetRoomFromChar(char c);
 
@@ -51,5 +52,6 @@ private:
 	LatteComposant* latteComposantRef_;
 	string baseMap_;
 	vector<CHAR_INFO> buffer_;
+	map<char, vector<char>> doorPossibleRooms_;
 };
 

@@ -6,7 +6,7 @@ GameMain::GameMain() {
 	DialoguePrinterRef = new DialoguePrinter(ConsolePrinterRef);
 	GameSessionRef = new GameSession(DialoguePrinterRef);
 	MapManagerRef = new MapManager(ConsolePrinterRef);
-	KillerMainRef = new KillerMain(MapManagerRef, DialoguePrinterRef, GameSessionRef);
+	KillerMainRef = new KillerMain(MapManagerRef, DialoguePrinterRef, GameSessionRef, SoundManagerRef);
 	PlayerMainRef = new PlayerMain(MapManagerRef, KillerMainRef, SoundManagerRef, DialoguePrinterRef, GameSessionRef);
 
 }

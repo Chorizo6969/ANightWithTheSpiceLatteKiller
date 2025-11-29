@@ -38,6 +38,7 @@ public:
 	void TestStepSystem();
 
 private:
+	SoundManager* soundRef_;
 	vector<char> AvoidableCharList;
 	void UpdatePlayerRoom();
 };

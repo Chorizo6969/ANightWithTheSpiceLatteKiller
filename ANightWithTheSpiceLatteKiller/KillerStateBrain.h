@@ -31,7 +31,9 @@ public:
 	KillerStateBrain(KillerMain* KillerMainRef);
 	~KillerStateBrain();
 
-	StateBase* GetRandomPatrolState();
+	//return a random different state of the PatrolStateList
+	StateBase* GetRandomPatrolState(); 
 
-	void SwitchState(StateBase* StateToSwitch);
+	//Switch the state of the killer
+	void SwitchState(StateBase* StateToSwitch); 
 };

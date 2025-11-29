@@ -123,6 +123,6 @@ void PlayerMain::MainElouann()
 	}
 	}
 
-	cout << "Ceci est un test destine a ne faire paniquer personne, specialement Emrys" << endl;
-	cout << "fatal error fatal error fatal error error error" << endl;
+	//cout << "Ceci est un test destine a ne faire paniquer personne, specialement Emrys" << endl;
+	//cout << "fatal error fatal error fatal error error error" << endl;
 }

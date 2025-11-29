@@ -2,11 +2,12 @@
 
 GameMain::GameMain() {
 	ConsolePrinterRef = new ConsolePrinter;
-	MapManagerRef = new MapManager(ConsolePrinterRef);
-	KillerMainRef = new KillerMain(MapManagerRef);
-	PlayerMainRef = new PlayerMain(MapManagerRef, KillerMainRef);
 	SoundManagerRef = new SoundManager;
 	DialoguePrinterRef = new DialoguePrinter(ConsolePrinterRef);
+	MapManagerRef = new MapManager(ConsolePrinterRef);
+	KillerMainRef = new KillerMain(MapManagerRef, DialoguePrinterRef);
+	PlayerMainRef = new PlayerMain(MapManagerRef, KillerMainRef);
+
 }
 
 
@@ -63,8 +64,6 @@ int main() {
 
 	while (1) {
 		main.PlayerMainRef->MainElouann();
-		//main.DialoguePrinterRef->WriteDialogue("")
-		/*main.KillerMainRef->KillerMovementRef->MoveKiller();*/
 	}
 
 }

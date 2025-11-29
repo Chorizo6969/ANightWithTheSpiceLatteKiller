@@ -8,15 +8,13 @@ StateKillerAtDoor::StateKillerAtDoor(KillerMain* killerMainRef)
 }
 
 void StateKillerAtDoor::OnEnter() {
-	//std::cout << "Enter AtDoor State" << std::endl;
 	stepsRemaining = MAX_STEPS;
 	killerMainRef->MapManagerRef->KillerColor = MAGENTA;
 }
 
 void StateKillerAtDoor::Do() {
 	stepsRemaining--;
-	//Dialogue trying to enter the room
-	//std::cout << "Killer is trying to enter the room" << std::endl;
+	killerMainRef->DialoguePrinterRef->WriteDialogue("killer", "try_open_door");
 	if (stepsRemaining <= 0) {
 		killerMainRef->GameOver();
 	}
@@ -24,9 +22,7 @@ void StateKillerAtDoor::Do() {
 	if (killerMainRef->MapManagerRef->KillerCurrentRoom != killerMainRef->MapManagerRef->PlayerCurrentRoom) {
 		killerMainRef->KillerBrainRef->SwitchState(killerMainRef->KillerBrainRef->GetRandomPatrolState());
 	}
-
 }
 
 void StateKillerAtDoor::OnExit() {
-	//std::cout << "Exit AtDoor State" << std::endl;
 }

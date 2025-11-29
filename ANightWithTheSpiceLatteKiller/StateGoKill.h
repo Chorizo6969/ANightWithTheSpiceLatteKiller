@@ -16,6 +16,5 @@ public:
 
 private:
 	int EnterTries = 0;
-	void TryEnterPlayerRoom();
 };
 

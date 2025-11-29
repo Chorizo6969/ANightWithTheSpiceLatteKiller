@@ -1,7 +1,7 @@
 #include "KillerMain.h"
 
-
-KillerMain::KillerMain(MapManager* mapRef)
+#pragma region Constructor&Destructor
+KillerMain::KillerMain(MapManager* mapRef, DialoguePrinter* diaRef)
 {
 	PlayerStepMemory = 0;
 	MapManagerRef = mapRef;
@@ -10,6 +10,7 @@ KillerMain::KillerMain(MapManager* mapRef)
 	KillerMovementRef = new KillerMovement(this);
 	EventManagerRef = new EventManager();
 	StepCounterRef = new StepCounter(*EventManagerRef);
+	DialoguePrinterRef = diaRef;
 
 	PlayerTrueRoom = MapManagerRef->PlayerCurrentRoom;
 
@@ -27,29 +28,25 @@ KillerMain::~KillerMain() {
 	delete StepCounterRef;
 }
 
+#pragma endregion
+
+//Real update to check the room of the player each time he move (avoid the special character (doors, ingredients, killer)
 void KillerMain::UpdatePlayerRoom() {
 	if (std::find(AvoidableCharList.begin(), AvoidableCharList.end(), MapManagerRef->PlayerCurrentRoom) != AvoidableCharList.end()) {
 		return;
 	}
 	PlayerTrueRoom = MapManagerRef->PlayerCurrentRoom;
 }
-
-
+//Update the player true room & currentState.Do()
 void KillerMain::KillerDo() {
 	UpdatePlayerRoom();
 	if(KillerBrainRef->stateCurrent != NULL)KillerBrainRef->stateCurrent->Do();
-	//std::cout << "LA ROOM DU JOUEUR : " + MapManagerRef->PlayerCurrentRoom << std::endl;
-	//std::cout << "LA ROOM DU KILLER : " + MapManagerRef->KillerCurrentRoom << std::endl;
 }
 
-void KillerMain::DebugStateMachine() {
-	KillerBrainRef->SwitchState(KillerBrainRef->GetRandomPatrolState());
-	KillerDo();
-}
 
+//Called each time the player move, Observer
 void KillerMain::Update(int value)
 {
-	
 	PlayerStepMemory++;
     if (PlayerStepMemory >= 30 && KillerBrainRef->stateCurrent != KillerBrainRef->stateKillerAtDoor) //Avoid killer to switch state when AtTheDoor
 	{
@@ -57,13 +54,18 @@ void KillerMain::Update(int value)
 		PlayerStepMemory = 0;
 	}
 	KillerDo();
-
-	/*std::cout << "Le joueur est a " << value << " pas" << std::endl;*/
 }
 
 void KillerMain::GameOver() {
 	//Killer Visible now
-	//std::cout << "GAMEOVER" << std::endl;
+	DialoguePrinterRef->WriteDialogue("killer", "game_over");
+}
+
+#pragma region DEBUG
+
+void KillerMain::DebugStateMachine() {
+	KillerBrainRef->SwitchState(KillerBrainRef->GetRandomPatrolState());
+	KillerDo();
 }
 
 void KillerMain::TestStepSystem()
@@ -78,3 +80,4 @@ void KillerMain::TestStepSystem()
 	stepCounter.IncreaseStep();
 	stepCounter.IncreaseStep();
 }
+#pragma endregion

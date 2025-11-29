@@ -6,22 +6,24 @@
 
 using namespace std::literals;
 
-	KillerStateBrain::KillerStateBrain(KillerMain* main) : killerMainRef(main) {
-		stateGoWalk = new StateGoWalk(killerMainRef);
-		stateGoStalk = new StateGoStalk(killerMainRef);
-		stateGoKill = new StateGoKill(killerMainRef);
-		stateKillerAtDoor = new StateKillerAtDoor(killerMainRef);
+#pragma region Constructor&Destructor
+KillerStateBrain::KillerStateBrain(KillerMain* main) : killerMainRef(main) {
+	stateGoWalk = new StateGoWalk(killerMainRef);
+	stateGoStalk = new StateGoStalk(killerMainRef);
+	stateGoKill = new StateGoKill(killerMainRef);
+	stateKillerAtDoor = new StateKillerAtDoor(killerMainRef);
 
-		stateCurrent = NULL;
+	stateCurrent = NULL;
 
-		PatrolStateList = { stateGoWalk, stateGoStalk, stateGoKill };
-	}
+	PatrolStateList = { stateGoWalk, stateGoStalk, stateGoKill };
+}
 
 KillerStateBrain::~KillerStateBrain() {
 	delete stateGoWalk;
 	delete stateGoStalk;
 	delete stateGoKill;
 }
+#pragma endregion
 
 StateBase* KillerStateBrain::GetRandomPatrolState() {
 	static std::random_device rd;

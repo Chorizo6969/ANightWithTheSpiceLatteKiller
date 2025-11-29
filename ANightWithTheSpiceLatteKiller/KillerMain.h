@@ -7,7 +7,7 @@
 #include "StepCounter.h"
 #include "EventManager.h"
 #include "MapManager.h"
-
+#include "DialoguePrinter.h"
 
 class KillerMain : public IObserver
 {
@@ -18,20 +18,23 @@ public:
 	StepCounter* StepCounterRef; 
 	EventManager* EventManagerRef;
 	MapManager* MapManagerRef;
-	KillerMain(MapManager* mapRef);
+	DialoguePrinter* DialoguePrinterRef;
+	KillerMain(MapManager* mapRef, DialoguePrinter* diaRef);
 	~KillerMain();
 
 	void KillerDo();
-	void DebugStateMachine();
-
 	void Update(int value) override;
-	void TestStepSystem();
 
 	char PlayerTrueRoom;
     int PlayerStepMemory;
 
-	// call, if player go in the room where killer is or if killer end trying to be in player room
+	// Call, if player go in the room where killer is or if killer end trying to be in player room
 	void GameOver(); 
+
+
+	void DebugStateMachine();
+	void TestStepSystem();
+
 private:
 	vector<char> AvoidableCharList;
 	void UpdatePlayerRoom();

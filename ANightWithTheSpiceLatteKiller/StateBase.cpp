@@ -9,12 +9,9 @@ StateBase::StateBase(KillerMain* killerMainRef)
 void StateBase::OnEnter() {
 }
 
-
 void StateBase::Do() {
-
 }
 
 void StateBase::OnExit() {
-
 }
 

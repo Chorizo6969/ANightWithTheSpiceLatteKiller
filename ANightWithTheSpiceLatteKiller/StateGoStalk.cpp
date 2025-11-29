@@ -1,4 +1,5 @@
 #include "StateGoStalk.h"
+#include "KillerMain.h"
 
 StateGoStalk::StateGoStalk(KillerMain* killerMainRef)
 	: StateBase(killerMainRef)
@@ -7,16 +8,18 @@ StateGoStalk::StateGoStalk(KillerMain* killerMainRef)
 
 void StateGoStalk::OnEnter() {
 	std::cout << "Enter Stalk State" << std::endl;
+	killerMainRef->MapManagerRef->KillerColor = BLUE;
 }
 
 void StateGoStalk::Do() {
+	killerMainRef->KillerMovementRef->MoveKiller();
 	//Each player step, tp
-	//if (killerMainRef->MapManagerRef->KillerCurrentRoom == killerMainRef->MapManagerRef->PlayerCurrentRoom) {
-	//	killerMainRef->KillerMovementRef->MoveKiller();
-	//}
-	//else {
-
-	//}
+	if (killerMainRef->MapManagerRef->KillerCurrentRoom == killerMainRef->MapManagerRef->PlayerCurrentRoom) {
+		killerMainRef->KillerMovementRef->MoveKiller();
+	}
+	else {
+		killerMainRef->MapManagerRef->KillerLastPosition = killerMainRef->MapManagerRef->KillerPosition;
+	}
 
 	std::cout << "Killer is stalking player" << std::endl;
 }

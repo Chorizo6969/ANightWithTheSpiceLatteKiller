@@ -16,7 +16,7 @@ public:
 	KillerMovement(KillerMain* mainRef);
 	~KillerMovement();
 
-	void MoveKiller();
+	void MoveKiller(char killerRoom);
 private:
 	char GetRandomAdjacent(char key);
 	pair<float, float> GetRandomPosInRoom(char key);

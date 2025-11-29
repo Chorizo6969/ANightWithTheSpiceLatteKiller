@@ -3,6 +3,7 @@
 
 KillerMain::KillerMain(MapManager* mapRef)
 {
+	PlayerStepMemory = 0;
 	MapManagerRef = mapRef;
 	KillerBrainRef = new KillerStateBrain(this);
 	KillerSoundHandlerRef = new KillerSoundHandler;
@@ -21,24 +22,24 @@ KillerMain::~KillerMain() {
 }
 
 void KillerMain::KillerDo() {
-	KillerBrainRef->stateCurrent->Do();
+	if(KillerBrainRef->stateCurrent != NULL)KillerBrainRef->stateCurrent->Do();
+	
 }
 
 void KillerMain::DebugStateMachine() {
-	KillerBrainRef->SwitchState(KillerBrainRef->stateGoKill);
+	KillerBrainRef->SwitchState(KillerBrainRef->GetRandomState());
 	KillerDo();
 }
 
 void KillerMain::Update(int value)
 {
 	std::cout << "Le joueur est a " << value << " pas" << std::endl;
-	{
-		if (value == 20) {
-			KillerBrainRef->SwitchState(KillerBrainRef->stateGoKill);
-			StepCounterRef->playerStep_ = 0;
-		}
-		KillerDo();
+	PlayerStepMemory++;
+    if (PlayerStepMemory == 20) {
+		KillerBrainRef->SwitchState(KillerBrainRef->GetRandomState());
+		PlayerStepMemory = 0;
 	}
+	KillerDo();
 }
 
 void KillerMain::GameOver() {

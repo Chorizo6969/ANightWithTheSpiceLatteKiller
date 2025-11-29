@@ -35,8 +35,8 @@ pair<float, float> KillerMovement::GetRandomPosInRoom(char key) {
 	return KillerMainRef->MapManagerRef->KillerPosition;
 }
 
-void KillerMovement::MoveKiller() {
-	KillerMainRef->MapManagerRef->KillerPosition = GetRandomPosInRoom(GetRandomAdjacent(KillerMainRef->MapManagerRef->KillerCurrentRoom));
+void KillerMovement::MoveKiller(char killerRoom) {
+	KillerMainRef->MapManagerRef->KillerPosition = GetRandomPosInRoom(GetRandomAdjacent(killerRoom));
 	KillerMainRef->MapManagerRef->KillerCurrentRoom = KillerMainRef->MapManagerRef->Map[KillerMainRef->MapManagerRef->KillerPosition.second][KillerMainRef->MapManagerRef->KillerPosition.first];
 	//std::cout << KillerMainRef->MapManagerRef->KillerPosition.second << std::endl;
 	//std::cout << KillerMainRef->MapManagerRef->KillerPosition.first << std::endl;

@@ -8,10 +8,10 @@ StateGoKill::StateGoKill(KillerMain* killerMainRef)
 
 void StateGoKill::OnEnter() {
 	std::cout << "Enter Kill State" << std::endl;
+	killerMainRef->MapManagerRef->KillerColor = RED;
 }
 
 void StateGoKill::Do() {
-	//J'me TP
 	killerMainRef->KillerMovementRef->MoveKiller();
 	//IF ma room = playerRoom, je lance le compteur avant mort du joueur
 	std::cout << "Killer is trying to kill player" << std::endl;

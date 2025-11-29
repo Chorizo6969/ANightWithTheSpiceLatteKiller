@@ -11,7 +11,7 @@ using namespace std::literals;
 		stateGoStalk = new StateGoStalk(killerMainRef);
 		stateGoKill = new StateGoKill(killerMainRef);
 
-		stateCurrent = stateGoWalk;
+		stateCurrent = NULL;
 
 		StateList = { stateGoWalk, stateGoStalk, stateGoKill };
 	}
@@ -33,8 +33,8 @@ StateBase* KillerStateBrain::GetRandomState() {
 }
 
 void KillerStateBrain::SwitchState(StateBase* StateToSwitch){
-	stateCurrent->OnExit();
+	if (stateCurrent != NULL)stateCurrent->OnExit();
 	stateCurrent = StateToSwitch;
-	stateCurrent->OnEnter();
+	if (stateCurrent != NULL)stateCurrent->OnEnter();
 }
 

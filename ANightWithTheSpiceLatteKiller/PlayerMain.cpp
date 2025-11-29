@@ -122,7 +122,7 @@ void PlayerMain::MainElouann()
 				SoundManagerRef->PlaySFX("Door.mp3");
 				if (mapManager->IsKillerInTheOtherSideOfTheDoor(mapManager->PlayerPosition) > 0)
 				{
-					printf("HELLOOOOOOOOOOOOOOOOOOO");
+					//printf("HELLOOOOOOOOOOOOOOOOOOO");
 					SoundManagerRef->PlaySFX("Kitchen.mp3");
 				}
 				break;

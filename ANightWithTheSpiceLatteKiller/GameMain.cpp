@@ -5,7 +5,7 @@ GameMain::GameMain() {
 	MapManagerRef = new MapManager(ConsolePrinterRef);
 	KillerMainRef = new KillerMain(MapManagerRef);
 	PlayerMainRef = new PlayerMain(MapManagerRef, KillerMainRef);
-
+	SoundManagerRef = new SoundManager;
 }
 
 

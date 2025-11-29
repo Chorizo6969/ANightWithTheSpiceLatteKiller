@@ -7,6 +7,7 @@ SoundManager::SoundManager()
     {
         std::cout << "Erreur init audio\n";
     }
+    PlayMusic("Ambiance.mp3", true);
 }
 
 SoundManager::~SoundManager()

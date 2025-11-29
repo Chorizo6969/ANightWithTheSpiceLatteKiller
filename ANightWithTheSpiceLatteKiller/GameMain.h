@@ -3,6 +3,7 @@
 #include "MapManager.h"
 #include "ConsolePrinter.h"
 #include "PlayerMain.h"
+#include "SoundManager.h"
 
 class GameMain
 {
@@ -11,6 +12,7 @@ public:
 	KillerMain* KillerMainRef;
 	MapManager* MapManagerRef;
 	ConsolePrinter* ConsolePrinterRef;
+	SoundManager* SoundManagerRef;
 
 	GameMain();
 	~GameMain();

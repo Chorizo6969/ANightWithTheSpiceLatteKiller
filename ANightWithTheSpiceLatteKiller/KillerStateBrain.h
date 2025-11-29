@@ -3,6 +3,7 @@
 #include "StateGoStalk.h"
 #include "StateGoWalk.h"
 #include "StateGoKill.h"
+#include "StateKillerAtDoor.h"
 
 #include <vector>
 
@@ -11,6 +12,7 @@ class KillerMain;
 class StateGoWalk;
 class StateGoStalk;
 class StateGoKill;
+class StateKillerAtDoor;
 
 class KillerStateBrain
 {
@@ -20,15 +22,16 @@ public:
 	StateGoWalk* stateGoWalk;
 	StateGoStalk* stateGoStalk;
 	StateGoKill* stateGoKill;
+	StateKillerAtDoor* stateKillerAtDoor;
 
-	std::vector<StateBase*> StateList;
+	std::vector<StateBase*> PatrolStateList;
 
 	StateBase* stateCurrent;
 
 	KillerStateBrain(KillerMain* KillerMainRef);
 	~KillerStateBrain();
 
-	StateBase* GetRandomState();
+	StateBase* GetRandomPatrolState();
 
 	void SwitchState(StateBase* StateToSwitch);
 };

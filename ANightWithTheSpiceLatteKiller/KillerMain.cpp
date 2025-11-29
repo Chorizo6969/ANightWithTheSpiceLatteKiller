@@ -27,7 +27,7 @@ void KillerMain::KillerDo() {
 }
 
 void KillerMain::DebugStateMachine() {
-	KillerBrainRef->SwitchState(KillerBrainRef->GetRandomState());
+	KillerBrainRef->SwitchState(KillerBrainRef->GetRandomPatrolState());
 	KillerDo();
 }
 
@@ -36,16 +36,15 @@ void KillerMain::Update(int value)
 	std::cout << "Le joueur est a " << value << " pas" << std::endl;
 	PlayerStepMemory++;
     if (PlayerStepMemory == 30) {
-		KillerBrainRef->SwitchState(KillerBrainRef->GetRandomState());
+		KillerBrainRef->SwitchState(KillerBrainRef->GetRandomPatrolState());
 		PlayerStepMemory = 0;
 	}
 	KillerDo();
 }
 
 void KillerMain::GameOver() {
-	//if killer in same room as player
 	//Killer Visible now
-	//HERE GAME OVER, KILLER KILL PLAYER
+	std::cout << "GAMEOVER" << std::endl;
 }
 
 void KillerMain::TestStepSystem()

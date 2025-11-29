@@ -10,10 +10,11 @@ using namespace std::literals;
 		stateGoWalk = new StateGoWalk(killerMainRef);
 		stateGoStalk = new StateGoStalk(killerMainRef);
 		stateGoKill = new StateGoKill(killerMainRef);
+		stateKillerAtDoor = new StateKillerAtDoor(killerMainRef);
 
 		stateCurrent = NULL;
 
-		StateList = { stateGoWalk, stateGoStalk, stateGoKill };
+		PatrolStateList = { stateGoWalk, stateGoStalk, stateGoKill };
 	}
 
 KillerStateBrain::~KillerStateBrain() {
@@ -22,14 +23,14 @@ KillerStateBrain::~KillerStateBrain() {
 	delete stateGoKill;
 }
 
-StateBase* KillerStateBrain::GetRandomState() {
+StateBase* KillerStateBrain::GetRandomPatrolState() {
 	static std::random_device rd;
 	static std::mt19937 gen(rd());
-	std::uniform_int_distribution<> dis(0, StateList.size() - 1);
+	std::uniform_int_distribution<> dis(0, PatrolStateList.size() - 1);
 
 	int randomIndex = dis(gen);
-	if (StateList[randomIndex] == stateCurrent) GetRandomState();
-	else return StateList[randomIndex];
+	if (PatrolStateList[randomIndex] == stateCurrent) GetRandomPatrolState();
+	else return PatrolStateList[randomIndex];
 }
 
 void KillerStateBrain::SwitchState(StateBase* StateToSwitch){

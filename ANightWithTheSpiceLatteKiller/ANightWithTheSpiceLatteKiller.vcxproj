@@ -144,6 +144,7 @@
     <ClCompile Include="StateGoKill.cpp" />
     <ClCompile Include="StateGoStalk.cpp" />
     <ClCompile Include="StateGoWalk.cpp" />
+    <ClCompile Include="StateKillerAtDoor.cpp" />
     <ClCompile Include="StepCounter.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +173,7 @@
     <ClInclude Include="StateGoKill.h" />
     <ClInclude Include="StateGoStalk.h" />
     <ClInclude Include="StateGoWalk.h" />
+    <ClInclude Include="StateKillerAtDoor.h" />
     <ClInclude Include="StepCounter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

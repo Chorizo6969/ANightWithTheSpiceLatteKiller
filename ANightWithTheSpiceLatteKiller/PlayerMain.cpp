@@ -104,9 +104,17 @@ void PlayerMain::MainElouann()
 
 		case A:
 		{
-			std::cout << mapManager->PlayerCurrentRoom << std::endl;
-			if (mapManager->PlayerCurrentRoom == '@')
+			pair <float,float> pos = mapManager->PlayerPosition;
+			int x = pos.first;
+			int y = pos.second;
+
+			if (mapManager->Map[y][x] == '@')
+			{
 				std::cout << "Collectible ramassé !" << std::endl;
+				
+				mapManager->Map[y][x] = mapManager->PlayerCurrentRoom;
+				mapManager->PrintMap();
+			}
 			break;
 		}
 

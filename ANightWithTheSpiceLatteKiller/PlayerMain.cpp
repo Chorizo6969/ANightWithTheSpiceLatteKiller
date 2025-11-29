@@ -12,7 +12,7 @@
 #define A 97
 #define R 114
 
-PlayerMain::PlayerMain(MapManager* map, KillerMain* killer, SoundManager* sound, DialoguePrinter* dialogue)
+PlayerMain::PlayerMain(MapManager* map, KillerMain* killer, SoundManager* sound, DialoguePrinter* dialogue, GameSession* session)
 {
 	PlayerMovementRef = new PlayerMouvement(map, killer);
 	PlayerInteractionRef = new PlayerInteraction;
@@ -130,4 +130,21 @@ void PlayerMain::MainElouann()
 		break;
 	}
 	}
+}
+
+void PlayerMain::AddIngredient() {
+	CurrentIngredient++;
+	CheckTotalIngredient();
+}
+
+void PlayerMain::CheckTotalIngredient() {
+	if (CurrentIngredient == maxIngredient) {
+		GameWin();
+	}
+}
+
+void PlayerMain::GameWin() {
+	DialoguePrinterRef->WriteDialogue("player", "game_win");
+	GameSessionRef->SessionEnd();
+
 }

@@ -21,6 +21,4 @@ private:
 	std::map<std::string, std::string> PlayerDialogue;
 
 	void FillMap();
-
-
 };

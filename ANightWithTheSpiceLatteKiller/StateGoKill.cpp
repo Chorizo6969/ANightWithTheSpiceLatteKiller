@@ -4,7 +4,7 @@
 StateGoKill::StateGoKill(KillerMain* killerMainRef)
 	: StateBase(killerMainRef)
 {
-	_moveSpeed = 3;
+	_moveFrequence = 3;
 }
 
 void StateGoKill::OnEnter() {
@@ -13,7 +13,7 @@ void StateGoKill::OnEnter() {
 }
 
 void StateGoKill::Do() {
-	if (killerMainRef->PlayerStepMemory % _moveSpeed == 0) { //move each 3 steps
+	if (killerMainRef->PlayerStepMemory % _moveFrequence == 0) { //move each 3 steps
 		killerMainRef->KillerMovementRef->MoveKiller(killerMainRef->MapManagerRef->KillerCurrentRoom); // No restriction
 		killerMainRef->MapManagerRef->KillerLastRoom = killerMainRef->MapManagerRef->KillerCurrentRoom;
 	}

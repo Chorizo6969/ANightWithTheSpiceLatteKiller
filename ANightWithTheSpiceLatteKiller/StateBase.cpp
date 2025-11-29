@@ -3,7 +3,7 @@
 StateBase::StateBase(KillerMain* killerMainRef)
     : killerMainRef(killerMainRef)
 {
-    _moveSpeed = 5;
+    _moveFrequence = 5;
 }
 
 void StateBase::OnEnter() {

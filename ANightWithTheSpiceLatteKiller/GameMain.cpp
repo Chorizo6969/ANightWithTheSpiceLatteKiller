@@ -14,12 +14,27 @@ GameMain::~GameMain() {
 }
 
 int main() {
-	GameMain main;
 
+	bool fullscreen = false;
 	//main.KillerMainRef->TestStepSystem();
+	while (!fullscreen) {
+		if (GetKeyState(VK_MENU) & 0x8000)
+		{
+			if (GetKeyState(VK_RETURN) & 0x8000)
+			{
+				fullscreen = !fullscreen;
+				cout << "fullscreen";
+			}
+		}
+	}
+
+	Sleep(800);
+
+	GameMain main;
 
 	while (1) {
 		main.PlayerMainRef->MainElouann();
+		cout << "<fatal error>";
 		/*main.KillerMainRef->KillerMovementRef->MoveKiller();*/
 	}
 

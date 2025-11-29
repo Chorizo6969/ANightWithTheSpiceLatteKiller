@@ -38,8 +38,8 @@ void KillerMain::UpdatePlayerRoom() {
 void KillerMain::KillerDo() {
 	UpdatePlayerRoom();
 	if(KillerBrainRef->stateCurrent != NULL)KillerBrainRef->stateCurrent->Do();
-	std::cout << "LA ROOM DU JOUEUR : " + MapManagerRef->PlayerCurrentRoom << std::endl;
-	std::cout << "LA ROOM DU KILLER : " + MapManagerRef->KillerCurrentRoom << std::endl;
+	//std::cout << "LA ROOM DU JOUEUR : " + MapManagerRef->PlayerCurrentRoom << std::endl;
+	//std::cout << "LA ROOM DU KILLER : " + MapManagerRef->KillerCurrentRoom << std::endl;
 }
 
 void KillerMain::DebugStateMachine() {

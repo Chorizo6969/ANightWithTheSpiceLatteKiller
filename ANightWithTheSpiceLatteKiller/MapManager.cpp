@@ -26,14 +26,15 @@ MapManager::MapManager(ConsolePrinter* printer) {
 	};
 
 	// Init doors relations
-	DoorsSymbols = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ']', '[', ')', '(', '$', '>', '<', '{', '}', };
+	DoorsSymbols = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ']', '[', ')', '(', '$', '>', '<', '{', '}', };
 
 	InitMap();
 	InitRoomPosDict();
 	InitDoorsRelations();
 
-	PlayerPosition = make_pair(Map.size() / 2, Map[0].size() / 2);
-	KillerPosition = make_pair(65, 17);
+	//PlayerPosition = make_pair(Map.size() / 2, Map[0].size() / 2);
+	PlayerPosition = make_pair(45, 15);
+	KillerPosition = make_pair(105, 22);
 	KillerCurrentRoom = Map[KillerPosition.second][KillerPosition.first];
 	KillerLastRoom = KillerCurrentRoom;
 	latteComposantRef_ = new LatteComposant;
@@ -65,8 +66,8 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 	// create buffer used to print whole map in one print
 	vector<CHAR_INFO> buffer(Printer->Csbi.dwMaximumWindowSize.Y * Printer->Csbi.dwMaximumWindowSize.X);
 
-	int blankSpaceY = (Printer->Csbi.dwMaximumWindowSize.Y - Map.size()) / 2;
-	int blankSpaceX = (Printer->Csbi.dwMaximumWindowSize.X - Map[0].size()) / 2;
+	//int blankSpaceY = (Printer->Csbi.dwMaximumWindowSize.Y - Map.size()) / 2 - 10;
+	//int blankSpaceX = (Printer->Csbi.dwMaximumWindowSize.X - Map[0].size()) / 2;
 
 	CHAR_INFO blank;
 	blank.Char.AsciiChar = 'x';
@@ -132,7 +133,7 @@ void MapManager::InitMap()
 	int mapSizeY = 25;
 	int mapSizeX = 80;
 
-	int blankY = (Printer->Csbi.dwMaximumWindowSize.Y - mapSizeY) / 2;
+	int blankY = (Printer->Csbi.dwMaximumWindowSize.Y - mapSizeY) / 2 - 5;
 	int blankX = (Printer->Csbi.dwMaximumWindowSize.X - mapSizeX) / 2;
 
 	// TEMP add blank space above the map
@@ -145,6 +146,10 @@ void MapManager::InitMap()
 	for (int y = 0; y < mapSizeY; y++)
 	{
 		vector<char> newLine;
+
+		for (int x = 0; x < blankX; x++) {
+			newLine.push_back(' ');
+		}
 
 		for (int x = 0; x < mapSizeX; x++)
 		{
@@ -164,10 +169,10 @@ void MapManager::InitMap()
 }
 
 /// <summary>
-/// Set the CHAR_INFO input depending on
+/// Set the CHAR_INFO input depending on its type and utility
 /// </summary>
 /// <param name="c"></param>
-void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int colorOverrideIndex )
+void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int colorOverrideIndex)
 {
 	switch (c->Char.AsciiChar) {
 	case '*':
@@ -186,7 +191,7 @@ void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int
 		c->Attributes = (/*PlayerCurrentRoom == KillerCurrentRoom*/ true) ? Printer->MakeColor(KillerColor, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
 		break;
 	default:
-			// si le char est le même que celui du joueur (donc même pièce) OU qu'il en a un similaire autour de lui (donc porte de même pièce)
+		// si le char est le même que celui du joueur (donc même pièce) OU qu'il en a un similaire autour de lui (donc porte de même pièce)
 		if (PlayerCurrentRoom == c->Char.AsciiChar && c->Char.AsciiChar != '!') {
 			c->Attributes = Printer->MakeColor(DARK_GRAY, DARK_GRAY);
 		}
@@ -248,7 +253,7 @@ void MapManager::InitDoorsRelations() {
 		for (int x = 0; x < Map[y].size(); x++) {
 			// if char is a door
 			if (count(DoorsSymbols.begin(), DoorsSymbols.end(), Map[y][x])) {
-				
+
 				currentPos = make_pair(y, x);
 
 				// if firstOcc already contains char pos as key (means that its value is already present in the dict as key)

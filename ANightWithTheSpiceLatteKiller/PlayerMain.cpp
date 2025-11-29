@@ -20,6 +20,7 @@ PlayerMain::PlayerMain(MapManager* map, KillerMain* killer, SoundManager* sound,
 	c = 0;
 	mapManager = map;
 	DialoguePrinterRef = dialogue;
+	GameSessionRef = session;
 	mapManager->PrintMap();
 }
 
@@ -140,6 +141,7 @@ void PlayerMain::AddIngredient() {
 
 void PlayerMain::CheckTotalIngredient() {
 	if (CurrentIngredient == maxIngredient) {
+		DialoguePrinterRef->PrintInventory(CurrentIngredient, maxIngredient);
 		GameWin();
 	}
 }
@@ -147,5 +149,5 @@ void PlayerMain::CheckTotalIngredient() {
 void PlayerMain::GameWin() {
 	DialoguePrinterRef->WriteDialogue("player", "game_win");
 	GameSessionRef->SessionEnd();
-
 }
+

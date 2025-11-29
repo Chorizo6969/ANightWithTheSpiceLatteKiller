@@ -140,8 +140,8 @@ void PlayerMain::AddIngredient() {
 }
 
 void PlayerMain::CheckTotalIngredient() {
+	DialoguePrinterRef->PrintInventory(CurrentIngredient, maxIngredient);
 	if (CurrentIngredient == maxIngredient) {
-		DialoguePrinterRef->PrintInventory(CurrentIngredient, maxIngredient);
 		GameWin();
 	}
 }

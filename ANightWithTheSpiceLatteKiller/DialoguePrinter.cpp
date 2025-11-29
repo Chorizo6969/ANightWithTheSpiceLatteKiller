@@ -2,13 +2,16 @@
 #include <map>
 
 //Constructor
-DialoguePrinter::DialoguePrinter() {
+DialoguePrinter::DialoguePrinter(ConsolePrinter* consolePrinter) {
 	dialogueDataBaseRef = new DialogueDataBase;
+	consolePrinterRef_ = consolePrinter;
+
 }
 
 //Destructor
 DialoguePrinter::~DialoguePrinter() {
 	delete dialogueDataBaseRef;
+	delete consolePrinterRef_;
 }
 
 
@@ -22,4 +25,8 @@ void DialoguePrinter::WriteDialogue(std::string category, std::string key)
 void DialoguePrinter::WriteDialogueWithDelay() 
 {
 
+}
+
+void DialoguePrinter::WriteColoredDialogue(std::string category, std::string key, int colorIndex) {
+	consolePrinterRef_->ColoredPrint(dialogueDataBaseRef->GetDialogue(category, key), colorIndex);
 }

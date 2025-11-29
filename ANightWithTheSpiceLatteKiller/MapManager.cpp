@@ -33,8 +33,11 @@ MapManager::MapManager(ConsolePrinter* printer) {
 	InitDoorsRelations();
 
 	//PlayerPosition = make_pair(Map.size() / 2, Map[0].size() / 2);
-	PlayerPosition = make_pair(45, 15);
-	KillerPosition = make_pair(105, 22);
+	//PlayerPosition = make_pair(45, 15);
+	//KillerPosition = make_pair(105, 22);
+
+	PlayerPosition = CharPosMapByRoom['d'][0];
+	KillerPosition = CharPosMapByRoom['c'][0];
 	KillerCurrentRoom = Map[KillerPosition.second][KillerPosition.first];
 	KillerLastRoom = KillerCurrentRoom;
 	latteComposantRef_ = new LatteComposant;

@@ -10,19 +10,24 @@ StateKillerAtDoor::StateKillerAtDoor(KillerMain* killerMainRef)
 void StateKillerAtDoor::OnEnter() {
 	stepsRemaining = MAX_STEPS;
 	killerMainRef->MapManagerRef->KillerColor = MAGENTA;
+
+	playerRoomWhenKnocking = killerMainRef->MapManagerRef->PlayerCurrentRoom;
+
+	killerMainRef->DialoguePrinterRef->WriteDialogue("killer", "try_open_door");
 }
 
-//Each steps, cooldown until gameOver. When player leave the room, switchState
 void StateKillerAtDoor::Do() {
-	stepsRemaining--;
-	killerMainRef->DialoguePrinterRef->WriteDialogue("killer", "try_open_door");
-	//killerMainRef->MapManagerRef->TintMap(RED, 50, false);
-	if (stepsRemaining <= 0) 
+	if (killerMainRef->PlayerStepMemory % _doorKnockFrequence == 0)
 	{
-		killerMainRef->GameOver();
-	}
+		stepsRemaining--;
 
-	if (killerMainRef->MapManagerRef->KillerCurrentRoom != killerMainRef->MapManagerRef->PlayerCurrentRoom) {
+		if (stepsRemaining <= 0) {
+			killerMainRef->KillerMovementRef->MoveKiller(playerRoomWhenKnocking);
+			killerMainRef->GameOver();
+			return;
+		}
+	}
+	if (killerMainRef->MapManagerRef->PlayerCurrentRoom != playerRoomWhenKnocking) {
 		killerMainRef->KillerBrainRef->SwitchState(killerMainRef->KillerBrainRef->GetRandomPatrolState());
 	}
 }

@@ -120,6 +120,7 @@ void PlayerMain::MainElouann()
 			if (doorPos.first == playerPos.second && doorPos.second == playerPos.first)
 			{
 				SoundManagerRef->PlaySFX("Door.mp3");
+				//SoundManagerRef->StopLastSFX();
 				if (true)
 				{
 					//SoundManagerRef->PlaySFX("Kitchen.mp3");

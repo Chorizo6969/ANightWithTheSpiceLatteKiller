@@ -45,81 +45,83 @@ void PlayerMain::MainElouann()
 	// get player input as int
 	switch ((c = _getch()))
 	{
-		case KEY_UP:
-		{
-			PlayerMovementRef->Move(0, -1);
-			//system("cls");
-			mapManager->PrintMap();
-			break;
-		}
-
-		case KEY_DOWN:
-		{
-			PlayerMovementRef->Move(0, 1);
-			//system("cls");
-			mapManager->PrintMap();
-			//cout << mapManager->PlayerCurrentRoom << " " << mapManager->KillerCurrentRoom << "|";
-
-			break;
-		}
-
-		case KEY_LEFT:
-		{
-			PlayerMovementRef->Move(-1, 0);
-			//system("cls");
-			mapManager->PrintMap();
-			/*system("cls");*/
-			break;
-		}
-
-		case KEY_RIGHT:
-		{
-			PlayerMovementRef->Move(1, 0);
-			//system("cls");
-			mapManager->PrintMap();
-			break;
-		}
-
-		case E: //Les portes
-		{
-			const auto& playerPos = mapManager->PlayerPosition;
-
-			for (const auto& entry : mapManager->DoorsLinks)
-			{
-				const auto& doorPos = entry.first;
-				const auto& linkedDoor = entry.second;
-
-				if (doorPos.first == playerPos.second && doorPos.second == playerPos.first)
-				{
-					mapManager->PlayerPosition = { linkedDoor.second, linkedDoor.first };
-
-					mapManager->PrintMap();
-					return;
-				}
-			}
-
-			//std::cout << "Aucune porte a cette position." << std::endl;
-			break;
-		}
-
-		case A:
-		{
-			pair <float,float> pos = mapManager->PlayerPosition;
-			int x = pos.first;
-			int y = pos.second;
-
-			if (/*mapManager->Map[y][x] == '@'*/ count(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), make_pair(x, y)))
-			{
-				//std::cout << "Collectible ramassé !" << std::endl;
-				//mapManager->TintMap(CYAN, 50, false);
-				
-				//mapManager->Map[y][x] = mapManager->PlayerCurrentRoom;
-				//mapManager->LatteComponentsPos.erase(pos);
-				mapManager->LatteComponentsPos.erase(find(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), pos));
-				mapManager->PrintMap();
-			}
-			break;
-		}
-
+	case KEY_UP:
+	{
+		PlayerMovementRef->Move(0, -1);
+		//system("cls");
+		mapManager->PrintMap();
+		break;
 	}
+
+	case KEY_DOWN:
+	{
+		PlayerMovementRef->Move(0, 1);
+		//system("cls");
+		mapManager->PrintMap();
+		//cout << mapManager->PlayerCurrentRoom << " " << mapManager->KillerCurrentRoom << "|";
+
+		break;
+	}
+
+	case KEY_LEFT:
+	{
+		PlayerMovementRef->Move(-1, 0);
+		//system("cls");
+		mapManager->PrintMap();
+		/*system("cls");*/
+		break;
+	}
+
+	case KEY_RIGHT:
+	{
+		PlayerMovementRef->Move(1, 0);
+		//system("cls");
+		mapManager->PrintMap();
+		break;
+	}
+
+	case E: //Les portes
+	{
+		const auto& playerPos = mapManager->PlayerPosition;
+
+		for (const auto& entry : mapManager->DoorsLinks)
+		{
+			const auto& doorPos = entry.first;
+			const auto& linkedDoor = entry.second;
+
+			if (doorPos.first == playerPos.second && doorPos.second == playerPos.first)
+			{
+				mapManager->PlayerPosition = { linkedDoor.second, linkedDoor.first };
+
+				mapManager->PrintMap();
+				return;
+			}
+		}
+
+		//std::cout << "Aucune porte a cette position." << std::endl;
+		break;
+	}
+
+	case A:
+	{
+		pair <float, float> pos = mapManager->PlayerPosition;
+		int x = pos.first;
+		int y = pos.second;
+
+		if (/*mapManager->Map[y][x] == '@'*/ count(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), make_pair(x, y)))
+		{
+			//std::cout << "Collectible ramassé !" << std::endl;
+			//mapManager->TintMap(CYAN, 50, false);
+
+			//mapManager->Map[y][x] = mapManager->PlayerCurrentRoom;
+			//mapManager->LatteComponentsPos.erase(pos);
+			mapManager->LatteComponentsPos.erase(find(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), pos));
+		}
+		mapManager->PrintMap();
+		break;
+	}
+	}
+
+	cout << "Ceci est un test destine a ne faire paniquer personne, specialement Emrys" << endl;
+	cout << "fatal error fatal error fatal error error error" << endl;
 }

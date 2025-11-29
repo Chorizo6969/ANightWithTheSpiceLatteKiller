@@ -119,9 +119,9 @@ void PlayerMain::MainElouann()
 			if (doorPos.first == playerPos.second && doorPos.second == playerPos.first)
 			{
 				SoundManagerRef->PlaySFX("Door.mp3");
-				if (true)
+				if (mapManager->IsKillerInTheOtherSideOfTheDoor(playerPos))
 				{
-					//SoundManagerRef->PlaySFX("Kitchen.mp3");
+					SoundManagerRef->PlaySFX("Kitchen.mp3");
 				}
 				break;
 			}

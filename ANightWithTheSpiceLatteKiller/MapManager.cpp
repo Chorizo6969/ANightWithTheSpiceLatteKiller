@@ -111,6 +111,12 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 				//cell.Attributes = Printer->MakeColor(playerColorOverride, DARK_GRAY);
 				SetCharAttributes(&cell, make_pair(i, j), colorOverrideIndex);
 			}
+			else if (count(LatteComponentsPos.begin(), LatteComponentsPos.end(), make_pair(j, i))) {
+				CHAR_INFO& cell = buffer[i * Printer->Csbi.dwMaximumWindowSize.X + j];
+				cell.Char.AsciiChar = '@';
+				SetCharAttributes(&cell, make_pair(i, j), colorOverrideIndex);
+
+			}
 			else
 			{
 				CHAR_INFO& cell = buffer[i * Printer->Csbi.dwMaximumWindowSize.X + j];
@@ -182,7 +188,7 @@ void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int
 		c->Attributes = Printer->MakeColor(RED, RED);
 		break;
 	case '@':
-		c->Attributes = (PlayerCurrentRoom == Map[charPos.first][charPos.second]) ? Printer->MakeColor(YELLOW, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
+		c->Attributes = (Map[charPos.first][charPos.second] == PlayerCurrentRoom) ? Printer->MakeColor(YELLOW, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
 		break;
 	case '§':
 		c->Attributes = (/*PlayerCurrentRoom == KillerCurrentRoom*/ true) ? Printer->MakeColor(KillerColor, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);

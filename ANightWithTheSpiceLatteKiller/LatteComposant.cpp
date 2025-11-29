@@ -27,7 +27,8 @@ void LatteComposant::CreateLatteComposant(MapManager* mapManager)
         int x = pos.first;
         int y = pos.second;
 
-        mapManager->Map[y][x] = '@';
+        //mapManager->Map[y][x] = '@';
+        mapManager->LatteComponentsPos.push_back(make_pair(x, y));
     }
 
     std::cout << "[LatteComposant] Collectibles générés !\n";

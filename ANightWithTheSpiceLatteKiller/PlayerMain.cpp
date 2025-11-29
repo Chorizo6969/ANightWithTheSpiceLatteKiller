@@ -81,12 +81,12 @@ void PlayerMain::MainElouann()
 
 	case E: //Les portes
 	{
-		const auto& playerPos = mapManager->PlayerPosition;
+		pair<float, float>& playerPos = mapManager->PlayerPosition;
 
 		for (const auto& entry : mapManager->DoorsLinks)
 		{
-			const auto& doorPos = entry.first;
-			const auto& linkedDoor = entry.second;
+			const pair<float, float>& doorPos = entry.first;
+			const pair<float, float>& linkedDoor = entry.second;
 
 			if (doorPos.first == playerPos.second && doorPos.second == playerPos.first)
 			{
@@ -122,11 +122,11 @@ void PlayerMain::MainElouann()
 
 	case R:
 	{
-		const auto& playerPos = mapManager->PlayerPosition;
+		const pair<float, float>& playerPos = mapManager->PlayerPosition;
 
 		for (const auto& entry : mapManager->DoorsLinks)
 		{
-			const auto& doorPos = entry.first;
+			const pair<float, float>& doorPos = entry.first;
 
 			if (doorPos.first == playerPos.second && doorPos.second == playerPos.first)
 			{
@@ -135,11 +135,6 @@ void PlayerMain::MainElouann()
 				{
 					//SoundManagerRef->PlaySFX("Kitchen.mp3");
 				}
-				else
-				{
-
-				}
-
 				break;
 			}
 		}

@@ -13,6 +13,7 @@ void StateGoKill::OnEnter() {
 
 void StateGoKill::Do() {
 	killerMainRef->KillerMovementRef->MoveKiller(killerMainRef->MapManagerRef->KillerCurrentRoom);
+	killerMainRef->MapManagerRef->KillerLastRoom = killerMainRef->MapManagerRef->KillerCurrentRoom;
 	//IF ma room = playerRoom, je lance le compteur avant mort du joueur
 	std::cout << "Killer is trying to kill player" << std::endl;
 }

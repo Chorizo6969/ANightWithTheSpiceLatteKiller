@@ -14,8 +14,17 @@ void StateGoWalk::OnEnter() {
 
 void StateGoWalk::Do() {
 	killerMainRef->KillerMovementRef->MoveKiller(killerMainRef->MapManagerRef->KillerCurrentRoom);
-	//Each player step, tp
-	//TP again if inPlayerRoom OR inNextRoomToPlayer
+
+	// If killer same room as player, tp again
+	if (killerMainRef->MapManagerRef->KillerCurrentRoom == killerMainRef->MapManagerRef->PlayerCurrentRoom) {
+		// Try until it's valide
+		do {
+			killerMainRef->KillerMovementRef->MoveKiller(killerMainRef->MapManagerRef->KillerCurrentRoom);
+		} while (killerMainRef->MapManagerRef->KillerCurrentRoom == killerMainRef->MapManagerRef->PlayerCurrentRoom);
+	}
+
+	// Update last room
+	killerMainRef->MapManagerRef->KillerLastRoom = killerMainRef->MapManagerRef->KillerCurrentRoom;
 
 	std::cout << "Killer is walking in the shop" << std::endl;
 

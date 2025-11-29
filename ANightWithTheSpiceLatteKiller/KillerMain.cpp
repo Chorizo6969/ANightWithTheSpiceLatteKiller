@@ -35,7 +35,7 @@ void KillerMain::Update(int value)
 {
 	std::cout << "Le joueur est a " << value << " pas" << std::endl;
 	PlayerStepMemory++;
-    if (PlayerStepMemory == 20) {
+    if (PlayerStepMemory == 30) {
 		KillerBrainRef->SwitchState(KillerBrainRef->GetRandomState());
 		PlayerStepMemory = 0;
 	}

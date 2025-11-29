@@ -11,6 +11,7 @@ void StateGoKill::OnEnter() {
 	killerMainRef->MapManagerRef->KillerColor = RED;
 }
 
+//Can move everywhere, if in the room of player, switch to stateKillerAtDoor
 void StateGoKill::Do() {
 	if (killerMainRef->PlayerStepMemory % _moveFrequence == 0) 
 	{

@@ -1,27 +1,26 @@
 #include "DialoguePrinter.h"
 #include <map>
 
-//Constructor
+#pragma region Constructor&Destructor
 DialoguePrinter::DialoguePrinter(ConsolePrinter* consolePrinter) {
 	dialogueDataBaseRef = new DialogueDataBase;
 	consolePrinterRef_ = consolePrinter;
 
 }
 
-//Destructor
 DialoguePrinter::~DialoguePrinter() {
 	delete dialogueDataBaseRef;
 	delete consolePrinterRef_;
 }
 
+#pragma endregion
 
-//Get the line from database and write in console
 void DialoguePrinter::WriteDialogue(std::string category, std::string key)
 {
 	std::cout << dialogueDataBaseRef->GetDialogue(category, key) << std::endl;
 }
 
-//Futur function for gamefeel
+
 void DialoguePrinter::WriteDialogueWithDelay() 
 {
 

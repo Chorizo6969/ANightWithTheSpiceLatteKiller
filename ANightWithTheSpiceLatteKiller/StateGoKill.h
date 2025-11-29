@@ -2,7 +2,6 @@
 
 #include "StateBase.h"
 
-
 class StateGoKill : public StateBase
 {
 public:

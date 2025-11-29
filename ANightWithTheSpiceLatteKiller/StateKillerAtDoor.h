@@ -4,7 +4,6 @@
 class StateKillerAtDoor : public StateBase
 {
 public:
-
 	StateKillerAtDoor(KillerMain* killerMainRef);
 
 	void OnEnter() override;
@@ -12,7 +11,7 @@ public:
 	void OnExit() override;
 
 private:
-	int stepsRemaining;
-	const int MAX_STEPS = 20;
+	int stepsRemaining; //steps until the gameOver
+	const int MAX_STEPS = 20; //start steps of stepsRemaining
 };
 

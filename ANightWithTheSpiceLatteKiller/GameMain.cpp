@@ -64,6 +64,7 @@ int main() {
 
 	while (1) {
 		main.PlayerMainRef->MainElouann();
+		//main.DialoguePrinterRef->WriteDialogue("killer", "try_open_door");
 	}
 
 }

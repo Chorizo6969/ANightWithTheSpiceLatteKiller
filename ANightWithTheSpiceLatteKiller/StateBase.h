@@ -2,7 +2,6 @@
 
 #include <iostream>
 
-
 class KillerMain;
 
 class StateBase 
@@ -17,7 +16,7 @@ public:
 
 protected:
 	KillerMain* killerMainRef;
-	int _moveFrequence; //lower = faster
+	int _moveFrequence; //How many steps of the player until killer move, the lower, the faster
 
 };
 

@@ -22,6 +22,7 @@ KillerStateBrain::~KillerStateBrain() {
 	delete stateGoWalk;
 	delete stateGoStalk;
 	delete stateGoKill;
+	delete stateKillerAtDoor;
 }
 #pragma endregion
 

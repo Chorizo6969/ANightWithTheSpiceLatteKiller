@@ -10,11 +10,11 @@ StateGoWalk::StateGoWalk(KillerMain* killerMainRef)
 void StateGoWalk::OnEnter() {
 	killerMainRef->MapManagerRef->KillerColor = GREEN;
 }
-
+//Move and avoid player room and adjacent
 void StateGoWalk::Do() {
 	if (killerMainRef->PlayerStepMemory % _moveFrequence == 0)
 	{
-		killerMainRef->KillerMovementRef->MoveKillerSafe(true); // Avoid player room and adjacent
+		killerMainRef->KillerMovementRef->MoveKillerSafe(true);
 	}
 }
 

@@ -8,7 +8,7 @@ DialogueDataBase::~DialogueDataBase() {
 
 }
 
-//Fill the map on construct
+
 void DialogueDataBase::FillMap() {
     // Utility
     UtilityDialogue["wait_dot"] = "... ... ...";
@@ -25,7 +25,7 @@ void DialogueDataBase::FillMap() {
     KillerDialogue["far_away"] = "Silence. For now.";
 }
 
-//Safe way to get line
+
 std::string DialogueDataBase::GetDialogue(const std::string& category, const std::string& key) const {
     if (category == "player") {
         auto it = PlayerDialogue.find(key);

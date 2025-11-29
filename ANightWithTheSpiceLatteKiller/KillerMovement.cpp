@@ -3,7 +3,6 @@
 #include "MapManager.h"
 
 KillerMovement::KillerMovement(KillerMain* mainRef) : KillerMainRef(mainRef) {
-	KillerMainRef->MapManagerRef->KillerCurrentRoom = KillerMainRef->MapManagerRef->Map[KillerMainRef->MapManagerRef->KillerPosition.second][KillerMainRef->MapManagerRef->KillerPosition.first];
 }
 
 KillerMovement::~KillerMovement() {
@@ -68,7 +67,7 @@ void KillerMovement::MoveKiller(char killerRoom) {
 
 //Move but with restriction
 void KillerMovement::MoveKillerSafe(bool avoidAdjacent) {
-	char playerRoom = KillerMainRef->MapManagerRef->PlayerCurrentRoom;
+	char playerRoom = KillerMainRef->PlayerTrueRoom;
 	std::vector<char> excludedRooms = { playerRoom };
 
 	// if adjacent room
@@ -87,3 +86,5 @@ void KillerMovement::MoveKillerSafe(bool avoidAdjacent) {
 	KillerMainRef->MapManagerRef->KillerLastRoom = KillerMainRef->MapManagerRef->KillerCurrentRoom;
 	KillerMainRef->MapManagerRef->KillerCurrentRoom = targetRoom;
 }
+
+

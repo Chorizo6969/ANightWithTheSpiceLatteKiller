@@ -130,7 +130,7 @@
     <ClCompile Include="StateBase.cpp" />
     <ClCompile Include="ConsolePrinter.cpp" />
     <ClCompile Include="DialogueDataBase.cpp" />
-    <ClCompile Include="DialogueDialoguePrinter.cpp" />
+    <ClCompile Include="DialoguePrinter.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="KillerMain.cpp" />
     <ClCompile Include="KillerSoundHandler.cpp" />

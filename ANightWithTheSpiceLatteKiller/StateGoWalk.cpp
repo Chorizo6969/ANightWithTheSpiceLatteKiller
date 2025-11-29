@@ -13,7 +13,7 @@ void StateGoWalk::OnEnter() {
 }
 
 void StateGoWalk::Do() {
-	killerMainRef->KillerMovementRef->MoveKiller();
+	killerMainRef->KillerMovementRef->MoveKiller(killerMainRef->MapManagerRef->KillerCurrentRoom);
 	//Each player step, tp
 	//TP again if inPlayerRoom OR inNextRoomToPlayer
 

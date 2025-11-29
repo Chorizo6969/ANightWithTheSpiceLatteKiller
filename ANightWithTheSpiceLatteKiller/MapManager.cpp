@@ -181,6 +181,9 @@ void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int
 	case '/':
 		c->Attributes = Printer->MakeColor(RED, RED);
 		break;
+	case '@':
+		c->Attributes = Printer->MakeColor(CYAN, DARK_GRAY);
+		break;
 	case '§':
 		c->Attributes = (/*PlayerCurrentRoom == KillerCurrentRoom*/ true) ? Printer->MakeColor(KillerColor, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
 		break;

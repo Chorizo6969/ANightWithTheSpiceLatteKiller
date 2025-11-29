@@ -1,25 +1,25 @@
-#include "DialogueUI.h"
+#include "DialoguePrinter.h"
 #include <map>
 
 //Constructor
-DialogueUI::DialogueUI() {
+DialoguePrinter::DialoguePrinter() {
 	dialogueDataBaseRef = new DialogueDataBase;
 }
 
 //Destructor
-DialogueUI::~DialogueUI() {
+DialoguePrinter::~DialoguePrinter() {
 	delete dialogueDataBaseRef;
 }
 
 
 //Get the line from database and write in console
-void DialogueUI::WriteDialogue(std::string category, std::string key)
+void DialoguePrinter::WriteDialogue(std::string category, std::string key)
 {
 	std::cout << dialogueDataBaseRef->GetDialogue(category, key) << std::endl;
 }
 
 //Futur function for gamefeel
-void DialogueUI::WriteDialogueWithDelay() 
+void DialoguePrinter::WriteDialogueWithDelay() 
 {
 
 }

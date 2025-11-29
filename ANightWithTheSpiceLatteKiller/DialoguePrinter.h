@@ -4,13 +4,13 @@
 #include "DialogueDatabase.h"
 
 
-class DialogueUI
+class DialoguePrinter
 {
 public:
 	DialogueDataBase* dialogueDataBaseRef;
 
-	DialogueUI();
-	~DialogueUI();
+	DialoguePrinter();
+	~DialoguePrinter();
 
 	void WriteDialogue(std::string category, std::string key);
 	void WriteDialogueWithDelay();

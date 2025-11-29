@@ -130,7 +130,7 @@
     <ClCompile Include="StateBase.cpp" />
     <ClCompile Include="ConsolePrinter.cpp" />
     <ClCompile Include="DialogueDataBase.cpp" />
-    <ClCompile Include="DialogueUI.cpp" />
+    <ClCompile Include="DialogueDialoguePrinter.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="KillerMain.cpp" />
     <ClCompile Include="KillerSoundHandler.cpp" />
@@ -158,7 +158,7 @@
     <ClInclude Include="StateBase.h" />
     <ClInclude Include="ConsolePrinter.h" />
     <ClInclude Include="DialogueDataBase.h" />
-    <ClInclude Include="DialogueUI.h" />
+    <ClInclude Include="DialoguePrinter.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Interactable.h" />
     <ClInclude Include="KillerMain.h" />

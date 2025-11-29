@@ -12,7 +12,7 @@
 #define A 97
 #define R 114
 
-PlayerMain::PlayerMain(MapManager* map, KillerMain* killer, SoundManager* sound, DialoguePrinter* dialogue)
+PlayerMain::PlayerMain(MapManager* map, KillerMain* killer, SoundManager* sound, DialoguePrinter* dialogue, GameSession* session)
 {
 	PlayerMovementRef = new PlayerMouvement(map, killer);
 	PlayerInteractionRef = new PlayerInteraction;
@@ -102,6 +102,7 @@ void PlayerMain::MainElouann()
 		if (count(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), make_pair(x, y))) {
 			mapManager->LatteComponentsPos.erase(find(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), pos));
 			DialoguePrinterRef->WriteDialogue("player", "ingredient_looted");
+			AddIngredient();
 		}
 			
 		mapManager->PrintMap();
@@ -129,4 +130,21 @@ void PlayerMain::MainElouann()
 		break;
 	}
 	}
+}
+
+void PlayerMain::AddIngredient() {
+	CurrentIngredient++;
+	CheckTotalIngredient();
+}
+
+void PlayerMain::CheckTotalIngredient() {
+	if (CurrentIngredient == maxIngredient) {
+		GameWin();
+	}
+}
+
+void PlayerMain::GameWin() {
+	DialoguePrinterRef->WriteDialogue("player", "game_win");
+	GameSessionRef->SessionEnd();
+
 }

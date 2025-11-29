@@ -5,6 +5,7 @@
 #include "KillerMain.h"
 #include "SoundManager.h"
 #include "DialoguePrinter.h"
+#include "GameSession.h"
 
 
 class PlayerMain {
@@ -15,13 +16,26 @@ public:
 	MapManager* mapManager;
 	SoundManager* SoundManagerRef;
 	DialoguePrinter* DialoguePrinterRef;
+	GameSession* GameSessionRef;
+
 	
 
-	PlayerMain(MapManager* map, KillerMain* killer, SoundManager* sound, DialoguePrinter* dialogue);
+	PlayerMain(MapManager* map, KillerMain* killer, SoundManager* sound, DialoguePrinter* dialogue, GameSession* session);
 	~PlayerMain();
 	int c;
 	//int main();
 
 	// A SUPPR
 	void MainElouann();
+
+	void AddIngredient();
+
+	void GameWin();
+
+
+private:
+	int maxIngredient = 15;
+	int CurrentIngredient = 0;
+
+	void CheckTotalIngredient();
 };

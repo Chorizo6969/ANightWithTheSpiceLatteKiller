@@ -48,7 +48,7 @@ void PlayerMain::MainElouann()
 	case KEY_UP:
 	{
 		PlayerMovementRef->Move(0, -1);
-		system("cls");
+		//system("cls");
 		mapManager->PrintMap();
 		break;
 	}

@@ -58,7 +58,7 @@ int main() {
 
 	Sleep(30);
 	
-	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl /*<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl*/;
 	GameMain main;
 
 

@@ -67,7 +67,6 @@ void PlayerMain::MainElouann()
 	case KEY_RIGHT:
 	{
 		PlayerMovementRef->Move(1, 0);
-
 		mapManager->PrintMap();
 		break;
 	}

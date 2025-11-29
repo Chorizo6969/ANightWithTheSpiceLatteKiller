@@ -59,9 +59,16 @@ int main() {
 
 	Sleep(30);
 	
-	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl /*<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl*/;
+
+
+	//cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl /*<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl*/;
 	GameMain main;
 
+	for (int i = 0; i < main.ConsolePrinterRef->Csbi.dwMaximumWindowSize.Y; i++) {
+		cout << endl;
+	}
+
+	main.MapManagerRef->PrintMap();
 
 	while (1) {
 		main.PlayerMainRef->MainElouann();

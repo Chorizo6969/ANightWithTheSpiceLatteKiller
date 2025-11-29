@@ -46,8 +46,8 @@ private:
 	void InitDoorsRelations();
 	void SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int colorOverrideIndex = -1);
 
-	LatteComposant* LatteComposantRef;
-	string _baseMap;
-	vector<CHAR_INFO> _buffer;
+	LatteComposant* latteComposantRef_;
+	string baseMap_;
+	vector<CHAR_INFO> buffer_;
 };
 

@@ -6,7 +6,7 @@
 MapManager::MapManager(ConsolePrinter* printer) {
 	Printer = printer;
 	//_baseMap = "#################################################################################ddddddddddddd#kkkkkkkkkkkkkkkkkkk!/!ssssssssssssssssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#ssssssssssssssssssssssssssssssss!/!ffffffff##dddddddddddd!/!kkkkkkkkkkkkkkkkkkk################ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#bbbbbbbbbbbbbb#ssssssssssssssssss#ffffff!ff##ddddddddddddd#kkkkkkkkkkk##########bbbbbbbbbbbbbb##########################/####ddddddddddddd#kkkkkk!kkkk#bbbbbbbbbbbbbbbbbbbbbb!/!cccccccccccccccccccccccc!cc##ddddddddddddd#######/#####bbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc##dddddd!dddddd#bbbbbb!bbbbbbbbbbbbbbbbbbbbbb!bbbbb#cccccccccccccccccccccccccccc########/#######bbbbbbbbbbbbbbbbbb###########/######cccccc!ccccccccccccccccccccc##qqqqqq!qqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttt!ttttt#######/#############cccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#vvvvvv!vv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq####################tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqq!qqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#ccccc!cc#####/##qqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww######/####eee!e#qqqqqqq#oooooooooooooo!/!ttttttttttttttt!tt#vvvvvvvv!/!wwwwwwww#uuuuu!uu##eeeee#########ooooooooooooooo#################/###vv!vvvvvv#wwwwwwww!/!uuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#llllllllllllllll!ll###/#######wwwwwwwww#uuuuuuuu##eeeeeeeeeeee!/!oooooooooooooo#lllllllllllllllllll#mm!mmmmmm#wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm###########uuuuuuuu##eeeeeeeeeeeee#ooooooooo#######lllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu##eeeeeeeeeeeee#oooooooo!/!llllllllllllllllllllllll#mmmmmmmmmmmmmmmmmm!/!uuuuuuu##eeeeeeeeeeeee#ooooooooo#lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#################################################################################";
-	_baseMap = "#################################################################################ddddddddddddd#kkkkkkkkkkkkkkkkkkk3/3ssssssssssssssssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#ssssssssssssssssssssssssssssssss4/4ffffffff##dddddddddddd2/2kkkkkkkkkkkkkkkkkkk################ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#bbbbbbbbbbbbbb#ssssssssssssssssss#ffffff5ff##ddddddddddddd#kkkkkkkkkkk##########bbbbbbbbbbbbbb##########################/####ddddddddddddd#kkkkkk]kkkk#bbbbbbbbbbbbbbbbbbbbbb[/[cccccccccccccccccccccccc5cc##ddddddddddddd#######/#####bbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc##dddddd1dddddd#bbbbbb]bbbbbbbbbbbbbbbbbbbbbb)bbbbb#cccccccccccccccccccccccccccc########/#######bbbbbbbbbbbbbbbbbb###########/######cccccc(ccccccccccccccccccccc##qqqqqq1qqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttt)ttttt#######/#############cccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#vvvvvv(vv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq####################tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqq0qqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#ccccc6cc#####/##qqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww######/####eee0e#qqqqqqq#oooooooooooooo{/{ttttttttttttttt>tt#vvvvvvvv9/9wwwwwwww#uuuuu6uu##eeeee#########ooooooooooooooo#################/###vv<vvvvvv#wwwwwwww7/7uuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#llllllllllllllll>ll###/#######wwwwwwwww#uuuuuuuu##eeeeeeeeeeee$/$oooooooooooooo#lllllllllllllllllll#mm<mmmmmm#wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm###########uuuuuuuu##eeeeeeeeeeeee#ooooooooo#######lllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu##eeeeeeeeeeeee#oooooooo}/}llllllllllllllllllllllll#mmmmmmmmmmmmmmmmmm8/8uuuuuuu##eeeeeeeeeeeee#ooooooooo#lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#################################################################################";
+	baseMap_ = "#################################################################################ddddddddddddd#kkkkkkkkkkkkkkkkkkk3/3ssssssssssssssssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#ssssssssssssssssssssssssssssssss4/4ffffffff##dddddddddddd2/2kkkkkkkkkkkkkkkkkkk################ssssssssssssssssss#fffffffff##ddddddddddddd#kkkkkkkkkkkkkkkkkkkk#bbbbbbbbbbbbbb#ssssssssssssssssss#ffffff5ff##ddddddddddddd#kkkkkkkkkkk##########bbbbbbbbbbbbbb##########################/####ddddddddddddd#kkkkkk]kkkk#bbbbbbbbbbbbbbbbbbbbbb[/[cccccccccccccccccccccccc5cc##ddddddddddddd#######/#####bbbbbbbbbbbbbbbbbbbbbbb#cccccccccccccccccccccccccccc##dddddd1dddddd#bbbbbb]bbbbbbbbbbbbbbbbbbbbbb)bbbbb#cccccccccccccccccccccccccccc########/#######bbbbbbbbbbbbbbbbbb###########/######cccccc(ccccccccccccccccccccc##qqqqqq1qqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttt)ttttt#######/#############cccccccc##qqqqqqqqqqqqq#bbbbbbbbbbbbbbbbbb#tttttttttttttttt#vvvvvv(vv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq####################tttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqqqqqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#cccccccc##qqq0qqqqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww#ccccc6cc#####/##qqqqqqq#ooooooooooooooo#ttttttttttttttttttt#vvvvvvvvv#wwwwwwwww######/####eee0e#qqqqqqq#oooooooooooooo{/{ttttttttttttttt>tt#vvvvvvvv9/9wwwwwwww#uuuuu6uu##eeeee#########ooooooooooooooo#################/###vv<vvvvvv#wwwwwwww7/7uuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#llllllllllllllll>ll###/#######wwwwwwwww#uuuuuuuu##eeeeeeeeeeee$/$oooooooooooooo#lllllllllllllllllll#mm<mmmmmm#wwwwwwwww#uuuuuuuu##eeeeeeeeeeeee#ooooooooooooooo#lllllllllllllllllll#mmmmmmmmm###########uuuuuuuu##eeeeeeeeeeeee#ooooooooo#######lllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu##eeeeeeeeeeeee#oooooooo}/}llllllllllllllllllllllll#mmmmmmmmmmmmmmmmmm8/8uuuuuuu##eeeeeeeeeeeee#ooooooooo#lllllllllllllllllllllllll#mmmmmmmmmmmmmmmmmmm#uuuuuuuu#################################################################################";
 	AdjacentRoomsRelations = {
 		{ 'e', {'q', 'o'} },
 		{ 'd', {'k', 'q'} },
@@ -32,24 +32,17 @@ MapManager::MapManager(ConsolePrinter* printer) {
 	InitRoomPosDict();
 	InitDoorsRelations();
 
-	//std::for_each(
-	//	DoorsLinks.begin(), DoorsLinks.end(),
-	//	[](pair<pair<float, float>, pair<float, float>> p) {
-
-	//		cout << p.first.first << " " << p.first.second << " :: " << p.second.first << " " << p.second.second << endl;
-
-	//	});
-
 	PlayerPosition = make_pair(Map.size() / 2, Map[0].size() / 2);
 	KillerPosition = make_pair(65, 17);
 	KillerCurrentRoom = Map[KillerPosition.second][KillerPosition.first];
 	KillerLastRoom = KillerCurrentRoom;
-	LatteComposantRef = new LatteComposant;
-	LatteComposantRef->CreateLatteComposant(this);
+	latteComposantRef_ = new LatteComposant;
+	latteComposantRef_->CreateLatteComposant(this);
 }
 
 MapManager::~MapManager() {
 	delete Printer;
+	delete latteComposantRef_;
 }
 
 void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
@@ -76,8 +69,8 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 	int blankSpaceX = (Printer->Csbi.dwMaximumWindowSize.X - Map[0].size()) / 2;
 
 	CHAR_INFO blank;
-	blank.Char.AsciiChar = ' ';
-	blank.Attributes = Printer->MakeColor(BLACK, BLACK);
+	blank.Char.AsciiChar = 'x';
+	blank.Attributes = Printer->MakeColor(CYAN, BLACK);
 
 	//// Create blank space above the map
 	//for (int i = 0; i < blankSpaceY; i++)
@@ -89,27 +82,24 @@ void MapManager::PrintMap(int colorOverrideIndex, bool excludePlayer) {
 	//}
 
 	for (int i = 0; i < Map.size(); i++) {
-		/*for (int x = 0; x < blankSpaceX; x++) {
-			buffer.push_back(blank);
-		}*/
+
 		for (int j = 0; j < Map[i].size(); j++)
 		{
-			//for (int j = 0; j < blankSpaceX; j++)
-			//{
-			//	buffer.push_back(blank);
-			//}
+			for (int x = 0; x < blankSpaceX; x++) {
+				buffer.push_back(blank);
+			}
 			// Handle player pos
 			if (i == PlayerPosition.second && j == PlayerPosition.first)
 			{
 				CHAR_INFO& cell = buffer[i * Printer->Csbi.dwMaximumWindowSize.X + j];
 				cell.Char.AsciiChar = '*';
-				cell.Attributes = Printer->MakeColor(playerColorOverride, DARK_GRAY);
+				//cell.Attributes = Printer->MakeColor(playerColorOverride, DARK_GRAY);
+				SetCharAttributes(&cell, make_pair(i, j), colorOverrideIndex);
 			}
+			// Handle killer pos
 			else if (i == KillerPosition.second && j == KillerPosition.first) {
 				CHAR_INFO& cell = buffer[i * Printer->Csbi.dwMaximumWindowSize.X + j];
 				cell.Char.AsciiChar = '§';
-
-				//cell.Attributes = Printer->MakeColor(playerColorOverride, DARK_GRAY);
 				SetCharAttributes(&cell, make_pair(i, j), colorOverrideIndex);
 			}
 			else if (count(LatteComponentsPos.begin(), LatteComponentsPos.end(), make_pair(j, i))) {
@@ -158,7 +148,7 @@ void MapManager::InitMap()
 
 		for (int x = 0; x < mapSizeX; x++)
 		{
-			newLine.push_back(_baseMap[y * mapSizeX + x]);
+			newLine.push_back(baseMap_[y * mapSizeX + x]);
 		}
 
 		Map.push_back(newLine);
@@ -180,7 +170,8 @@ void MapManager::InitMap()
 void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int colorOverrideIndex )
 {
 	switch (c->Char.AsciiChar) {
-		c->Attributes = Printer->MakeColor(RED, RED);
+	case '*':
+		c->Attributes = Printer->MakeColor(LIGHT_YELLOW, DARK_GRAY);
 		break;
 	case '#':
 		c->Attributes = Printer->MakeColor(LIGHT_RED, LIGHT_RED);

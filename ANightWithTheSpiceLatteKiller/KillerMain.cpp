@@ -10,6 +10,12 @@ KillerMain::KillerMain(MapManager* mapRef)
 	KillerMovementRef = new KillerMovement(this);
 	EventManagerRef = new EventManager();
 	StepCounterRef = new StepCounter(*EventManagerRef);
+
+	PlayerTrueRoom = MapManagerRef->PlayerCurrentRoom;
+
+	AvoidableCharList = MapManagerRef->DoorsSymbols;
+	AvoidableCharList.push_back('@');
+	AvoidableCharList.push_back('§');
 }
 
 KillerMain::~KillerMain() {
@@ -21,9 +27,19 @@ KillerMain::~KillerMain() {
 	delete StepCounterRef;
 }
 
+void KillerMain::UpdatePlayerRoom() {
+	if (std::find(AvoidableCharList.begin(), AvoidableCharList.end(), MapManagerRef->PlayerCurrentRoom) != AvoidableCharList.end()) {
+		return;
+	}
+	PlayerTrueRoom = MapManagerRef->PlayerCurrentRoom;
+}
+
+
 void KillerMain::KillerDo() {
+	UpdatePlayerRoom();
 	if(KillerBrainRef->stateCurrent != NULL)KillerBrainRef->stateCurrent->Do();
-	
+	std::cout << "LA ROOM DU JOUEUR : " + MapManagerRef->PlayerCurrentRoom << std::endl;
+	std::cout << "LA ROOM DU KILLER : " + MapManagerRef->KillerCurrentRoom << std::endl;
 }
 
 void KillerMain::DebugStateMachine() {
@@ -33,13 +49,15 @@ void KillerMain::DebugStateMachine() {
 
 void KillerMain::Update(int value)
 {
-	std::cout << "Le joueur est a " << value << " pas" << std::endl;
+	/*std::cout << "Le joueur est a " << value << " pas" << std::endl;*/
 	PlayerStepMemory++;
     if (PlayerStepMemory == 30) {
 		KillerBrainRef->SwitchState(KillerBrainRef->GetRandomPatrolState());
 		PlayerStepMemory = 0;
 	}
-	KillerDo();
+	if(PlayerStepMemory % 5 == 0)KillerDo();
+
+
 }
 
 void KillerMain::GameOver() {

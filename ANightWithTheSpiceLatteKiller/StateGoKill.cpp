@@ -7,14 +7,14 @@ StateGoKill::StateGoKill(KillerMain* killerMainRef)
 }
 
 void StateGoKill::OnEnter() {
-	std::cout << "Enter Kill State" << std::endl;
+	//std::cout << "Enter Kill State" << std::endl;
 	killerMainRef->MapManagerRef->KillerColor = RED;
 }
 
 void StateGoKill::Do() {
 	killerMainRef->KillerMovementRef->MoveKiller(killerMainRef->MapManagerRef->KillerCurrentRoom); // No restriction
 	killerMainRef->MapManagerRef->KillerLastRoom = killerMainRef->MapManagerRef->KillerCurrentRoom;
-	std::cout << "Killer is trying to kill player" << std::endl;
+	//std::cout << "Killer is trying to kill player" << std::endl;
 
 	if (killerMainRef->MapManagerRef->KillerCurrentRoom == killerMainRef->MapManagerRef->PlayerCurrentRoom) {
 		killerMainRef->KillerBrainRef->SwitchState(killerMainRef->KillerBrainRef->stateKillerAtDoor);
@@ -22,7 +22,7 @@ void StateGoKill::Do() {
 }
 
 void StateGoKill::OnExit() {
-	std::cout << "Exit Kill State" << std::endl;
+	//std::cout << "Exit Kill State" << std::endl;
 }
 
 void StateGoKill::TryEnterPlayerRoom() {

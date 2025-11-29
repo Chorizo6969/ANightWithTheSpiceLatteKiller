@@ -23,7 +23,6 @@ KillerMain::KillerMain(MapManager* mapRef, DialoguePrinter* diaRef, GameSession*
 
 }
 KillerMain::~KillerMain() {
-	delete MapManagerRef;
 	delete KillerMovementRef;
 	delete KillerBrainRef;
 	delete KillerSoundHandlerRef;

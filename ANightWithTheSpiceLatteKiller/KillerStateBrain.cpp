@@ -13,7 +13,7 @@ KillerStateBrain::KillerStateBrain(KillerMain* main) : killerMainRef(main) {
 	stateGoKill = new StateGoKill(killerMainRef);
 	stateKillerAtDoor = new StateKillerAtDoor(killerMainRef);
 
-	stateCurrent = NULL;
+	stateCurrent = nullptr;
 
 	PatrolStateList = { stateGoWalk, stateGoStalk, stateGoKill };
 }
@@ -32,13 +32,13 @@ StateBase* KillerStateBrain::GetRandomPatrolState() {
 	std::uniform_int_distribution<> dis(0, PatrolStateList.size() - 1);
 
 	int randomIndex = dis(gen);
-	if (PatrolStateList[randomIndex] == stateCurrent) GetRandomPatrolState();
+	if (PatrolStateList[randomIndex] == stateCurrent) return GetRandomPatrolState();
 	else return PatrolStateList[randomIndex];
 }
 
 void KillerStateBrain::SwitchState(StateBase* StateToSwitch){
-	if (stateCurrent != NULL)stateCurrent->OnExit();
+	if (stateCurrent != nullptr)stateCurrent->OnExit();
 	stateCurrent = StateToSwitch;
-	if (stateCurrent != NULL)stateCurrent->OnEnter();
+	if (stateCurrent != nullptr)stateCurrent->OnEnter();
 }
 

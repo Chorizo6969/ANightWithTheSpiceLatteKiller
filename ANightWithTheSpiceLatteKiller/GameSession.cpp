@@ -5,7 +5,6 @@ GameSession::GameSession(DialoguePrinter* dialogue) {
 }
 
 GameSession::~GameSession() {
-	delete DialoguePrinterRef;
 }
 
 

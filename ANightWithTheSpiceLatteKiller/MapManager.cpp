@@ -25,6 +25,28 @@ MapManager::MapManager(ConsolePrinter* printer) {
 		{ 'q', {'d', 'e'} }
 	};
 
+	doorPossibleRooms_ = {
+		{ '0', { 'q', 'e'}},
+		{ '1', { 'd', 'q'}},
+		{ '2', { 'd', 'k'}},
+		{ '3', { 'k', 's'}},
+		{ '4', { 's', 'f'}},
+		{ '5', { 'f', 'c'}},
+		{ '6', { 'c', 'u'}},
+		{ '7', { 'u', 'w'}},
+		{ '8', { 'm', 'u'}},
+		{ '9', { 'w', 'v'}},
+		{ '(', { 'c', 'v'}},
+		{ ')', { 't', 'b'}},
+		{ '[', { 'b', 'c'}},
+		{ ']', { 'b', 'k'}},
+		{ '$', { 'e', 'o'}},
+		{ '>', { 't', 'l'}},
+		{ '<', { 'v', 'm'}},
+		{ '{', { 'o', 't'}},
+		{ '}', { 'o', 'l'}}
+	};
+
 	// Init doors relations
 	DoorsSymbols = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ']', '[', ')', '(', '$', '>', '<', '{', '}', };
 
@@ -130,6 +152,70 @@ void MapManager::TintMap(int colorIndex, int timeMiliSec, bool excludePlayer) {
 	Sleep(timeMiliSec);
 }
 
+/// <summary>
+/// Set the CHAR_INFO input depending on its type and utility
+/// </summary>
+/// <param name="c"></param>
+void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int colorOverrideIndex)
+{
+	switch (c->Char.AsciiChar) {
+	case '*':
+		c->Attributes = Printer->MakeColor(LIGHT_YELLOW, DARK_GRAY);
+		break;
+	case '#':
+		c->Attributes = Printer->MakeColor(LIGHT_RED, LIGHT_RED);
+		break;
+	case '/':
+		c->Attributes = Printer->MakeColor(RED, RED);
+		break;
+	case '@':
+		c->Attributes = (Map[charPos.first][charPos.second] == PlayerCurrentRoom) ? Printer->MakeColor(YELLOW, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
+		break;
+	case '§':
+		c->Attributes = (/*ShowKiller*/ true) ? Printer->MakeColor(KillerColor, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
+		break;
+	default:
+		// si le char est le même que celui du joueur (donc même pièce) OU qu'il en a un similaire autour de lui (donc porte de même pièce)
+		if (PlayerCurrentRoom == c->Char.AsciiChar && c->Char.AsciiChar != '!') {
+			c->Attributes = Printer->MakeColor(DARK_GRAY, DARK_GRAY);
+		}
+		//// if the char is an adjacent room
+		//else if (IsAdjacentOfPlayer(c->Char.AsciiChar)){
+		//	c->Attributes = Printer->MakeColor(WHITE, WHITE);
+		//}
+		else {
+			c->Attributes = Printer->MakeColor(BLACK, BLACK);
+		}
+		break;
+	}
+	if (colorOverrideIndex > -1) c->Attributes = Printer->MakeColor(colorOverrideIndex, colorOverrideIndex);
+}
+
+bool MapManager::IsKillerInTheOtherSideOfTheDoor(pair<float, float> pos) {
+	
+	vector<char> truc = doorPossibleRooms_[Map[pos.second][pos.first]];
+
+	for (char c : truc) {
+		if (KillerCurrentRoom == c) true;
+	}
+	return false;
+}
+
+bool MapManager::IsAdjacentToPlayer(char c) {
+
+	// return true if c is found in current room's adjacent rooms list
+	for (char test : AdjacentRoomsRelations[Map[PlayerPosition.second][PlayerPosition.first]]) {
+		if (test == c) return true;
+	}
+	return false;
+}
+
+//vector<pair<float, float>> GetRoomFromChar(char c) {
+//
+//}
+
+#pragma region InitMethods
+
 void MapManager::InitMap()
 {
 	// TODO : prendre en compte la taille de la boîte de dialogue
@@ -170,58 +256,6 @@ void MapManager::InitMap()
 	//}
 
 }
-
-/// <summary>
-/// Set the CHAR_INFO input depending on its type and utility
-/// </summary>
-/// <param name="c"></param>
-void MapManager::SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int colorOverrideIndex)
-{
-	switch (c->Char.AsciiChar) {
-	case '*':
-		c->Attributes = Printer->MakeColor(LIGHT_YELLOW, DARK_GRAY);
-		break;
-	case '#':
-		c->Attributes = Printer->MakeColor(LIGHT_RED, LIGHT_RED);
-		break;
-	case '/':
-		c->Attributes = Printer->MakeColor(RED, RED);
-		break;
-	case '@':
-		c->Attributes = (Map[charPos.first][charPos.second] == PlayerCurrentRoom) ? Printer->MakeColor(YELLOW, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
-		break;
-	case '§':
-		c->Attributes = (ShowKiller) ? Printer->MakeColor(KillerColor, DARK_GRAY) : Printer->MakeColor(BLACK, BLACK);
-		break;
-	default:
-		// si le char est le même que celui du joueur (donc même pièce) OU qu'il en a un similaire autour de lui (donc porte de même pièce)
-		if (PlayerCurrentRoom == c->Char.AsciiChar && c->Char.AsciiChar != '!') {
-			c->Attributes = Printer->MakeColor(DARK_GRAY, DARK_GRAY);
-		}
-		//// if the char is an adjacent room
-		//else if (IsAdjacentOfPlayer(c->Char.AsciiChar)){
-		//	c->Attributes = Printer->MakeColor(WHITE, WHITE);
-		//}
-		else {
-			c->Attributes = Printer->MakeColor(BLACK, BLACK);
-		}
-		break;
-	}
-	if (colorOverrideIndex > -1) c->Attributes = Printer->MakeColor(colorOverrideIndex, colorOverrideIndex);
-}
-
-bool MapManager::IsAdjacentToPlayer(char c) {
-
-	// return true if c is found in current room's adjacent rooms list
-	for (char test : AdjacentRoomsRelations[Map[PlayerPosition.second][PlayerPosition.first]]) {
-		if (test == c) return true;
-	}
-	return false;
-}
-
-//vector<pair<float, float>> GetRoomFromChar(char c) {
-//
-//}
 
 void MapManager::InitRoomPosDict() {
 
@@ -277,3 +311,4 @@ void MapManager::InitDoorsRelations() {
 		}
 	}
 }
+#pragma endregion

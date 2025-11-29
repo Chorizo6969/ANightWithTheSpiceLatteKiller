@@ -2,6 +2,7 @@
 #include <vector>
 #include "ConsolePrinter.h"
 #include "ConsoleColorEnum.h"
+#include "LatteComposant.h"
 #include <map>
 
 using namespace std;
@@ -42,6 +43,7 @@ private:
 	void InitDoorsRelations();
 	void SetCharAttributes(CHAR_INFO* c, pair<float, float> charPos, int colorOverrideIndex = -1);
 
+	LatteComposant* LatteComposantRef;
 	string _baseMap;
 	vector<CHAR_INFO> _buffer;
 };

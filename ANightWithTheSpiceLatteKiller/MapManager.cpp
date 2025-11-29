@@ -1,6 +1,5 @@
 #include <sstream>
 #include "MapManager.h"
-#include "ConsoleColorEnum.h"
 
 #include <algorithm>
 
@@ -44,6 +43,8 @@ MapManager::MapManager(ConsolePrinter* printer) {
 	PlayerPosition = make_pair(Map.size() / 2, Map[0].size() / 2);
 	KillerPosition = make_pair(65, 17);
 	KillerCurrentRoom = Map[KillerPosition.second][KillerPosition.first];
+	LatteComposantRef = new LatteComposant;
+	LatteComposantRef->CreateLatteComposant(this);
 }
 
 MapManager::~MapManager() {

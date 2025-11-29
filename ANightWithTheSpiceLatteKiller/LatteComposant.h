@@ -1,9 +1,16 @@
 #pragma once
-#include "Interactable.h"
+#include <vector>
 
-class LatteComposant : public Interactable {
+class MapManager;
+
+class LatteComposant {
 public:
-	bool IsActive;
-	void InteractionStart() override;
-};
 
+    void CreateLatteComposant(MapManager* map);
+
+private:
+    std::vector<char> forbiddenCharacters_ = {
+        '#', ' ', //mur et vide
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '[', ')', '/', '$', '}', '<', ']', '(', '>', '{' //DoorSymbols de MapManager
+    };
+};

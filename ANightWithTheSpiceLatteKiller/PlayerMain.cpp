@@ -105,7 +105,7 @@ void PlayerMain::MainElouann()
 		case A:
 		{
 			std::cout << mapManager->PlayerCurrentRoom << std::endl;
-			if (mapManager->PlayerCurrentRoom == 'd')
+			if (mapManager->PlayerCurrentRoom == '@')
 				std::cout << "Collectible ramassé !" << std::endl;
 			break;
 		}

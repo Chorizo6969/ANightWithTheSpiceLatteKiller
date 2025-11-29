@@ -8,6 +8,7 @@
 #include "EventManager.h"
 #include "MapManager.h"
 #include "DialoguePrinter.h"
+#include "GameSession.h"
 
 class KillerMain : public IObserver
 {
@@ -19,7 +20,8 @@ public:
 	EventManager* EventManagerRef;
 	MapManager* MapManagerRef;
 	DialoguePrinter* DialoguePrinterRef;
-	KillerMain(MapManager* mapRef, DialoguePrinter* diaRef);
+	GameSession* GameSessionRef;
+	KillerMain(MapManager* mapRef, DialoguePrinter* diaRef, GameSession* gameSession);
 	~KillerMain();
 
 	void KillerDo();

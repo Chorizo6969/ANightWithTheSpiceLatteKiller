@@ -13,11 +13,13 @@ void DialogueDataBase::FillMap() {
     // Utility
     UtilityDialogue["wait_dot"] = "... ... ...";
     UtilityDialogue["game_start"] = "Someone is hunting you. Find the ingredients and escape! Use [arrow keys] to move.";
+    UtilityDialogue["game_end"] = "End of the game. Quit and restart to replay [ALT+F4]";
 
     // Player
     PlayerDialogue["door_interact"] = "There's a door here. [A] Open it  |  [B] Listen carefully";
     PlayerDialogue["ingredient_interact"] = "You found an ingredient! Press [F] to take it.";
     PlayerDialogue["ingredient_looted"] = "You loot an ingredient!";
+    PlayerDialogue["game_win"] = "You get all the ingredients! You win.";
 
     // Killer
     KillerDialogue["try_open_door"] = "You hear someone frantically trying to open a door nearby. RUN!";

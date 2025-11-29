@@ -5,6 +5,7 @@
 #include "PlayerMain.h"
 #include "SoundManager.h"
 #include "DialoguePrinter.h"
+#include "GameSession.h"
 
 class GameMain
 {
@@ -15,6 +16,7 @@ public:
 	ConsolePrinter* ConsolePrinterRef;
 	SoundManager* SoundManagerRef;
 	DialoguePrinter* DialoguePrinterRef;
+	GameSession* GameSessionRef;
 
 	GameMain();
 	~GameMain();

@@ -2,18 +2,22 @@
 
 GameMain::GameMain() {
 	ConsolePrinterRef = new ConsolePrinter;
-	SoundManagerRef = new SoundManager;
 	DialoguePrinterRef = new DialoguePrinter(ConsolePrinterRef);
+	GameSessionRef = new GameSession(DialoguePrinterRef);
 	MapManagerRef = new MapManager(ConsolePrinterRef);
-	KillerMainRef = new KillerMain(MapManagerRef, DialoguePrinterRef);
+	KillerMainRef = new KillerMain(MapManagerRef, DialoguePrinterRef, GameSessionRef);
 	PlayerMainRef = new PlayerMain(MapManagerRef, KillerMainRef, SoundManagerRef, DialoguePrinterRef);
 	SoundManagerRef = new SoundManager;
-	DialoguePrinterRef = new DialoguePrinter(ConsolePrinterRef);
 }
 
-
 GameMain::~GameMain() {
-
+	delete PlayerMainRef;
+	delete KillerMainRef;
+	delete MapManagerRef;
+	delete ConsolePrinterRef;
+	delete SoundManagerRef;
+	delete DialoguePrinterRef;
+	delete GameSessionRef;
 }
 
 int main() {
@@ -69,9 +73,9 @@ int main() {
 	}
 
 	main.MapManagerRef->PrintMap();
-	main.DialoguePrinterRef->WriteDialogue("utility", "game_start");
+	main.GameSessionRef->SessionStart();
 
-	while (1) {
+	while (main.GameSessionRef->CanPlay) {
 		main.PlayerMainRef->MainElouann();
 		//main.DialoguePrinterRef->WriteDialogue("killer", "try_open_door");
 	}

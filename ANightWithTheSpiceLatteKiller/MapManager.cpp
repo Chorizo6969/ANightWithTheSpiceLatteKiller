@@ -196,7 +196,7 @@ bool MapManager::IsKillerInTheOtherSideOfTheDoor(pair<float, float> pos) {
 	vector<char> truc = doorPossibleRooms_[Map[pos.second][pos.first]];
 
 	for (char c : truc) {
-		if (KillerCurrentRoom == c) true;
+		if (KillerCurrentRoom == c) return true;
 	}
 	return false;
 }

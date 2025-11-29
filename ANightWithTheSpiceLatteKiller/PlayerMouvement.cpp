@@ -8,17 +8,29 @@ PlayerMouvement::PlayerMouvement(MapManager* map, KillerMain* killer)
 
 void PlayerMouvement::Move(int addOnX, int addOnY)
 {
+	// check if player pos + X isn't a wall or a door
 	if (MapRef->Map[MapRef->PlayerPosition.second][MapRef->PlayerPosition.first + addOnX] != '#'
 		&& MapRef->Map[MapRef->PlayerPosition.second][MapRef->PlayerPosition.first + addOnX] != '/')
-		MapRef->PlayerPosition.first = max(0, min(MapRef->PlayerPosition.first + addOnX,
-			MapRef->Printer->Csbi.dwMaximumWindowSize.X - 1));
 
+		// add on X
+		MapRef->PlayerPosition.first += addOnX;
+
+	// check if player pos + Y isn't a wall or a door
 	if (MapRef->Map[MapRef->PlayerPosition.second + addOnY][MapRef->PlayerPosition.first] != '#'
 		&& MapRef->Map[MapRef->PlayerPosition.second + addOnY][MapRef->PlayerPosition.first] != '/')
-		MapRef->PlayerPosition.second = max(1, min(MapRef->PlayerPosition.second + addOnY,
-			MapRef->Printer->Csbi.dwMaximumWindowSize.Y - 1));
 
+		// add on Y
+		MapRef->PlayerPosition.second += addOnY;
+
+	// update PlayerCurrentRoom and step counter
 	MapRef->PlayerCurrentRoom = MapRef->Map[MapRef->PlayerPosition.second][MapRef->PlayerPosition.first];
+	stepCounter_.IncreaseStep();
 
-	stepCounter_.IncreaseStep();  
+	//if (MapRef->PlayerCurrentRoom == '@') {
+	//	// do the latte thing
+	//	cout << "latte" << endl;
+	//}
+	//else if(count(MapRef->DoorsSymbols.begin(), MapRef->DoorsSymbols.end(), MapRef->PlayerCurrentRoom)){
+	//	cout << "door" << endl;
+	//}
 }

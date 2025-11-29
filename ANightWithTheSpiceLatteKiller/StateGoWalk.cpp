@@ -4,19 +4,25 @@
 StateGoWalk::StateGoWalk(KillerMain* killerMainRef)
 	: StateBase(killerMainRef)
 {
+	_moveSpeed = 7;
 }
 
 
 void StateGoWalk::OnEnter() {
-	std::cout << "Enter Walk State" << std::endl;
+	//std::cout << "Enter Walk State" << std::endl;
 	killerMainRef->MapManagerRef->KillerColor = GREEN;
 }
 
 void StateGoWalk::Do() {
-	killerMainRef->KillerMovementRef->MoveKillerSafe(true); // Avoid player room and adjacent
-	std::cout << "Killer is walking in the shop" << std::endl;
+	if (killerMainRef->PlayerStepMemory % _moveSpeed == 0)
+	{
+		killerMainRef->KillerMovementRef->MoveKillerSafe(true); // Avoid player room and adjacent
+	}
+
+	
+	//std::cout << "Killer is walking in the shop" << std::endl;
 }
 
 void StateGoWalk::OnExit() {
-	std::cout << "Exit Walk State" << std::endl;
+	//std::cout << "Exit Walk State" << std::endl;
 }

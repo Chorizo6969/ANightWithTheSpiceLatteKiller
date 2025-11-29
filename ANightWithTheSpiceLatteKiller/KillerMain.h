@@ -27,8 +27,12 @@ public:
 	void Update(int value) override;
 	void TestStepSystem();
 
+	char PlayerTrueRoom;
+    int PlayerStepMemory;
+
 	// call, if player go in the room where killer is or if killer end trying to be in player room
 	void GameOver(); 
 private:
-	int PlayerStepMemory;
+	vector<char> AvoidableCharList;
+	void UpdatePlayerRoom();
 };

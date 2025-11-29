@@ -17,6 +17,7 @@ public:
 
 protected:
 	KillerMain* killerMainRef;
+	int _moveSpeed; //lower = faster
 
 };
 

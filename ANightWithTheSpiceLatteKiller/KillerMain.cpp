@@ -63,7 +63,7 @@ void KillerMain::Update(int value)
 
 void KillerMain::GameOver() {
 	//Killer Visible now
-	std::cout << "GAMEOVER" << std::endl;
+	//std::cout << "GAMEOVER" << std::endl;
 }
 
 void KillerMain::TestStepSystem()

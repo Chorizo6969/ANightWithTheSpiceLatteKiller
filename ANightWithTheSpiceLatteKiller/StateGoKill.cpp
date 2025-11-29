@@ -17,11 +17,14 @@ void StateGoKill::Do() {
 	{
 		killerMainRef->KillerMovementRef->MoveKiller(killerMainRef->MapManagerRef->KillerCurrentRoom); 
 		killerMainRef->MapManagerRef->KillerLastRoom = killerMainRef->MapManagerRef->KillerCurrentRoom;
+
+		if (killerMainRef->MapManagerRef->KillerCurrentRoom == killerMainRef->MapManagerRef->PlayerCurrentRoom) {
+			killerMainRef->KillerBrainRef->SwitchState(killerMainRef->KillerBrainRef->stateKillerAtDoor);
+		}
+
 	}
 
-	if (killerMainRef->MapManagerRef->KillerCurrentRoom == killerMainRef->MapManagerRef->PlayerCurrentRoom) {
-		killerMainRef->KillerBrainRef->SwitchState(killerMainRef->KillerBrainRef->stateKillerAtDoor);
-	}
+
 }
 
 void StateGoKill::OnExit() {

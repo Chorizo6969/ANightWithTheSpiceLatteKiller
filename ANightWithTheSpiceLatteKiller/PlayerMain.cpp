@@ -3,7 +3,6 @@
 #include "MapManager.h"
 
 #include <conio.h>
-//#pragma comment(lib, "winmm.lib")
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -40,7 +39,7 @@ void TestInput() {
 void PlayerMain::MainElouann()
 {
 	c = 0;
-	// get player input as int
+
 	switch ((c = _getch()))
 	{
 	case KEY_UP:
@@ -54,26 +53,20 @@ void PlayerMain::MainElouann()
 	case KEY_DOWN:
 	{
 		PlayerMovementRef->Move(0, 1);
-		//system("cls");
 		mapManager->PrintMap();
-		//cout << mapManager->PlayerCurrentRoom << " " << mapManager->KillerCurrentRoom << "|";
-
 		break;
 	}
 
 	case KEY_LEFT:
 	{
 		PlayerMovementRef->Move(-1, 0);
-		//system("cls");
 		mapManager->PrintMap();
-		/*system("cls");*/
 		break;
 	}
 
 	case KEY_RIGHT:
 	{
 		PlayerMovementRef->Move(1, 0);
-		//system("cls");
 
 		mapManager->PrintMap();
 		break;
@@ -96,8 +89,6 @@ void PlayerMain::MainElouann()
 				break;
 			}
 		}
-
-		//std::cout << "Aucune porte a cette position." << std::endl;
 		break;
 	}
 
@@ -107,15 +98,8 @@ void PlayerMain::MainElouann()
 		int x = pos.first;
 		int y = pos.second;
 
-		if (/*mapManager->Map[y][x] == '@'*/ count(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), make_pair(x, y)))
-		{
-			//std::cout << "Collectible ramassé !" << std::endl;
-			//mapManager->TintMap(CYAN, 50, false);
-
-			//mapManager->Map[y][x] = mapManager->PlayerCurrentRoom;
-			//mapManager->LatteComponentsPos.erase(pos);
+		if (count(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), make_pair(x, y)))
 			mapManager->LatteComponentsPos.erase(find(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), pos));
-		}
 		mapManager->PrintMap();
 		break;
 	}
@@ -141,7 +125,4 @@ void PlayerMain::MainElouann()
 		break;
 	}
 	}
-
-	//cout << "Ceci est un test destine a ne faire paniquer personne, specialement Emrys" << endl;
-	//cout << "fatal error fatal error fatal error error error" << endl;
 }

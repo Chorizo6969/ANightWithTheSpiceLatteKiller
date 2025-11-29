@@ -5,6 +5,7 @@ StateKillerAtDoor::StateKillerAtDoor(KillerMain* killerMainRef)
 	: StateBase(killerMainRef)
 {
 	stepsRemaining = 0;
+	playerRoomWhenKnocking = 0;
 }
 
 void StateKillerAtDoor::OnEnter() {

@@ -1,10 +1,6 @@
 #include <iostream>
-#include "ConsolePrinter.h"
 #include "PlayerMain.h"
 #include "MapManager.h"
-#include "ConsoleColorEnum.h"
-#include "KillerMain.h"
-#include "SoundManager.h"
 
 #include <conio.h>
 //#pragma comment(lib, "winmm.lib")
@@ -15,11 +11,13 @@
 #define KEY_RIGHT 77
 #define E 101
 #define A 97
+#define R 114
 
-PlayerMain::PlayerMain(MapManager* mapRef, KillerMain* killer)
+PlayerMain::PlayerMain(MapManager* mapRef, KillerMain* killer, SoundManager* sound)
 {
 	PlayerMovementRef = new PlayerMouvement(mapRef, killer);
 	PlayerInteractionRef = new PlayerInteraction;
+	SoundManagerRef = sound;
 	c = 0;
 	mapManager = mapRef;
 	mapManager->PrintMap();
@@ -119,6 +117,32 @@ void PlayerMain::MainElouann()
 			mapManager->LatteComponentsPos.erase(find(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), pos));
 		}
 		mapManager->PrintMap();
+		break;
+	}
+
+	case R:
+	{
+		const auto& playerPos = mapManager->PlayerPosition;
+
+		for (const auto& entry : mapManager->DoorsLinks)
+		{
+			const auto& doorPos = entry.first;
+
+			if (doorPos.first == playerPos.second && doorPos.second == playerPos.first)
+			{
+				SoundManagerRef->PlaySFX("Door.mp3");
+				if (true)
+				{
+					//SoundManagerRef->PlaySFX("Kitchen.mp3");
+				}
+				else
+				{
+
+				}
+
+				break;
+			}
+		}
 		break;
 	}
 	}

@@ -5,9 +5,10 @@ GameMain::GameMain() {
 	SoundManagerRef = new SoundManager;
 	DialoguePrinterRef = new DialoguePrinter(ConsolePrinterRef);
 	MapManagerRef = new MapManager(ConsolePrinterRef);
-	KillerMainRef = new KillerMain(MapManagerRef, DialoguePrinterRef);
+	KillerMainRef = new KillerMain(MapManagerRef);
 	PlayerMainRef = new PlayerMain(MapManagerRef, KillerMainRef);
-
+	SoundManagerRef = new SoundManager;
+	DialoguePrinterRef = new DialoguePrinter(ConsolePrinterRef);
 }
 
 

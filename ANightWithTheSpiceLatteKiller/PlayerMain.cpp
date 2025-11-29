@@ -48,7 +48,7 @@ void PlayerMain::MainElouann()
 	case KEY_UP:
 	{
 		PlayerMovementRef->Move(0, -1);
-		system("cls");
+		//system("cls");
 		mapManager->PrintMap();
 		break;
 	}
@@ -123,7 +123,6 @@ void PlayerMain::MainElouann()
 				SoundManagerRef->PlaySFX("Door.mp3");
 				if (mapManager->IsKillerInTheOtherSideOfTheDoor(mapManager->PlayerPosition) > 0)
 				{
-					printf("HELLOOOOOOOOOOOOOOOOOOO");
 					SoundManagerRef->PlaySFX("Kitchen.mp3");
 				}
 				break;

@@ -210,9 +210,6 @@ bool MapManager::IsAdjacentToPlayer(char c) {
 	return false;
 }
 
-//vector<pair<float, float>> GetRoomFromChar(char c) {
-//
-//}
 
 #pragma region InitMethods
 

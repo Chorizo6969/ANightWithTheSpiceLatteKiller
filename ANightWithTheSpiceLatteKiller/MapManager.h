@@ -40,7 +40,8 @@ public:
 	void TintMap(int colorIndex, int timeMiliSec, bool excludePlayer = false);
 	bool IsAdjacentToPlayer(char c);
 	bool IsKillerInTheOtherSideOfTheDoor(pair<float, float> pos);
-
+	bool IsPlayerNearDoor();
+	bool IsPlayerOnLatteComp();
 	vector<pair<float, float>> GetRoomFromChar(char c);
 
 private:

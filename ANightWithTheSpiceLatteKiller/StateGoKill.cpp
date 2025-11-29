@@ -8,6 +8,7 @@ StateGoKill::StateGoKill(KillerMain* killerMainRef)
 
 void StateGoKill::OnEnter() {
 	std::cout << "Enter Kill State" << std::endl;
+	killerMainRef->MapManagerRef->KillerColor = RED;
 }
 
 void StateGoKill::Do() {

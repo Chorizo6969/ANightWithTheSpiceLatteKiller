@@ -28,4 +28,6 @@ public:
 	void TestStepSystem();
 
 	void GameOver();
+private:
+	int PlayerStepMemory;
 };

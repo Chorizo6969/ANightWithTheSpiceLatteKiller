@@ -29,5 +29,5 @@ void DialoguePrinter::WriteColoredDialogue(std::string category, std::string key
 }
 
 void DialoguePrinter::PrintInventory(int currentIngre, int maxIngre) {
-	std::cout << "Ingredient Inventory : " + currentIngre + '/' + maxIngre << std::endl;
+	std::cout << "Ingredient Inventory : " << currentIngre << '/' << maxIngre << std::endl;
 }

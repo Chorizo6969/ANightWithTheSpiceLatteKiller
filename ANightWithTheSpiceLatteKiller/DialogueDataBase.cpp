@@ -17,13 +17,13 @@ void DialogueDataBase::FillMap() {
 
     // Player
     PlayerDialogue["door_interact"] = "There's a door here. [E] Open it  |  [R] Listen carefully";
-    PlayerDialogue["ingredient_interact"] = "You found an ingredient! Press [A] to take it.";
-    PlayerDialogue["ingredient_looted"] = "You loot an ingredient!";
-    PlayerDialogue["game_win"] = "You get all the ingredients! You win.";
+    PlayerDialogue["ingredient_interact"] = "You found an ingredient! Press [A] to take it. ";
+    PlayerDialogue["ingredient_looted"] = "You looted an ingredient!";
+    PlayerDialogue["game_win"] = "You got all the ingredients! You win!";
 
     // Killer
     KillerDialogue["try_open_door"] = "You hear someone frantically trying to open a door nearby. RUN!";
-    KillerDialogue["game_over"] = "The killer found you. Everything fades to black...";
+    KillerDialogue["game_over"] = "The killer found you. Everything fades to black... ";
     KillerDialogue["in_next_room"] = "Heavy footsteps echo from the next room...";
     KillerDialogue["far_away"] = "Silence. For now.";
 }

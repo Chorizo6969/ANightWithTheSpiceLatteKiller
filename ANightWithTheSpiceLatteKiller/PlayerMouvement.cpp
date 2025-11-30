@@ -30,7 +30,7 @@ void PlayerMouvement::Move(int addOnX, int addOnY)
 
 	// check if player arrives on latte component
 	if (count(MapRef->LatteComponentsPos.begin(), MapRef->LatteComponentsPos.end(), MapRef->PlayerPosition)) {
-		PlayerMainRef->DialoguePrinterRef->WriteDialogue("player", "ingredient_interact");
+		PlayerMainRef->DialoguePrinterRef->WriteColoredDialogue("player", "ingredient_interact", LIGHT_YELLOW);
 	}
 	// or door step
 	else if(count(MapRef->DoorsSymbols.begin(), MapRef->DoorsSymbols.end(), MapRef->PlayerCurrentRoom)){

@@ -111,7 +111,7 @@ void PlayerMain::InputMain()
 
 		if (count(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), make_pair(x, y))) {
 			mapManager->LatteComponentsPos.erase(find(mapManager->LatteComponentsPos.begin(), mapManager->LatteComponentsPos.end(), pos));
-			DialoguePrinterRef->WriteDialogue("player", "ingredient_looted");
+			DialoguePrinterRef->WriteColoredDialogue("player", "ingredient_looted", YELLOW);
 			AddIngredient();
 		}
 			
@@ -132,7 +132,7 @@ void PlayerMain::InputMain()
 				SoundManagerRef->PlaySFX("Door.mp3");
 				if (mapManager->IsKillerInTheOtherSideOfTheDoor(mapManager->PlayerPosition) > 0)
 				{
-					DialoguePrinterRef->WriteDialogue("killer", "in_next_room");
+					DialoguePrinterRef->WriteColoredDialogue("killer", "in_next_room", LIGHT_RED);
 					SoundManagerRef->PlaySFX("Kitchen.mp3");
 				}
 				else {
@@ -160,7 +160,7 @@ void PlayerMain::CheckTotalIngredient() {
 
 void PlayerMain::GameWin()
 {
-	DialoguePrinterRef->WriteDialogue("player", "game_win");
+	DialoguePrinterRef->WriteColoredDialogue("player", "game_win", LIGHT_GREEN);
 	GameSessionRef->SessionEnd();
 }
 

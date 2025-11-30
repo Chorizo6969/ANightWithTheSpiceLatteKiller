@@ -92,6 +92,7 @@ void PlayerMain::InputMain()
 				mapManager->PlayerPosition = { linkedDoor.second, linkedDoor.first };
 
 				mapManager->PrintMap();
+				SoundManagerRef->PlaySFX("Door2.mp3");
 				if (mapManager->IsKillerInTheOtherSideOfTheDoor(mapManager->PlayerPosition) > 0)
 				{
 					KillerMainRef->GameOver();
@@ -131,8 +132,11 @@ void PlayerMain::InputMain()
 				SoundManagerRef->PlaySFX("Door.mp3");
 				if (mapManager->IsKillerInTheOtherSideOfTheDoor(mapManager->PlayerPosition) > 0)
 				{
-					//printf("HELLOOOOOOOOOOOOOOOOOOO");
+					DialoguePrinterRef->WriteDialogue("killer", "in_next_room");
 					SoundManagerRef->PlaySFX("Kitchen.mp3");
+				}
+				else {
+					DialoguePrinterRef->WriteDialogue("killer", "far_away");
 				}
 				break;
 			}

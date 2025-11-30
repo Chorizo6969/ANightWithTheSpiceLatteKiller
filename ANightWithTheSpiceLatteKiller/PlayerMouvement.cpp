@@ -4,6 +4,7 @@
 PlayerMouvement::PlayerMouvement(MapManager* map, KillerMain* killer, PlayerMain* player)
 	: MapRef(map), stepCounter_(subject_) 
 {
+	PlayerMainRef = player;
 	subject_.Attach(killer);
 }
 

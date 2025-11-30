@@ -4,6 +4,9 @@
 #include "KillerMain.h"
 #include "EventManager.h"
 
+
+class PlayerMain;
+
 class PlayerMouvement
 {
 private:
@@ -11,8 +14,8 @@ private:
 	StepCounter stepCounter_;     
 
 public:
-	PlayerMouvement(MapManager* map, KillerMain* killer);
-
+	PlayerMouvement(MapManager* map, KillerMain* killer, PlayerMain* player);
+	PlayerMain* PlayerMainRef;
 	MapManager* MapRef;
 
 	void Move(int addOnX, int addOnY);

@@ -79,7 +79,7 @@ int main() {
 	while (true) {
 
 		if (main->GameSessionRef->CanPlay) {
-			main->PlayerMainRef->MainElouann();
+			main->PlayerMainRef->InputMain();
 
 		}
 	}

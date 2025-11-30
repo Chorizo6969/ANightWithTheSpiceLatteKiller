@@ -1,6 +1,7 @@
 #include "PlayerMouvement.h"
+#include "PlayerMain.h"
 
-PlayerMouvement::PlayerMouvement(MapManager* map, KillerMain* killer)
+PlayerMouvement::PlayerMouvement(MapManager* map, KillerMain* killer, PlayerMain* player)
 	: MapRef(map), stepCounter_(subject_) 
 {
 	subject_.Attach(killer);
@@ -28,8 +29,10 @@ void PlayerMouvement::Move(int addOnX, int addOnY)
 
 	// check if player arrives on latte component
 	if (count(MapRef->LatteComponentsPos.begin(), MapRef->LatteComponentsPos.end(), MapRef->PlayerPosition)) {
+		PlayerMainRef->DialoguePrinterRef->WriteDialogue("player", "ingredient_interact");
 	}
 	// or door step
 	else if(count(MapRef->DoorsSymbols.begin(), MapRef->DoorsSymbols.end(), MapRef->PlayerCurrentRoom)){
+		PlayerMainRef->DialoguePrinterRef->WriteDialogue("player", "door_interact");
 	}
 }

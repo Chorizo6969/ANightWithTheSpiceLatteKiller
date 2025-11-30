@@ -13,16 +13,19 @@
 #define R 114
 
 PlayerMain::PlayerMain(MapManager* map, KillerMain* killer, SoundManager* sound, DialoguePrinter* dialogue, GameSession* session)
+	: mapManager(map),              
+	DialoguePrinterRef(dialogue),
+	GameSessionRef(session),
+	SoundManagerRef(sound),
+	KillerMainRef(killer),
+	c(0),
+	PlayerMovementRef(nullptr),   
+	PlayerInteractionRef(nullptr)
 {
-	PlayerMovementRef = new PlayerMouvement(map, killer);
+	PlayerMovementRef = new PlayerMouvement(map, killer, this);
 	PlayerInteractionRef = new PlayerInteraction;
-	SoundManagerRef = sound;
-	c = 0;
-	mapManager = map;
-	DialoguePrinterRef = dialogue;
-	GameSessionRef = session;
+
 	mapManager->PrintMap();
-	KillerMainRef = killer;
 }
 
 PlayerMain::~PlayerMain() {
@@ -39,7 +42,7 @@ void TestInput() {
 	} while (ch != 'q');
 }
 
-void PlayerMain::MainElouann()
+void PlayerMain::InputMain()
 {
 
 	c = 0;

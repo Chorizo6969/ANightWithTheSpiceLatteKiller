@@ -13,7 +13,7 @@ public:
 private:
 	int _doorKnockFrequence = 3;
 	int stepsRemaining; //steps until the gameOver
-	const int MAX_STEPS = 20; //start steps of stepsRemaining
+	const int MAX_STEPS = 15; //start steps of stepsRemaining
 	char playerRoomWhenKnocking;
 };
 

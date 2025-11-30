@@ -19,6 +19,8 @@ public:
 	void MoveKiller(char killerRoom);
 	//Move killer with restrictions. By default, avoid playerRoom, if bool true, avoid adjacent rooms too
 	void MoveKillerSafe(bool avoidAdjacent);
+	//Move the killer to a precise room
+	void MoveKillerFix(char room);
 
 private:
 	//return a random adjacentRoom of the killer current room

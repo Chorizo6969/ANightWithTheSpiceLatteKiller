@@ -12,7 +12,7 @@ KillerMain::KillerMain(MapManager* mapRef, DialoguePrinter* diaRef, GameSession*
 	StepCounterRef = new StepCounter(*EventManagerRef);
 	DialoguePrinterRef = diaRef;
 	GameSessionRef = gameSession;
-	soundRef_ = sound;
+	SoundRef = sound;
 
 	PlayerTrueRoom = MapManagerRef->PlayerCurrentRoom;
 
@@ -61,7 +61,7 @@ void KillerMain::Update(int value)
 
 void KillerMain::GameOver() {
 	MapManagerRef->ShowKiller = true;
-	soundRef_->PlaySFX("Kill.mp3");
+	SoundRef->PlaySFX("Kill.mp3");
 	DialoguePrinterRef->WriteColoredDialogue("killer", "game_over", RED);
 	MapManagerRef->PrintMap();
 	GameSessionRef->SessionEnd();

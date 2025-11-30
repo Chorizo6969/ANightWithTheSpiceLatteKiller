@@ -21,6 +21,8 @@ public:
 	MapManager* MapManagerRef;
 	DialoguePrinter* DialoguePrinterRef;
 	GameSession* GameSessionRef;
+	SoundManager* SoundRef;
+
 	KillerMain(MapManager* mapRef, DialoguePrinter* diaRef, GameSession* gameSession, SoundManager* sound);
 	~KillerMain();
 
@@ -38,7 +40,6 @@ public:
 	void TestStepSystem();
 
 private:
-	SoundManager* soundRef_;
 	vector<char> AvoidableCharList;
 	void UpdatePlayerRoom();
 };

@@ -22,7 +22,7 @@ void StateKillerAtDoor::Do() {
 	{
 		stepsRemaining--;
 		killerMainRef->DialoguePrinterRef->WriteDialogue("killer", "try_open_door");
-		// SOUND HERE
+		killerMainRef->SoundRef->PlaySFX("Knock.mp3");
 
 		if (stepsRemaining <= 0) {
 			killerMainRef->KillerMovementRef->MoveKillerFix(playerRoomWhenKnocking);

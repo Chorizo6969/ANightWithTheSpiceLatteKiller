@@ -63,8 +63,8 @@ void KillerMain::GameOver() {
 	MapManagerRef->ShowKiller = true;
 	soundRef_->PlaySFX("Kill.mp3");
 	DialoguePrinterRef->WriteDialogue("killer", "game_over");
+	MapManagerRef->PrintMap();
 	GameSessionRef->SessionEnd();
-	
 }
 
 #pragma region DEBUG

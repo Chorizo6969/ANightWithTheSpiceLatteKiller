@@ -59,9 +59,13 @@ char KillerMovement::GetRandomAdjacentExcluding(char currentRoom, const std::vec
 	return validRooms[dis(gen)];
 }
 
-//Can move everywhere
 void KillerMovement::MoveKiller(char killerRoom) {
 	KillerMainRef->MapManagerRef->KillerPosition = GetRandomPosInRoom(GetRandomAdjacent(killerRoom));
+	KillerMainRef->MapManagerRef->KillerCurrentRoom = KillerMainRef->MapManagerRef->Map[KillerMainRef->MapManagerRef->KillerPosition.second][KillerMainRef->MapManagerRef->KillerPosition.first];
+}
+
+void KillerMovement::MoveKillerFix(char room) {
+	KillerMainRef->MapManagerRef->KillerPosition = GetRandomPosInRoom(room);
 	KillerMainRef->MapManagerRef->KillerCurrentRoom = KillerMainRef->MapManagerRef->Map[KillerMainRef->MapManagerRef->KillerPosition.second][KillerMainRef->MapManagerRef->KillerPosition.first];
 }
 

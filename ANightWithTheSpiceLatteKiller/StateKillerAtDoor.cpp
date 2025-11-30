@@ -23,7 +23,7 @@ void StateKillerAtDoor::Do() {
 		stepsRemaining--;
 
 		if (stepsRemaining <= 0) {
-			killerMainRef->KillerMovementRef->MoveKiller(playerRoomWhenKnocking);
+			killerMainRef->KillerMovementRef->MoveKillerFix(playerRoomWhenKnocking);
 			killerMainRef->GameOver();
 			return;
 		}

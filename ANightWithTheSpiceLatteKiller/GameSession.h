@@ -4,8 +4,7 @@ class GameSession
 {
 public:
 	bool CanPlay = true;
-	DialoguePrinter* DialoguePrinterRef;
-
+	
 	GameSession(DialoguePrinter* dialogue);
 	~GameSession();
 
@@ -14,5 +13,7 @@ public:
 
 	//Call when game is ended
 	void SessionEnd();
+private:
+	DialoguePrinter* DialoguePrinterRef;
 };
 

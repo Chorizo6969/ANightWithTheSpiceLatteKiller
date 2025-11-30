@@ -13,8 +13,7 @@ void StateKillerAtDoor::OnEnter() {
 	killerMainRef->MapManagerRef->KillerColor = MAGENTA;
 
 	playerRoomWhenKnocking = killerMainRef->MapManagerRef->PlayerCurrentRoom;
-
-	
+	killerMainRef->SoundRef->PlaySFX("Knock.mp3");
 }
 
 void StateKillerAtDoor::Do() {
@@ -22,7 +21,6 @@ void StateKillerAtDoor::Do() {
 	{
 		stepsRemaining--;
 		killerMainRef->DialoguePrinterRef->WriteDialogue("killer", "try_open_door");
-		killerMainRef->SoundRef->PlaySFX("Knock.mp3");
 
 		if (stepsRemaining <= 0) {
 			killerMainRef->KillerMovementRef->MoveKillerFix(playerRoomWhenKnocking);

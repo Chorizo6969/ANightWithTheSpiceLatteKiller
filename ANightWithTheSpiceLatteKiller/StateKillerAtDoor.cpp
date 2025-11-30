@@ -14,13 +14,15 @@ void StateKillerAtDoor::OnEnter() {
 
 	playerRoomWhenKnocking = killerMainRef->MapManagerRef->PlayerCurrentRoom;
 
-	killerMainRef->DialoguePrinterRef->WriteDialogue("killer", "try_open_door");
+	
 }
 
 void StateKillerAtDoor::Do() {
 	if (killerMainRef->PlayerStepMemory % _doorKnockFrequence == 0)
 	{
 		stepsRemaining--;
+		killerMainRef->DialoguePrinterRef->WriteDialogue("killer", "try_open_door");
+		// SOUND HERE
 
 		if (stepsRemaining <= 0) {
 			killerMainRef->KillerMovementRef->MoveKillerFix(playerRoomWhenKnocking);

@@ -62,7 +62,7 @@ void KillerMain::Update(int value)
 void KillerMain::GameOver() {
 	MapManagerRef->ShowKiller = true;
 	soundRef_->PlaySFX("Kill.mp3");
-	DialoguePrinterRef->WriteDialogue("killer", "game_over");
+	DialoguePrinterRef->WriteColoredDialogue("killer", "game_over", RED);
 	GameSessionRef->SessionEnd();
 	
 }
